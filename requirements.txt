@@ -1,6 +1,0 @@
-numpy
-pandas>=1.3.0
-sh
-rdkit
-morfeus-ml
-matplotlib
