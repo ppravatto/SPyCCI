@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>spycci.engines.orca sub-module &mdash; SPyCCI User Guide</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="spycci.engines.dftbplus sub-module" href="dftbplus.html" />
+    <link rel="prev" title="spycci.wrappers.crest sub-module" href="crest.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../intro.html" class="icon icon-home">
+            Python
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user-guide.html">User guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../core.html"><code class="docutils literal notranslate"><span class="pre">spycci.core</span></code> module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../systems.html"><code class="docutils literal notranslate"><span class="pre">spycci.systems</span></code> sub-module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wrappers.html"><code class="docutils literal notranslate"><span class="pre">spycci.engines</span></code> sub-module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../wrappers.html#spycci-wrappers-sub-module"><code class="docutils literal notranslate"><span class="pre">spycci.wrappers</span></code> sub-module</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="xtb.html"><code class="docutils literal notranslate"><span class="pre">spycci.engines.xtb</span></code> sub-module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crest.html"><code class="docutils literal notranslate"><span class="pre">spycci.wrappers.crest</span></code> sub-module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">spycci.engines.orca</span></code> sub-module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dftbplus.html"><code class="docutils literal notranslate"><span class="pre">spycci.engines.dftbplus</span></code> sub-module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="packmol.html"><code class="docutils literal notranslate"><span class="pre">spycci.wrappers.packmol</span></code> sub-module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../functions.html"><code class="docutils literal notranslate"><span class="pre">spycci.functions</span></code> sub-module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tools.html"><code class="docutils literal notranslate"><span class="pre">spycci.tools</span></code> sub-module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributor-guide.html">Contributor’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release-notes.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../intro.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../intro.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api.html">API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../wrappers.html"><code class="docutils literal notranslate"><span class="pre">spycci.engines</span></code> sub-module</a></li>
+      <li class="breadcrumb-item active"><code class="docutils literal notranslate"><span class="pre">spycci.engines.orca</span></code> sub-module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/API/wrappers/orca.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="spycci-engines-orca-sub-module">
+<span id="api-wrappers-orca"></span><h1><code class="docutils literal notranslate"><span class="pre">spycci.engines.orca</span></code> sub-module<a class="headerlink" href="#spycci-engines-orca-sub-module" title="Permalink to this heading"></a></h1>
+<section id="orcainput-class">
+<h2><code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code> class<a class="headerlink" href="#orcainput-class" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spycci.engines.orca.</span></span><span class="sig-name descname"><span class="pre">OrcaInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PBE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'def2-TZVP'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'def2/J'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solvent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optionals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ORCADIR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput" title="Permalink to this definition"></a></dt>
+<dd><p>Interface for running Orca calculations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> (<em>str</em>) – level of theory, by default “PBE”</p></li>
+<li><p><strong>basis_set</strong> (<em>str</em><em>, </em><em>optional</em>) – basis set, by default “def2-TZVP”</p></li>
+<li><p><strong>aux_basis</strong> (<em>str</em><em>, </em><em>optional</em>) – auxiliary basis set for RIJCOSX, by default “def2/J”</p></li>
+<li><p><strong>solvent</strong> (<em>str</em><em>, </em><em>optional</em>) – SMD solvent, by default None</p></li>
+<li><p><strong>optionals</strong> (<em>str</em><em>, </em><em>optional</em>) – optional keywords, by default “”</p></li>
+<li><p><strong>blocks</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – The dictionary of dictionaries encoding a series of custom blocks defined by the user</p></li>
+<li><p><strong>ORCADIR</strong> (<em>str</em><em>, </em><em>optional</em>) – the path or environment variable containing the path to the ORCA folder. If set
+to None (default) the orca executable will be loaded automatically.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>An instance of an <code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code> engine can be created by simply invoking the class constructor. As an example the
+following command can be invoked to define an engine capable of running electronic structure calculations at the
+<code class="docutils literal notranslate"><span class="pre">M06-2X/def2-TZVP</span></code> level of theory.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">orca</span> <span class="o">=</span> <span class="n">OrcaInput</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;M062X&quot;</span><span class="p">,</span> <span class="n">basis_set</span><span class="o">=</span><span class="s2">&quot;def2-TZVP&quot;</span><span class="p">,</span> <span class="n">aux_basis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.freq">
+<span class="sig-name descname"><span class="pre">freq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raman</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overtones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.freq" title="Permalink to this definition"></a></dt>
+<dd><p>Frequency analysis (analytical frequencies).</p>
+<p>Note: if the SMD solvation model is detected, defaults to numerical frequencies
+(analytical frequencies are not currently supported)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<em>System object</em>) – input molecule to use in the calculation</p></li>
+<li><p><strong>ncores</strong> (<em>int</em><em>, </em><em>optional</em>) – number of cores, by default all available cores</p></li>
+<li><p><strong>maxcore</strong> (<em>int</em><em>, </em><em>optional</em>) – memory per core, in MB, by default 750</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – updates info for the input molecule instead of outputting a new molecule object,
+by default False</p></li>
+<li><p><strong>remove_tdir</strong> (<em>bool</em><em>, </em><em>optional</em>) – temporary work directory will be removed, by default True</p></li>
+<li><p><strong>raman</strong> (<em>bool</em>) – If set to True will compute the Raman spectrum. (default: False)</p></li>
+<li><p><strong>overtones</strong> (<em>bool</em>) – If set to True will enable the computation of infrared overtones and combination
+bands. (default: False)</p></li>
+<li><p><strong>blocks</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – The dictionary of dictionaries encoding a series of custom blocks defined by the user. If set to a non-empty
+value, will overvrite the block option eventually set on the <cite>OrcaInput</cite> class construction</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>newmol</strong> – Output molecule containing the new energies.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>System object</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Starting from an initialized instance <code class="docutils literal notranslate"><span class="pre">orca</span></code> of the <code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code> class, an analytical frequency analysis of
+the molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> can be run using the command:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">newmol</span> <span class="o">=</span> <span class="n">orca</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Warning:</strong> Analytical frequencies are not supported during in-solvent calculations.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">newmol</span></code> object will contain the same geometry of the molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> together with all the vibrational data
+computed during the frequency analysis process. If a new instance of the molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> is not wanted. The
+properties of the molecule can be set using the flag <code class="docutils literal notranslate"><span class="pre">inplace</span></code>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">orca</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In doing so, the molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> will be updated with the computed properties without returning anything.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.neb_ci">
+<span class="sig-name descname"><span class="pre">neb_ci</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reactant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nimages</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preoptimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.neb_ci" title="Permalink to this definition"></a></dt>
+<dd><p>Run a climbing image nudged elastic band calculation (NEB-CI) and output the ensemble encoding the optimized
+minimum energy path trajectory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reactant</strong> (<a class="reference internal" href="../systems.html#spycci.systems.System" title="spycci.systems.System"><em>System</em></a>) – The starting structure to be used in the calculation</p></li>
+<li><p><strong>product</strong> (<a class="reference internal" href="../systems.html#spycci.systems.System" title="spycci.systems.System"><em>System</em></a>) – The final structure to be used in the calculation</p></li>
+<li><p><strong>nimages</strong> (<em>int</em>) – The number of images (without the fixed endpoints) to be used in the calcluation (default: 8)</p></li>
+<li><p><strong>preoptimize</strong> (<em>bool</em>) – If set to True, will run a preoptimization in internal coordinates of the reactant and product structures.</p></li>
+<li><p><strong>ncores</strong> (<em>int</em><em>, </em><em>optional</em>) – number of cores, by default all available cores</p></li>
+<li><p><strong>maxcore</strong> (<em>int</em><em>, </em><em>optional</em>) – memory per core, in MB, by default 750</p></li>
+<li><p><strong>remove_tdir</strong> (<em>bool</em><em>, </em><em>optional</em>) – temporary work directory will be removed, by default True</p></li>
+<li><p><strong>blocks</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – The dictionary of dictionaries encoding a series of custom blocks defined by the user. If set to a non-empty
+value, will overvrite the block option eventually set on the <cite>OrcaInput</cite> class construction</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> – Exception raised if the given <cite>System</cite> objects are not compatible with a NEB-CI calculation (e.g. same name
+    or different charge or spin multiplicity)</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The ensemble object containing the structures along the minimum energy path.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../systems.html#spycci.systems.Ensemble" title="spycci.systems.Ensemble">Ensemble</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Starting from an initialized instance <code class="docutils literal notranslate"><span class="pre">orca</span></code> of the <code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code> class, a climbing image nudged elastic band
+calculation, returning the minimum energy path (MEP) connecting a <code class="docutils literal notranslate"><span class="pre">reactant</span></code> and a <code class="docutils literal notranslate"><span class="pre">product</span></code> structures, can
+be run invoking the <code class="docutils literal notranslate"><span class="pre">neb_ci</span></code> command according to the syntax:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ensemble</span> <span class="o">=</span> <span class="n">orca</span><span class="o">.</span><span class="n">neb_ci</span><span class="p">(</span><span class="n">reactant</span><span class="p">,</span> <span class="n">product</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ensemble</span></code> object is of type <code class="docutils literal notranslate"><span class="pre">Ensemble</span></code> and will contain all the evaluated structures alomng the computed
+minimum energy path.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.neb_ts">
+<span class="sig-name descname"><span class="pre">neb_ts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reactant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">guess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nimages</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preoptimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.neb_ts" title="Permalink to this definition"></a></dt>
+<dd><p>Run a climbing image nudged elastic band calculation (NEB-CI) followed by a transition state optimization
+and output the optimized transition state structure together with the ensemble encoding the optimized minimum
+energy path trajectory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reactant</strong> (<a class="reference internal" href="../systems.html#spycci.systems.System" title="spycci.systems.System"><em>System</em></a>) – The starting structure to be used in the calculation.</p></li>
+<li><p><strong>product</strong> (<a class="reference internal" href="../systems.html#spycci.systems.System" title="spycci.systems.System"><em>System</em></a>) – The final structure to be used in the calculation.</p></li>
+<li><p><strong>guess</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="../systems.html#spycci.systems.System" title="spycci.systems.System"><em>System</em></a><em>]</em>) – The guess for the transition state structure.</p></li>
+<li><p><strong>nimages</strong> (<em>int</em>) – The number of images (without the fixed endpoints) to be used in the calcluation (default: 8).</p></li>
+<li><p><strong>preoptimize</strong> (<em>bool</em>) – If set to True, will run a preoptimization in internal coordinates of the reactant and product structures.</p></li>
+<li><p><strong>ncores</strong> (<em>int</em><em>, </em><em>optional</em>) – number of cores, by default all available cores.</p></li>
+<li><p><strong>maxcore</strong> (<em>int</em><em>, </em><em>optional</em>) – memory per core, in MB, by default 750.</p></li>
+<li><p><strong>remove_tdir</strong> (<em>bool</em><em>, </em><em>optional</em>) – temporary work directory will be removed, by default True.</p></li>
+<li><p><strong>blocks</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – The dictionary of dictionaries encoding a series of custom blocks defined by the user. If set to a non-empty
+value, will overvrite the block option eventually set on the <cite>OrcaInput</cite> class construction.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> – Exception raised if the given <cite>System</cite> objects are not compatible with a NEB-CI calculation (e.g. same name
+    or different charge or spin multiplicity)</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><em>System</em> – The optimized transition state structure obtained from the NEB-TS.</p></li>
+<li><p><em>Ensemble</em> – The ensemble object containing the structures along the minimum energy path.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Tuple</em>[<a class="reference internal" href="../systems.html#spycci.systems.System" title="spycci.systems.System"><em>System</em></a>, <a class="reference internal" href="../systems.html#spycci.systems.Ensemble" title="spycci.systems.Ensemble"><em>Ensemble</em></a>]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Starting from an initialized instance <code class="docutils literal notranslate"><span class="pre">orca</span></code> of the <code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code> class, a transition state search based on a
+climbing image nudged elastic band calculation can be run invoking the <code class="docutils literal notranslate"><span class="pre">neb_ts</span></code> command. Starting from a
+<code class="docutils literal notranslate"><span class="pre">reactant</span></code> and a <code class="docutils literal notranslate"><span class="pre">product</span></code> structures, a NEB-CI calculation is performed. Starting from the transition state
+located during the NEB-CI procedure a transition state optimization is carried out. The syntax to run the calculation
+is the following:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transition_state</span><span class="p">,</span> <span class="n">mep_ensemble</span> <span class="o">=</span> <span class="n">orca</span><span class="o">.</span><span class="n">neb_ts</span><span class="p">(</span><span class="n">reactant</span><span class="p">,</span> <span class="n">product</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">transition_state</span></code> object is of type <code class="docutils literal notranslate"><span class="pre">System</span></code> and encodes the optimized transition state structure. The
+<code class="docutils literal notranslate"><span class="pre">mep_ensemble</span></code> object is of type <code class="docutils literal notranslate"><span class="pre">Ensemble</span></code> and will contain all the evaluated structures along the computed
+minimum energy path.</p>
+<p>For complex calculation a transition state <code class="docutils literal notranslate"><span class="pre">guess</span></code> can be provided to the routine by using the <code class="docutils literal notranslate"><span class="pre">guess</span></code> option:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transition_state</span><span class="p">,</span> <span class="n">mep_ensemble</span> <span class="o">=</span> <span class="n">orca</span><span class="o">.</span><span class="n">neb_ts</span><span class="p">(</span><span class="n">reactant</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">guess</span><span class="o">=</span><span class="n">guess</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> All the structures (<code class="docutils literal notranslate"><span class="pre">reactant</span></code>, <code class="docutils literal notranslate"><span class="pre">product</span></code>, <code class="docutils literal notranslate"><span class="pre">guess</span></code>) should have the same charge, spin multiplicity but
+different names.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.nfreq">
+<span class="sig-name descname"><span class="pre">nfreq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raman</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overtones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.nfreq" title="Permalink to this definition"></a></dt>
+<dd><p>Frequency analysis (numerical frequencies).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<em>System object</em>) – input molecule to use in the calculation</p></li>
+<li><p><strong>ncores</strong> (<em>int</em><em>, </em><em>optional</em>) – number of cores, by default all available cores</p></li>
+<li><p><strong>maxcore</strong> (<em>int</em><em>, </em><em>optional</em>) – memory per core, in MB, by default 750</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – updates info for the input molecule instead of outputting a new molecule object,
+by default False</p></li>
+<li><p><strong>remove_tdir</strong> (<em>bool</em><em>, </em><em>optional</em>) – temporary work directory will be removed, by default True</p></li>
+<li><p><strong>raman</strong> (<em>bool</em>) – If set to True will compute the Raman spectrum.</p></li>
+<li><p><strong>overtones</strong> (<em>bool</em>) – Is set to True will enable the computation of infrared overtones and combination
+bands.</p></li>
+<li><p><strong>blocks</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – The dictionary of dictionaries encoding a series of custom blocks defined by the user. If set to a non-empty
+value, will overvrite the block option eventually set on the <cite>OrcaInput</cite> class construction</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>newmol</strong> – Output molecule containing the new energies.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>System object</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Starting from an initialized instance <code class="docutils literal notranslate"><span class="pre">orca</span></code> of the <code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code> class, a numerical frequency analysis of
+the molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> can be run using the command:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">newmol</span> <span class="o">=</span> <span class="n">orca</span><span class="o">.</span><span class="n">nfreq</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">newmol</span></code> object will contain the same geometry of the molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> together with all the vibrational data
+computed during the frequency analysis process. If a new instance of the molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> is not wanted. The
+properties of the molecule can be set using the flag <code class="docutils literal notranslate"><span class="pre">inplace</span></code>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">orca</span><span class="o">.</span><span class="n">nfreq</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In doing so, the molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> will be updated with the computed properties without returning anything.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.opt">
+<span class="sig-name descname"><span class="pre">opt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_cubes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cube_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hirshfeld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimization_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency_analysis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.opt" title="Permalink to this definition"></a></dt>
+<dd><p>Geometry optimization + frequency analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<em>System object</em>) – input molecule to use in the calculation</p></li>
+<li><p><strong>ncores</strong> (<em>int</em><em>, </em><em>optional</em>) – number of cores, by default all available cores</p></li>
+<li><p><strong>maxcore</strong> (<em>int</em><em>, </em><em>optional</em>) – memory per core, in MB, by default 750</p></li>
+<li><p><strong>save_cubes</strong> (<em>bool</em><em>, </em><em>optional</em>) – if set to True, will save a cube file containing electronic and spin densities,
+by default False.</p></li>
+<li><p><strong>cube_dim</strong> (<em>int</em><em>, </em><em>optional</em>) – resolution for the cube files (default 250)</p></li>
+<li><p><strong>hirshfeld</strong> (<em>bool</em>) – if set to true, will run the Hirshfeld population analysis. (default: False)</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – updates info for the input molecule instead of outputting a new molecule object,
+by default False</p></li>
+<li><p><strong>remove_tdir</strong> (<em>bool</em><em>, </em><em>optional</em>) – temporary work directory will be removed, by default True</p></li>
+<li><p><strong>optimization_level</strong> (<em>str</em>) – The convergence level to be adopted during the geometry optimization (Default: NORMALOPT)</p></li>
+<li><p><strong>frequency_analysis</strong> (<em>bool</em>) – If set to True (default) will also compute the vibration modes of the molecule and the frequencies. If the
+optimization is run in solvent, it will automatically switch to numerical frequencies.</p></li>
+<li><p><strong>blocks</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – The dictionary of dictionaries encoding a series of custom blocks defined by the user. If set to a non-empty
+value, will overvrite the block option eventually set on the <cite>OrcaInput</cite> class construction</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>newmol</strong> – Output molecule containing the new geometry and energies.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>System object</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Starting from an initialized instance <code class="docutils literal notranslate"><span class="pre">orca</span></code> of the <code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code> class, a geometry optimization of the molecule
+<code class="docutils literal notranslate"><span class="pre">mol</span></code> can be performed using the command:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">newmol</span> <span class="o">=</span> <span class="n">orca</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">newmol</span></code> object will contain the optimized geometry of the molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> and the <code class="docutils literal notranslate"><span class="pre">electronic_energy</span></code>
+property will be set according to the energy provided by the level of theory encoded into the <code class="docutils literal notranslate"><span class="pre">orca</span></code> engine.
+By default a frequency analysis will also be performed at the end of the optimization process. As such, vibrational
+frequencies and normal modes will also be set among the properties of <code class="docutils literal notranslate"><span class="pre">newmol</span></code>. If the frequency analysis is not
+required,it can be avoided setting the proper <code class="docutils literal notranslate"><span class="pre">frequency_analysis</span></code> flag according to:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">newmol</span> <span class="o">=</span> <span class="n">orca</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">frequency_analysis</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If a new instance of the molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> is not wanted. The properties and geometry of the molecule can be
+updated inplace using the command:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">orca</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.opt_ts">
+<span class="sig-name descname"><span class="pre">opt_ts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_cubes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cube_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hirshfeld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scf_convergence_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TIGHTSCF'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convergence_strategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SLOWCONV'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculate_hessian</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency_analysis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.opt_ts" title="Permalink to this definition"></a></dt>
+<dd><p>Transition state optimization + frequency analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<em>System object</em>) – input molecule to use in the calculation</p></li>
+<li><p><strong>ncores</strong> (<em>int</em><em>, </em><em>optional</em>) – number of cores, by default all available cores</p></li>
+<li><p><strong>maxcore</strong> (<em>int</em><em>, </em><em>optional</em>) – memory per core, in MB, by default 750</p></li>
+<li><p><strong>save_cubes</strong> (<em>bool</em><em>, </em><em>optional</em>) – if set to True, will save a cube file containing electronic and spin densities,
+by default False.</p></li>
+<li><p><strong>cube_dim</strong> (<em>int</em><em>, </em><em>optional</em>) – resolution for the cube files (default 250)</p></li>
+<li><p><strong>hirshfeld</strong> (<em>bool</em>) – if set to true, will run the Hirshfeld population analysis. (default: False)</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – updates info for the input molecule instead of outputting a new molecule object,
+by default False</p></li>
+<li><p><strong>remove_tdir</strong> (<em>bool</em><em>, </em><em>optional</em>) – temporary work directory will be removed, by default True</p></li>
+<li><p><strong>scf_convergence_level</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The SCF level of convergence to be adopted during the transition state optimization (Default: TIGHTSCF)</p></li>
+<li><p><strong>convergence_strategy</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The SCF convergence strategy to be adopted during the transition state optimization (Default: SLOWCONV)</p></li>
+<li><p><strong>calculate_hessian</strong> (<em>bool</em>) – If set to True (default) will compute the exact Hessian before the first optimization step.</p></li>
+<li><p><strong>frequency_analysis</strong> (<em>bool</em>) – If set to True (default) will also compute the vibration modes of the molecule and the frequencies. If the
+optimization is run in solvent, it will automatically switch to numerical frequencies.</p></li>
+<li><p><strong>blocks</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – The dictionary of dictionaries encoding a series of custom blocks defined by the user. If set to a non-empty
+value, will overvrite the block option eventually set on the <cite>OrcaInput</cite> class construction</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>newmol</strong> – Output molecule containing the new geometry and energies.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>System object</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Starting from an initialized instance <code class="docutils literal notranslate"><span class="pre">orca</span></code> of the <code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code> class, a transition state optimization can be
+performed, starting from a good transition state guess <code class="docutils literal notranslate"><span class="pre">guess</span></code>, using the command:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transition_state</span> <span class="o">=</span> <span class="n">orca</span><span class="o">.</span><span class="n">opt_ts</span><span class="p">(</span><span class="n">guess</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">transition_state</span></code> object will contain the optimized geometry of the transition state and the corresponding
+<code class="docutils literal notranslate"><span class="pre">electronic_energy</span></code> property will be set according to the energy provided by the level of theory encoded into the
+<code class="docutils literal notranslate"><span class="pre">orca</span></code> engine. By default a frequency analysis will also be performed at the end of the optimization process.
+As such, vibrational frequencies and normal modes will also be set among the properties of <code class="docutils literal notranslate"><span class="pre">transition_state</span></code>.
+Keep in mind that the function computes a structure located on a first-order saddle point and, as such, an
+imaginary mode should be expected. If the frequency analysis is not required, it can be avoided setting the proper
+<code class="docutils literal notranslate"><span class="pre">frequency_analysis</span></code> flag according to:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transition_state</span> <span class="o">=</span> <span class="n">orca</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">guess</span><span class="p">,</span> <span class="n">frequency_analysis</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If a new instance of the molecule <code class="docutils literal notranslate"><span class="pre">guess</span></code> is not wanted. The properties and geometry of the transition state can be
+updated inplace using the command:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">orca</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">guess</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The original <code class="docutils literal notranslate"><span class="pre">guess</span></code> will be updated with the newly defined transition state structure.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.output_suffix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_suffix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#spycci.engines.orca.OrcaInput.output_suffix" title="Permalink to this definition"></a></dt>
+<dd><p>Suffix used to compose the name of calculation output files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The output suffix string</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.parse_output">
+<span class="sig-name descname"><span class="pre">parse_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.parse_output" title="Permalink to this definition"></a></dt>
+<dd><p>The function will parse an ORCA output file automatically looking for all the relevant
+numerical properties derived form a calculation. All the properties of the given molecule
+will be set or updated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mol</strong> (<a class="reference internal" href="../systems.html#spycci.systems.System" title="spycci.systems.System"><em>System</em></a>) – The System to which the properties must be written to.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> – Exception raised if the given path to the output file is not valid.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.scan">
+<span class="sig-name descname"><span class="pre">scan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invertconstraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.scan" title="Permalink to this definition"></a></dt>
+<dd><p>Relaxed surface scan.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<em>System object</em>) – input molecule to use in the calculation</p></li>
+<li><p><strong>scan</strong> (<em>str</em>) – string for the scan section in the %geom block</p></li>
+<li><p><strong>constraints</strong> (<em>str</em>) – string for the constraints section in the %geom block</p></li>
+<li><p><strong>invertconstraints</strong> (<em>bool</em><em>, </em><em>optional</em>) – if True, treats the constraints block as the only coordinate NOT to constrain</p></li>
+<li><p><strong>ncores</strong> (<em>int</em><em>, </em><em>optional</em>) – number of cores, by default all available cores</p></li>
+<li><p><strong>maxcore</strong> (<em>int</em><em>, </em><em>optional</em>) – memory per core, in MB, by default 750</p></li>
+<li><p><strong>remove_tdir</strong> (<em>bool</em><em>, </em><em>optional</em>) – temporary work directory will be removed, by default True</p></li>
+<li><p><strong>blocks</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – The dictionary of dictionaries encoding a series of custom blocks defined by the user. If set to a non-empty
+value, will overvrite the block option eventually set on the <cite>OrcaInput</cite> class construction</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>scan_list</strong> – Output Ensemble containing the scan frames.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../systems.html#spycci.systems.Ensemble" title="spycci.systems.Ensemble">Ensemble</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Starting from an initialized instance <code class="docutils literal notranslate"><span class="pre">orca</span></code> of the <code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code> class, a relaxed surface scan of one or more
+coordinates of the molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> can be run passing a properly formatted scan instruction to the <cite>scan</cite> method.
+As an example, the scan string <code class="docutils literal notranslate"><span class="pre">&quot;B</span> <span class="pre">0</span> <span class="pre">1</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">3.0,</span> <span class="pre">10&quot;</span></code> will scan the bond between the first two atoms in the
+molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> dividing the range from 1Å to 3Å in 10 equal steps (extremes are included). The syntax of the
+command is:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">orca</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">scan</span><span class="o">=</span><span class="s2">&quot;B 0 1 = 1.0, 3.0, 10&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">output</span></code> object is of type <code class="docutils literal notranslate"><span class="pre">Ensemble</span></code> and will contain all the evaluated structures together with their
+electronic energies.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.scan_ts">
+<span class="sig-name descname"><span class="pre">scan_ts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fullscan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invertconstraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency_analysis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scf_convergence_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TIGHTSCF'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convergence_strategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SLOWCONV'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.scan_ts" title="Permalink to this definition"></a></dt>
+<dd><p>Relaxed surface scan based transition state search.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<em>System object</em>) – input molecule to use in the calculation</p></li>
+<li><p><strong>scan</strong> (<em>str</em>) – string for the scan section in the %geom block</p></li>
+<li><p><strong>fullscan</strong> (<em>bool</em>) – If set to True will not stop the scan when the transition state has been located (default: False)</p></li>
+<li><p><strong>constraints</strong> (<em>str</em>) – string for the constraints section in the %geom block</p></li>
+<li><p><strong>invertconstraints</strong> (<em>bool</em><em>, </em><em>optional</em>) – if True, treats the constraints block as the only coordinate NOT to constrain</p></li>
+<li><p><strong>frequency_analysis</strong> (<em>bool</em>) – If set to True (default) will also compute the vibration modes of the molecule and the frequencies. If the
+optimization is run in solvent, it will automatically switch to numerical frequencies.</p></li>
+<li><p><strong>scf_convergence_level</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The SCF level of convergence to be adopted during the transition state optimization (Default: TIGHTSCF)</p></li>
+<li><p><strong>convergence_strategy</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The SCF convergence strategy to be adopted during the transition state optimization (Default: SLOWCONV)</p></li>
+<li><p><strong>ncores</strong> (<em>int</em><em>, </em><em>optional</em>) – number of cores, by default all available cores</p></li>
+<li><p><strong>maxcore</strong> (<em>int</em><em>, </em><em>optional</em>) – memory per core, in MB, by default 750</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em>) – If set to True will update the given <cite>mol</cite> System with the optimized transition state structure. If set to
+False (default) will return a new system object with the optimized transition state structure together with
+an Ensemble object encoding the explored scan steps.</p></li>
+<li><p><strong>remove_tdir</strong> (<em>bool</em><em>, </em><em>optional</em>) – temporary work directory will be removed, by default True</p></li>
+<li><p><strong>blocks</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – The dictionary of dictionaries encoding a series of custom blocks defined by the user. If set to a non-empty
+value, will overvrite the block option eventually set on the <cite>OrcaInput</cite> class construction</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>System</em> – The optimized transition state structure. (only if inplace is False)</p></li>
+<li><p><em>Ensemble</em> – Output Ensemble containing the scan frames. (only if inplace is False)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Starting from an initialized instance <code class="docutils literal notranslate"><span class="pre">orca</span></code> of the <code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code> class, a transition state search based on a
+relaxed surface scan of one coordinate of the molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> can be run passing a properly formatted scan
+instruction to the <code class="docutils literal notranslate"><span class="pre">scan_ts</span></code> method. The scan will be performed until a maximum in the energy profile is found.
+The structure located at the local maximum will then be used as a guess in a transition state optimization procedure.
+As an example, the scan string <code class="docutils literal notranslate"><span class="pre">&quot;B</span> <span class="pre">0</span> <span class="pre">1</span> <span class="pre">=</span> <span class="pre">1.0,</span> <span class="pre">3.0,</span> <span class="pre">10&quot;</span></code> will scan the bond between the first two atoms in the
+molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> dividing the range from 1Å to 3Å in 10 equal steps (extremes are included). The syntax of the
+command is:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transition_state</span><span class="p">,</span> <span class="n">scan_ensemble</span> <span class="o">=</span> <span class="n">orca</span><span class="o">.</span><span class="n">scan_ts</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">scan</span><span class="o">=</span><span class="s2">&quot;B 0 1 = 1.0, 3.0, 10&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">transition_state</span></code> object is of type <code class="docutils literal notranslate"><span class="pre">System</span></code> and encodes the optimized transition state structure while the
+<code class="docutils literal notranslate"><span class="pre">scan_ensemble</span></code> object is of type <code class="docutils literal notranslate"><span class="pre">Ensemble</span></code> and will contain all the evaluated structures during the scan step.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.spe">
+<span class="sig-name descname"><span class="pre">spe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_cubes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cube_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hirshfeld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.spe" title="Permalink to this definition"></a></dt>
+<dd><p>Single point energy calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<em>System object</em>) – input molecule to use in the calculation</p></li>
+<li><p><strong>ncores</strong> (<em>int</em><em>, </em><em>optional</em>) – number of cores, by default all available cores</p></li>
+<li><p><strong>maxcore</strong> (<em>int</em><em>, </em><em>optional</em>) – memory per core, in MB, by default 750</p></li>
+<li><p><strong>save_cubes</strong> (<em>bool</em><em>, </em><em>optional</em>) – if set to True, will save a cube file containing electronic and spin densities,
+by default False.</p></li>
+<li><p><strong>cube_dim</strong> (<em>int</em><em>, </em><em>optional</em>) – resolution for the cube files (default 250)</p></li>
+<li><p><strong>hirshfeld</strong> (<em>bool</em>) – if set to true, will run the Hirshfeld population analysis. (default: False)</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – updates info for the input molecule instead of outputting a new molecule object,
+by default False</p></li>
+<li><p><strong>remove_tdir</strong> (<em>bool</em><em>, </em><em>optional</em>) – temporary work directory will be removed, by default True</p></li>
+<li><p><strong>blocks</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – The dictionary of dictionaries encoding a series of custom blocks defined by the user. If set to a non-empty
+value, will overvrite the block option eventually set on the <cite>OrcaInput</cite> class construction</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>newmol</strong> – Output molecule containing the new energies.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>System object</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Starting from an initialized instance <code class="docutils literal notranslate"><span class="pre">orca</span></code> of the <code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code> class, a single point calculation on a molecule
+<code class="docutils literal notranslate"><span class="pre">mol</span></code> can be run using the command:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">newmol</span> <span class="o">=</span> <span class="n">orca</span><span class="o">.</span><span class="n">spe</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">newmol</span></code> object will contain the same geometry of the molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> and the <code class="docutils literal notranslate"><span class="pre">electronic_energy</span></code>
+property will be set according to the energy provided by the level of theory encoded into the <code class="docutils literal notranslate"><span class="pre">orca</span></code> engine.
+If a new instance of the molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> is not wanted. The properties of the molecule can be set using the flag
+<code class="docutils literal notranslate"><span class="pre">inplace</span></code>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">orca</span><span class="o">.</span><span class="n">spe</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In doing so, the molecule <code class="docutils literal notranslate"><span class="pre">mol</span></code> will be updated with the computed energy without returning anything.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.write_input">
+<span class="sig-name descname"><span class="pre">write_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.write_input" title="Permalink to this definition"></a></dt>
+<dd><p>Function responsible of writing the orca input file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<a class="reference internal" href="../systems.html#spycci.systems.System" title="spycci.systems.System"><em>System</em></a>) – The molecule subject to the calculation.</p></li>
+<li><p><strong>job_info</strong> (<a class="reference internal" href="#spycci.engines.orca.OrcaJobInfo" title="spycci.engines.orca.OrcaJobInfo"><em>OrcaJobInfo</em></a>) – The helper class encoding the calculation type.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="orcajobinfo-class">
+<h2><code class="docutils literal notranslate"><span class="pre">OrcaJobInfo</span></code> class<a class="headerlink" href="#orcajobinfo-class" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spycci.engines.orca.</span></span><span class="sig-name descname"><span class="pre">OrcaJobInfo</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo" title="Permalink to this definition"></a></dt>
+<dd><p>The OrcaJobInfo class is an helper class designed to provide a compact tool to define orca-based quantum chemical
+calculations. The attributes of the class univocally identify a calculation type and can be used to compile orca
+input files.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.is_singlet">
+<span class="sig-name descname"><span class="pre">is_singlet</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.is_singlet" title="Permalink to this definition"></a></dt>
+<dd><p>If True, the molecule on which the calculation is performed is in a singlet state (If cube is saved also the
+spindensity will be saved).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.solvent">
+<span class="sig-name descname"><span class="pre">solvent</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.solvent" title="Permalink to this definition"></a></dt>
+<dd><p>The SMD solvent to be used during the calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.opt">
+<span class="sig-name descname"><span class="pre">opt</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.opt" title="Permalink to this definition"></a></dt>
+<dd><p>If set to True, will trigger a geometry optimization calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.opt_ts">
+<span class="sig-name descname"><span class="pre">opt_ts</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.opt_ts" title="Permalink to this definition"></a></dt>
+<dd><p>If set to True, will trigger a transition-state optimization calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.freq">
+<span class="sig-name descname"><span class="pre">freq</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.freq" title="Permalink to this definition"></a></dt>
+<dd><p>If set to True, will trigger a frequency analysis (with analytical frequencies if not in solvent).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.nfreq">
+<span class="sig-name descname"><span class="pre">nfreq</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.nfreq" title="Permalink to this definition"></a></dt>
+<dd><p>If set to True, will trigger a numerical frequency analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.scan">
+<span class="sig-name descname"><span class="pre">scan</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.scan" title="Permalink to this definition"></a></dt>
+<dd><p>If not None, will encode the scan parameters in string format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.scan_ts">
+<span class="sig-name descname"><span class="pre">scan_ts</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.scan_ts" title="Permalink to this definition"></a></dt>
+<dd><p>If not None, will encode the transition state scan parameters in string format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.neb_ci">
+<span class="sig-name descname"><span class="pre">neb_ci</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_ci" title="Permalink to this definition"></a></dt>
+<dd><p>If set to True will trigger a NEB-CI calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.constraints">
+<span class="sig-name descname"><span class="pre">constraints</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.constraints" title="Permalink to this definition"></a></dt>
+<dd><p>If not None, will encode the constraints to be used during the scan or optimization operations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.invert_constraints">
+<span class="sig-name descname"><span class="pre">invert_constraints</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.invert_constraints" title="Permalink to this definition"></a></dt>
+<dd><p>If set to True, will invert the constraints to be used in the calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.fullscan">
+<span class="sig-name descname"><span class="pre">fullscan</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.fullscan" title="Permalink to this definition"></a></dt>
+<dd><p>If set to True during scan TS will continue the scan even if the transition state is located.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.cube_dim">
+<span class="sig-name descname"><span class="pre">cube_dim</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.cube_dim" title="Permalink to this definition"></a></dt>
+<dd><p>If set to integer value will trigger the saving of cube files with a equally spaced grid of cube_dim points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.calc_hess">
+<span class="sig-name descname"><span class="pre">calc_hess</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.calc_hess" title="Permalink to this definition"></a></dt>
+<dd><p>If set to True will compute the analytical hessian before the starting of a calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.hirshfeld">
+<span class="sig-name descname"><span class="pre">hirshfeld</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.hirshfeld" title="Permalink to this definition"></a></dt>
+<dd><p>If set to True will trigger the Hirshfeld population analysis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.nearir">
+<span class="sig-name descname"><span class="pre">nearir</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.nearir" title="Permalink to this definition"></a></dt>
+<dd><p>If set to True will trigger the calcuation of overtones and combination bands in the infrared spectrum</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.raman">
+<span class="sig-name descname"><span class="pre">raman</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.raman" title="Permalink to this definition"></a></dt>
+<dd><p>If set to True, will trigger the polarizability calcualtion outputting also the raman spectra.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.neb_product">
+<span class="sig-name descname"><span class="pre">neb_product</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_product" title="Permalink to this definition"></a></dt>
+<dd><p>If not None, will encode the final endopoint to be used in the neb calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.neb_ts_guess">
+<span class="sig-name descname"><span class="pre">neb_ts_guess</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_ts_guess" title="Permalink to this definition"></a></dt>
+<dd><p>In not None, will encode the xyz file to be used as a transition state guess.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.neb_images">
+<span class="sig-name descname"><span class="pre">neb_images</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_images" title="Permalink to this definition"></a></dt>
+<dd><p>If set to an integer value, will define the number of images to be used in the neb calculation (endpoints excluded)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.neb_preopt">
+<span class="sig-name descname"><span class="pre">neb_preopt</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_preopt" title="Permalink to this definition"></a></dt>
+<dd><p>If set to True when a NEB calculation is performed, will preoptimize the reactant and product structures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.cpcm_block">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cpcm_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.cpcm_block" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the %cpcm block generated by merging the user provided solvent options with the ones specified by the
+library flags.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The content of the cpcm block encoded in dictionary format.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.elprop_block">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elprop_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.elprop_block" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the %elprop block generated by merging the user provided electronic properties options with the ones
+specified by the library flags.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The content of the elprop block encoded in dictionary format.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.geom_block">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">geom_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.geom_block" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the %geom block generated by merging the user provided geometry options with the ones specified by the
+library flags.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The content of the geom block encoded in dictionary format.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.maxcore">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">maxcore</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.maxcore" title="Permalink to this definition"></a></dt>
+<dd><p>The amount of RAM per core to be used in the calculation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The maxcore value to be used by orca</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.ncores">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ncores</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.ncores" title="Permalink to this definition"></a></dt>
+<dd><p>The number of cores to be used in the calculation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The total number of cores</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.neb_block">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">neb_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_block" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the %neb block generated by merging the user provided neb options with the ones specified by the library
+flags.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The content of the neb block encoded in dictionary format.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.optimization_level">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">optimization_level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.optimization_level" title="Permalink to this definition"></a></dt>
+<dd><p>The optimization level to be used during the calculation. The possible values are “VERYTIGHTOPT”, “TIGHTOPT”,
+“NORMALOPT”, “LOOSEOPT”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The string encoding the optimization level to be used in the output.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.output_block">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.output_block" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the %output block generated by merging the user provided output options with the ones specified by the
+library flags.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The content of the output block encoded in dictionary format.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.parsed_blocks">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parsed_blocks</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.parsed_blocks" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the dictionary encoding all the blocks to be used in the definition of an orca input file. The function
+merges the user provided options with the ones specified by the library flags.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary of dictionaries encoding all the blocks to be used in the orca input file.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, Dict[str, Any]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.plots_block">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">plots_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.plots_block" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the %plots block generated by merging the user provided plot options with the ones specified by the
+library flags.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The content of the geom block encoded in dictionary format.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.print_level">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">print_level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.print_level" title="Permalink to this definition"></a></dt>
+<dd><p>The print level to be used during the calculation. The possible values are “MINIPRINT”, “SMALLPRINT”,
+“NORMALPRINT”, “LARGEPRINT”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The string encoding the print level to be used in the output.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.scf_convergence_level">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scf_convergence_level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.scf_convergence_level" title="Permalink to this definition"></a></dt>
+<dd><p>The scf convergence level to be used during the calculation. The possible values are “NORMALSCF”, “LOOSESCF”,
+“SLOPPYSCF”, “STRONGSCF”, “TIGHTSCF”, “VERYTIGHTSCF”, “EXTREMESCF”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The string encoding the scf convergence level to be used during the calculation.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.scf_convergence_strategy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scf_convergence_strategy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.scf_convergence_strategy" title="Permalink to this definition"></a></dt>
+<dd><p>The scf convergence strategy to be used during the calculation. The possible values are “EASYCONV”, “NORMALCONV”,
+“SLOWCONV”, “VERYSLOWCONV”, “FORCECONV”, “IGNORECONV”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The string encoding the scf convergence strategy to be used during the calculation.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./API/wrappers"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="crest.html" class="btn btn-neutral float-left" title="spycci.wrappers.crest sub-module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dftbplus.html" class="btn btn-neutral float-right" title="spycci.engines.dftbplus sub-module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

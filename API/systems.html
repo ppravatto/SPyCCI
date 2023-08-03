@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>spycci.systems sub-module &mdash; SPyCCI User Guide</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="spycci.engines sub-module" href="wrappers.html" />
+    <link rel="prev" title="spycci.core module" href="core.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../intro.html" class="icon icon-home">
+            Python
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide.html">User guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="core.html"><code class="docutils literal notranslate"><span class="pre">spycci.core</span></code> module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">spycci.systems</span></code> sub-module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrappers.html"><code class="docutils literal notranslate"><span class="pre">spycci.engines</span></code> sub-module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrappers.html#spycci-wrappers-sub-module"><code class="docutils literal notranslate"><span class="pre">spycci.wrappers</span></code> sub-module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html"><code class="docutils literal notranslate"><span class="pre">spycci.functions</span></code> sub-module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html"><code class="docutils literal notranslate"><span class="pre">spycci.tools</span></code> sub-module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributor-guide.html">Contributor’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../intro.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../intro.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API Documentation</a></li>
+      <li class="breadcrumb-item active"><code class="docutils literal notranslate"><span class="pre">spycci.systems</span></code> sub-module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/API/systems.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="spycci-systems-sub-module">
+<span id="api-systems"></span><h1><code class="docutils literal notranslate"><span class="pre">spycci.systems</span></code> sub-module<a class="headerlink" href="#spycci-systems-sub-module" title="Permalink to this heading"></a></h1>
+<section id="system-class">
+<h2><code class="docutils literal notranslate"><span class="pre">System</span></code> class<a class="headerlink" href="#system-class" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="spycci.systems.System">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spycci.systems.</span></span><span class="sig-name descname"><span class="pre">System</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_side</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.systems.System" title="Permalink to this definition"></a></dt>
+<dd><p>The System object describes a generic molecular system described at a given level of
+theory. A system is defined based on a molecular geometry, a charge, a spin multiplicity
+and, one a level of theory is selected, by a set of computed properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> (<em>str</em>) – The path to the file containing the system geometry or data</p></li>
+<li><p><strong>charge</strong> (<em>int</em><em>, </em><em>optional</em>) – The total charge of the system. (Default: 0 neutral)</p></li>
+<li><p><strong>spin</strong> (<em>int</em><em>, </em><em>optional</em>) – The total spin multiplicity of the system. (Default: 1 singlet)</p></li>
+<li><p><strong>box_side</strong> (<em>float</em><em>, </em><em>optional</em>) – For periodic systems, defines the length (in Å) of the box side</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Exception raised when the <cite>.xyz</cite> file path is invalid</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.systems.System.is_periodic">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_periodic</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#spycci.systems.System.is_periodic" title="Permalink to this definition"></a></dt>
+<dd><p>Indicates if the system is periodic or not</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the system is periodic (the <cite>box_side</cite> is not None), False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.systems.System.save_json">
+<span class="sig-name descname"><span class="pre">save_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.systems.System.save_json" title="Permalink to this definition"></a></dt>
+<dd><p>Saves a JSON representation of the object that can be stored on disk and loaded (using
+the class constructor with the option SupportedTypes.JSON) at a later time to
+re-generate ad identical System object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – The path to the .json file that must be created.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.systems.System.write_gen">
+<span class="sig-name descname"><span class="pre">write_gen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gen_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_side</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.systems.System.write_gen" title="Permalink to this definition"></a></dt>
+<dd><p>Writes the current geometry to a <cite>.gen</cite> file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gen_file</strong> (<em>str</em>) – path to the output <cite>.gen</cite> file</p></li>
+<li><p><strong>box_side</strong> (<em>float</em><em>, </em><em>optional</em>) – for periodic systems, defines the length (in Å) of the box side</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<hr class="docutils" />
+<section id="ensemble-class">
+<h2><code class="docutils literal notranslate"><span class="pre">Ensemble</span></code> class<a class="headerlink" href="#ensemble-class" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="spycci.systems.Ensemble">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spycci.systems.</span></span><span class="sig-name descname"><span class="pre">Ensemble</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">systems</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.systems.Ensemble" title="Permalink to this definition"></a></dt>
+<dd><p>Ensemble object, containing a series of System objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>systems</strong> (<em>List</em><em>[</em><a class="reference internal" href="#spycci.systems.System" title="spycci.systems.System"><em>System</em></a><em>]</em>) – The list of System objects to be included in the Ensemble.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.systems.Ensemble.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#spycci.systems.Ensemble.name" title="Permalink to this definition"></a></dt>
+<dd><p>Name of the system represented in the ensemble, taken from the first element of
+the ensemble</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.systems.Ensemble.systems">
+<span class="sig-name descname"><span class="pre">systems</span></span><a class="headerlink" href="#spycci.systems.Ensemble.systems" title="Permalink to this definition"></a></dt>
+<dd><p>The list of System objects in the Ensemble.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#spycci.systems.System" title="spycci.systems.System">System</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.systems.Ensemble.properties">
+<span class="sig-name descname"><span class="pre">properties</span></span><a class="headerlink" href="#spycci.systems.Ensemble.properties" title="Permalink to this definition"></a></dt>
+<dd><p>The property archive containing the average ensamble properties calculated at
+various levels of theory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>PropertiesArchive</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.systems.Ensemble.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">systems</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.systems.Ensemble.add" title="Permalink to this definition"></a></dt>
+<dd><p>Append more Systems to the ensemble</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>systems</strong> (<em>List</em><em>[</em><a class="reference internal" href="#spycci.systems.System" title="spycci.systems.System"><em>System</em></a><em>]</em>) – The list of systems to be added to the ensamble</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.systems.Ensemble.atomcount">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">atomcount</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#spycci.systems.Ensemble.atomcount" title="Permalink to this definition"></a></dt>
+<dd><p>The number of atoms in the system</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The total number of atoms</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.systems.Ensemble.boltzmann_average">
+<span class="sig-name descname"><span class="pre">boltzmann_average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">297.15</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.systems.Ensemble.boltzmann_average" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the average free Helmholtz energy of the ensemble (in Hartree), weighted
+for each molecule by its Boltzmann factor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>temperature</strong> (<em>float</em>) – temperature at which to calculate the Boltzmann average, by default 297.15 K</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>float</em> – The total Helmholtz free energy of the ensemble.</p></li>
+<li><p><strong>NOTE</strong> (<em>the vibronic contributions are included in the electronic component, which</em>)</p></li>
+<li><p><em>actually contains the TOTAL energy of the system. Maybe in the future I’ll think of</em></p></li>
+<li><p><em>how to separate the two contributions - LB</em></p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./API"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="core.html" class="btn btn-neutral float-left" title="spycci.core module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="wrappers.html" class="btn btn-neutral float-right" title="spycci.engines sub-module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

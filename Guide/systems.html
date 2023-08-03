@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Defining molecular systems &mdash; SPyCCI User Guide</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Setting up calculations" href="setup.html" />
+    <link rel="prev" title="User guide" href="../user-guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../intro.html" class="icon icon-home">
+            Python
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../user-guide.html">User guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Defining molecular systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html">Setting up calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run.html">Running calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Calculating properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html">Useful tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributor-guide.html">Contributor’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../intro.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../intro.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../user-guide.html">User guide</a></li>
+      <li class="breadcrumb-item active">Defining molecular systems</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Guide/systems.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="defining-molecular-systems">
+<span id="guide-systems"></span><h1>Defining molecular systems<a class="headerlink" href="#defining-molecular-systems" title="Permalink to this heading"></a></h1>
+<p>When running computational chemistry numerical simulations, you need to define two things: the system under study, and the type of calculation to run on it. For the former, you can use the <code class="docutils literal notranslate"><span class="pre">spycci.systems</span></code> submodule.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">spycci.systems</span></code> submodule contains the following classes, used to collect and store information about the system of interest:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">System</span></code>: generic system object, such as a single molecule.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ensemble</span></code>: ensemble object, intended as a collection of closely related <code class="docutils literal notranslate"><span class="pre">System</span></code> objects. For example, the ensemble of conformers generated by the corresponding <strong>CREST</strong> routine.</p></li>
+</ul>
+<p>The individual classes can be imported as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spycci.systems</span> <span class="kn">import</span> <span class="n">System</span>
+<span class="kn">from</span> <span class="nn">spycci.systems</span> <span class="kn">import</span> <span class="n">Ensemble</span>
+</pre></div>
+</div>
+<p>In this section of the user guide, we will show you how to define molecular systems using the aforementioned classes.</p>
+<hr class="docutils" />
+<section id="single-systems">
+<h2>Single systems<a class="headerlink" href="#single-systems" title="Permalink to this heading"></a></h2>
+<p>A <code class="docutils literal notranslate"><span class="pre">System</span></code> object is defined as a molecular system, containing one or more individual molecules, and is initialized by providing a molecular structure via a <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spycci.systems</span> <span class="kn">import</span> <span class="n">System</span>
+<span class="n">my_mol</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;path/to/xyz/water.xyz&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Optionally, the following parameters can be provided (if not provided, some default values are set):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">charge</span></code>: total charge of the system. Default: 0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spin</span></code>: total spin multiplicity of the system (2S+1, where S is the total spin quantum number). Default: 1 (singlet)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">box_side</span></code>: (for periodic systems only), length of the simulation box (in Å)</p></li>
+</ul>
+<p>Example of a periodic system of side 18.27 Å containing a cation radical:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spycci.systems</span> <span class="kn">import</span> <span class="n">System</span>
+<span class="n">my_mol</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span>
+    <span class="s2">&quot;path/to/xyz/water.xyz&quot;</span><span class="p">,</span> 
+    <span class="n">charge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+    <span class="n">spin</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">box_side</span><span class="o">=</span><span class="mf">18.27</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>To get a list of all the available properties, please refer to the <a class="reference internal" href="../API/systems.html#api-systems"><span class="std std-ref">API</span></a>.</p>
+<p>For a quick look at the main properties of a <code class="docutils literal notranslate"><span class="pre">System</span></code>, you can simply ask to print the corresponding variable:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">my_system</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=========================================================
+SYSTEM: water
+=========================================================
+
+Number of atoms: 3
+Charge: 0
+Spin multiplicity: 1
+
+********************** GEOMETRY *************************
+
+Total system mass: 18.0153 amu
+
+----------------------------------------------
+ index  atom    x (Å)      y (Å)      z (Å)   
+----------------------------------------------
+ 0       O     0.03595    2.78898    0.00000  
+ 1       H     1.00595    2.78898    0.00000  
+ 2       H    -0.28738    2.19789    0.69783  
+----------------------------------------------
+
+********************** PROPERTIES *************************
+
+Geometry level of theory: None
+Electronic level of theory: None
+Vibronic level of theory: None
+
+Electronic energy: None Eh
+Vibronic energy: None Eh
+Helmholtz free energy: None Eh
+Gibbs free energy: None Eh
+pKa: None
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="ensembles">
+<h2>Ensembles<a class="headerlink" href="#ensembles" title="Permalink to this heading"></a></h2>
+<p>An <code class="docutils literal notranslate"><span class="pre">Ensemble</span></code> object is defined as a collection of related <code class="docutils literal notranslate"><span class="pre">Systems</span></code>, for example the collection of lowest-energy conformers generated by <a class="reference internal" href="../API/wrappers/crest.html#api-wrappers-crest"><span class="std std-ref">CREST</span></a>. To initialise an <code class="docutils literal notranslate"><span class="pre">Ensemble</span></code> object you need to provide an <code class="docutils literal notranslate"><span class="pre">iterable</span></code> (such as a list) yielding <code class="docutils literal notranslate"><span class="pre">System</span></code> objects:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spycci.systems</span> <span class="kn">import</span> <span class="n">System</span>
+<span class="kn">from</span> <span class="nn">spycci.systems</span> <span class="kn">import</span> <span class="n">Ensemble</span>
+
+<span class="n">my_mol1</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;path/to/xyz/my_mol1.xyz&quot;</span><span class="p">)</span>
+<span class="n">my_mol2</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;path/to/xyz/my_mol2.xyz&quot;</span><span class="p">)</span>
+<span class="n">my_mol3</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;path/to/xyz/my_mol3.xyz&quot;</span><span class="p">)</span>
+
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">my_mol1</span><span class="p">,</span> <span class="n">my_mol2</span><span class="p">,</span> <span class="n">my_mol3</span><span class="p">]</span>
+
+<span class="n">my_ens</span> <span class="o">=</span> <span class="n">Ensemble</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To get a list of all the available properties, please refer to the <a class="reference internal" href="../API/systems.html#api-systems"><span class="std std-ref">API</span></a>.</p>
+</section>
+<hr class="docutils" />
+<section id="saving-loading-system-objects">
+<h2>Saving/Loading System objects<a class="headerlink" href="#saving-loading-system-objects" title="Permalink to this heading"></a></h2>
+<p>It is possible to save/load <code class="docutils literal notranslate"><span class="pre">System</span></code> objects to/from <code class="docutils literal notranslate"><span class="pre">.json</span></code> files. To save a <code class="docutils literal notranslate"><span class="pre">System</span></code> object, dumping all the information currently stored in it after the undergone calculations (structure, charge, spin multiplicity, energies, frequencies, etc…) use the <code class="docutils literal notranslate"><span class="pre">system.save_json()</span></code> function and specify the path where you want to store the file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spycci.systems</span> <span class="kn">import</span> <span class="n">System</span>
+
+<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;water.xyz&quot;</span><span class="p">)</span>
+
+<span class="o">...</span> <span class="n">calculations</span> <span class="o">...</span>
+
+<span class="n">mol</span><span class="o">.</span><span class="n">save_json</span><span class="p">(</span><span class="s2">&quot;water.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then, you can load a previously saved <code class="docutils literal notranslate"><span class="pre">System</span></code> by passing the <code class="docutils literal notranslate"><span class="pre">.json</span></code> file path instead of a <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spycci.systems</span> <span class="kn">import</span> <span class="n">System</span>
+
+<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;water.json&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=========================================================
+SYSTEM: water
+=========================================================
+
+Number of atoms: 3
+Charge: 0
+Spin multiplicity: 1
+
+********************** GEOMETRY *************************
+
+Total system mass: 18.0153 amu
+
+----------------------------------------------
+ index  atom    x (Å)      y (Å)      z (Å)   
+----------------------------------------------
+ 0       O     0.00000   -0.37937    0.00000  
+ 1       H     0.77221    0.18968   -0.00000  
+ 2       H    -0.77221    0.18969    0.00000  
+----------------------------------------------
+
+********************** PROPERTIES *************************
+
+Geometry level of theory: XtbInput || method: gfn2 | solvent: None
+Electronic level of theory: XtbInput || method: gfn2 | solvent: None
+Vibronic level of theory: XtbInput || method: gfn2 | solvent: None
+
+Electronic energy: -5.070544446692 Eh
+Vibronic energy: 0.002508973529 Eh
+Helmholtz free energy: None Eh
+Gibbs free energy: -5.068035473164 Eh
+pKa: None
+
+MULLIKEN ANALYSIS
+----------------------------------------------
+ index  atom   charge    spin
+----------------------------------------------
+ 0       O    -0.56500  0.00000  
+ 1       H    0.28200   0.00000  
+ 2       H    0.28200   0.00000  
+</pre></div>
+</div>
+</div>
+</div>
+<!-- ## Molecular Dynamics Trajectories
+
+:::{admonition} Note
+:class: info
+This is still very much WIP! Expect the following content to possibly be changed significantly with future updates!
+:::
+
+An `MDTrajectory` object is conceptually an `Ensemble` generated by a Molecular Dynamics (MD) trajectory. Currently, only [DFTB+](API-wrappers-dftbplus) MD are supported. `MDTrajectory` objects are initialised by providing the path `prefix` to the `<prefix>_md.out` file storing the energy information and `<prefix>_geo_end.xyz` file storing the coordinate information, and the level of theory at which the DFTB+ simulation was ran:
+
+```python
+from spycci.systems import MDTrajectory
+
+# note, the following files must exist:
+# path/to/xyz/my_traj_md.out
+# path/to/xyz/my_traj_geo_end.xyz
+my_traj = MDTrajectory("path/to/xyz/my_traj", "gfn2")
+```
+
+The primary intended use for this class is as an on-the-fly generator of `System` objects corresponding to the requested frame of the MD simulation. 
+
+Examples:
+
+* Extract the last frame of the MD simulation as a System object:
+```python
+last_frame = my_traj[-1]
+```
+* Cycle over all frames and export the corresponding .xyz files:
+```python
+for frame in my_traj:
+    frame.write_xyz(frame.name)
+```
+
+Note: individual "frames" are automatically internally renamed according to the corresponding step/index of the MD simulation.  --></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Guide"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../user-guide.html" class="btn btn-neutral float-left" title="User guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="setup.html" class="btn btn-neutral float-right" title="Setting up calculations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

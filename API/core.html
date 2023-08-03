@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>spycci.core module &mdash; SPyCCI User Guide</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="spycci.systems sub-module" href="systems.html" />
+    <link rel="prev" title="API Documentation" href="../api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../intro.html" class="icon icon-home">
+            Python
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide.html">User guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">spycci.core</span></code> module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systems.html"><code class="docutils literal notranslate"><span class="pre">spycci.systems</span></code> sub-module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrappers.html"><code class="docutils literal notranslate"><span class="pre">spycci.engines</span></code> sub-module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrappers.html#spycci-wrappers-sub-module"><code class="docutils literal notranslate"><span class="pre">spycci.wrappers</span></code> sub-module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html"><code class="docutils literal notranslate"><span class="pre">spycci.functions</span></code> sub-module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html"><code class="docutils literal notranslate"><span class="pre">spycci.tools</span></code> sub-module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributor-guide.html">Contributor’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../intro.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../intro.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API Documentation</a></li>
+      <li class="breadcrumb-item active"><code class="docutils literal notranslate"><span class="pre">spycci.core</span></code> module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/API/core.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="spycci-core-module">
+<span id="api-core"></span><h1><code class="docutils literal notranslate"><span class="pre">spycci.core</span></code> module<a class="headerlink" href="#spycci-core-module" title="Permalink to this heading"></a></h1>
+<section id="the-spycci-core-base-sub-module">
+<h2>The <code class="docutils literal notranslate"><span class="pre">spycci.core.base</span></code> sub-module<a class="headerlink" href="#the-spycci-core-base-sub-module" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="spycci.core.base.Engine">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spycci.core.base.</span></span><span class="sig-name descname"><span class="pre">Engine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.base.Engine" title="Permalink to this definition"></a></dt>
+<dd><p>Simple base class for the definition of a software engine. The class sets the <cite>level_of_theory</cite>
+and <cite>method</cite> attributes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>method</strong> (<em>str</em>) – The string indicating the method to be used in the calculation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<hr class="docutils" />
+<section id="module-spycci.core.dependency_finder">
+<span id="the-spycci-core-dependency-finder-sub-module"></span><h2>The <code class="docutils literal notranslate"><span class="pre">spycci.core.dependency_finder</span></code> sub-module<a class="headerlink" href="#module-spycci.core.dependency_finder" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="spycci.core.dependency_finder.locate_crest">
+<span class="sig-prename descclassname"><span class="pre">spycci.core.dependency_finder.</span></span><span class="sig-name descname"><span class="pre">locate_crest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.dependency_finder.locate_crest" title="Permalink to this definition"></a></dt>
+<dd><p>Locates the path to the ‘crest’ executable from the system PATH. If specified, checks
+that the correct version of crest is loaded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>version</strong> (<em>str</em>) – The string defining the desired version of crest. If set to None (default) all
+versions of crest are accepted.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The path to the crest executable file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spycci.core.dependency_finder.locate_dftbparamdir">
+<span class="sig-prename descclassname"><span class="pre">spycci.core.dependency_finder.</span></span><span class="sig-name descname"><span class="pre">locate_dftbparamdir</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.dependency_finder.locate_dftbparamdir" title="Permalink to this definition"></a></dt>
+<dd><p>Locates the path to the DFTBPLUS_PARAM_DIR environment variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The path to the DFTBPLUS_PARAM_DIR environment variable.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spycci.core.dependency_finder.locate_dftbplus">
+<span class="sig-prename descclassname"><span class="pre">spycci.core.dependency_finder.</span></span><span class="sig-name descname"><span class="pre">locate_dftbplus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.dependency_finder.locate_dftbplus" title="Permalink to this definition"></a></dt>
+<dd><p>Locates the path to the ‘dftb+’ executable from the system PATH. If specified, checks
+that the correct version of dftb+ is loaded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>version</strong> (<em>str</em>) – The string defining the desired version of dftb+. If set to None (default) all
+versions of dftb+ are accepted.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The path to the dftb+ executable file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spycci.core.dependency_finder.locate_executable">
+<span class="sig-prename descclassname"><span class="pre">spycci.core.dependency_finder.</span></span><span class="sig-name descname"><span class="pre">locate_executable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.dependency_finder.locate_executable" title="Permalink to this definition"></a></dt>
+<dd><p>Locates a given executable in the system PATH. If the program is found the path is
+returned, else an exception is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – The name of the program to locate.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> – Exception raised if the program is not found in the system path.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The path to the requested program.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spycci.core.dependency_finder.locate_orca">
+<span class="sig-prename descclassname"><span class="pre">spycci.core.dependency_finder.</span></span><span class="sig-name descname"><span class="pre">locate_orca</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.dependency_finder.locate_orca" title="Permalink to this definition"></a></dt>
+<dd><p>Locates the path to the ‘orca’ executable from the system PATH. If the executable is
+located checks that the correct version of OpenMPI is exported (explicit reference to
+the static builds). If specified, checks that the correct version of orca is loaded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<em>str</em>) – The string defining the desired version of orca. If set to None (default) all
+versions of orca are accepted.</p></li>
+<li><p><strong>get_folder</strong> (<em>bool</em>) – If set to True will return the path of the folder containing the orca executable
+instead of the default path to the executable itself. Equivalent to applying an
+<cite>rstrip(‘/orca’)</cite> to the executable path</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The path to the orca executable file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spycci.core.dependency_finder.locate_vmd">
+<span class="sig-prename descclassname"><span class="pre">spycci.core.dependency_finder.</span></span><span class="sig-name descname"><span class="pre">locate_vmd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.dependency_finder.locate_vmd" title="Permalink to this definition"></a></dt>
+<dd><p>Locate the path to the ‘vmd’ folder from the system PATH.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The path to the vmd base folder (the one containing the <cite>bin</cite> and <cite>lib</cite> subfolders)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spycci.core.dependency_finder.locate_xtb">
+<span class="sig-prename descclassname"><span class="pre">spycci.core.dependency_finder.</span></span><span class="sig-name descname"><span class="pre">locate_xtb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.dependency_finder.locate_xtb" title="Permalink to this definition"></a></dt>
+<dd><p>Locates the path to the ‘xtb’ executable from the system PATH. If specified, checks that
+the correct version of xtb is loaded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>version</strong> (<em>str</em>) – The string defining the desired version of xtb. If set to None (default) all
+versions of xtb are accepted.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The path to the xtb executable file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<hr class="docutils" />
+<section id="module-spycci.core.geometry">
+<span id="the-spycci-core-geometry-sub-module"></span><h2>The <code class="docutils literal notranslate"><span class="pre">spycci.core.geometry</span></code> sub-module<a class="headerlink" href="#module-spycci.core.geometry" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="spycci.core.geometry.MolecularGeometry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spycci.core.geometry.</span></span><span class="sig-name descname"><span class="pre">MolecularGeometry</span></span><a class="headerlink" href="#spycci.core.geometry.MolecularGeometry" title="Permalink to this definition"></a></dt>
+<dd><p>The <cite>MolecularGeometry</cite> class implements all the functions required to operate on the
+geometric properties of a given molecule or molecular aggregate.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spycci.core.geometry.MolecularGeometry.level_of_theory_geometry">
+<span class="sig-name descname"><span class="pre">level_of_theory_geometry</span></span><a class="headerlink" href="#spycci.core.geometry.MolecularGeometry.level_of_theory_geometry" title="Permalink to this definition"></a></dt>
+<dd><p>The level of theory at which the geometry has been obtained.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.geometry.MolecularGeometry.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.geometry.MolecularGeometry.append" title="Permalink to this definition"></a></dt>
+<dd><p>The append function allows the user to add the position of a new atom belonging to
+the molecule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atom</strong> (<em>str</em>) – The symbol of the atom</p></li>
+<li><p><strong>coordinates</strong> (<em>Union</em><em>[</em><em>List</em><em>[</em><em>float</em><em>]</em><em>, </em><em>np.ndarray</em><em>]</em>) – The list or numpy array of 3 floating point values indicating the cartesian
+position of the atom in the tridimensional space</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Exception raised if the atom does not represent a valid element or if the coordinates
+    vector does not match the requirements</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.geometry.MolecularGeometry.atomcount">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">atomcount</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#spycci.core.geometry.MolecularGeometry.atomcount" title="Permalink to this definition"></a></dt>
+<dd><p>The number of atoms in the molecule</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of atoms in the molecule</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.geometry.MolecularGeometry.atomic_numbers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">atomic_numbers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.core.geometry.MolecularGeometry.atomic_numbers" title="Permalink to this definition"></a></dt>
+<dd><p>The ordered list of the atomic numbers of each atom in the molecule</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The list of integers atomic numbers associated with each atom in the molecule</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.geometry.MolecularGeometry.atoms">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">atoms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.core.geometry.MolecularGeometry.atoms" title="Permalink to this definition"></a></dt>
+<dd><p>The list of atoms/elements in the molecule</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The list of strings representing, in order, the symbols of the atoms in the molecule</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.geometry.MolecularGeometry.buried_volume_fraction">
+<span class="sig-name descname"><span class="pre">buried_volume_fraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_hydrogens</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excluded_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bondi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.17</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.geometry.MolecularGeometry.buried_volume_fraction" title="Permalink to this definition"></a></dt>
+<dd><p>Computes the buried volume fraction around a given site. The functions adopts the implementation
+provided in the morfeus python package (<a class="reference external" href="https://kjelljorner.github.io/morfeus/buried_volume.html">https://kjelljorner.github.io/morfeus/buried_volume.html</a>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>site</strong> (<em>int</em>) – The index (starting the numeration from zero) of the reactive atom around which
+the buried volume must be computed</p></li>
+<li><p><strong>radius</strong> (<em>float</em>) – The radius (in Angstrom) of the sphere in which the buried volume should be computed</p></li>
+<li><p><strong>density</strong> (<em>float</em>) – The volume (in Angstrom^3) per point in the sphere used in the calculation</p></li>
+<li><p><strong>include_hydrogens</strong> (<em>bool</em>) – If set to True (default) will consider the hydrogen atoms in the calculation</p></li>
+<li><p><strong>excluded_atoms</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – The list of indices (starting the numeration from zero) of the atom that should be
+excluded from the compuitation of the buried volume (default: None)</p></li>
+<li><p><strong>radii</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – The custom list of atomic radii to be used in the computation (default: None).
+If set to a value different from <cite>None</cite>, will override the <cite>radii_type</cite> and
+<cite>radii_scale</cite> options.</p></li>
+<li><p><strong>radii_type</strong> (<em>str</em>) – Type of radii to use in the calculation. The available options are <cite>alvarez</cite>,
+<cite>bondi</cite>, <cite>crc</cite> or <cite>truhlar</cite>.</p></li>
+<li><p><strong>radii_scale</strong> (<em>float</em>) – Scaling factor for the selected radii_type</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Exception raised if either the index of the selected atoms are out of bounds or
+    if the radii type does not match any of the presets.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The fraction of buried volume of the sphere (between 0 and 1)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.geometry.MolecularGeometry.coordinates">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coordinates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.core.geometry.MolecularGeometry.coordinates" title="Permalink to this definition"></a></dt>
+<dd><p>The list of coordinates of the atoms in the molecule</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The list of numpy arrays representing, in order, the 3D position of each atom
+in the molecule</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[np.ndarray]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.geometry.MolecularGeometry.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.geometry.MolecularGeometry.from_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Construct a MolecularGeometry object from the data encoded in a dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – The dictionary containing the class attributes</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The fully initialized MolecularGeometry object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#spycci.core.geometry.MolecularGeometry" title="spycci.core.geometry.MolecularGeometry">MolecularGeometry</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.geometry.MolecularGeometry.from_xyz">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.geometry.MolecularGeometry.from_xyz" title="Permalink to this definition"></a></dt>
+<dd><p>The functions returns a fully initialized <cite>MolecularGeometry</cite> class containing the
+coordinates indicated in the <cite>.xyz</cite> file located in the indicated path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – A string indicating the path to a valid <cite>.xyz</cite> file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <cite>MolecularGeometry</cite> object containing the coordinates encoded in the <cite>.xyz</cite> file</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#spycci.core.geometry.MolecularGeometry" title="spycci.core.geometry.MolecularGeometry">MolecularGeometry</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.geometry.MolecularGeometry.load_xyz">
+<span class="sig-name descname"><span class="pre">load_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.geometry.MolecularGeometry.load_xyz" title="Permalink to this definition"></a></dt>
+<dd><p>Imports the coordinates of the molecule from a path pointing to a valid <cite>.xyz</cite> file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – The path to the <cite>.xyz</cite> from which the coordinates must be loaded</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Exception raised if the path given does not point to a valid file</p></li>
+<li><p><strong>RuntimeError</strong> – Exception raised if an error occurs while loading the data from the file</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.geometry.MolecularGeometry.mass">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#spycci.core.geometry.MolecularGeometry.mass" title="Permalink to this definition"></a></dt>
+<dd><p>The mass of the molecule in atomic mass units computed using the average atomic weights.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The molecular mass in atomic mass units.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.geometry.MolecularGeometry.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.geometry.MolecularGeometry.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Generates a dictionary representation of the class. The obtained dictionary can be
+saved and used to re-load the object using the built-in <cite>from_dict</cite> class method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary listing, with human friendly names, the attributes of the class</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.geometry.MolecularGeometry.write_xyz">
+<span class="sig-name descname"><span class="pre">write_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.geometry.MolecularGeometry.write_xyz" title="Permalink to this definition"></a></dt>
+<dd><p>Exports the coordinates to a <cite>.xyz</cite> file located at a given path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – A valid path in which the <cite>.xyz</cite> file must be saved</p></li>
+<li><p><strong>comment</strong> (<em>str</em>) – An optional comment that can be saved in the <cite>.xyz</cite> file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<hr class="docutils" />
+<section id="the-spycci-core-properties-sub-module">
+<h2>The <code class="docutils literal notranslate"><span class="pre">spycci.core.properties</span></code> sub-module<a class="headerlink" href="#the-spycci-core-properties-sub-module" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spycci.core.properties.</span></span><span class="sig-name descname"><span class="pre">Properties</span></span><a class="headerlink" href="#spycci.core.properties.Properties" title="Permalink to this definition"></a></dt>
+<dd><p>Class containing the properties associated to a system when a given electronic and vibronic
+level of theory are considered. The class automatically stores the level of theory associated
+to the coputed properties and checks, whenever a new property is set, that a given input data
+is compatible with the current used level of theory. In normal conditions (strict mode)
+if a mismatch between levels of theory is detected all the properties related to the old
+level of theory are cleaned and a warning is raised. If the strict mode is disables
+(by setting compechem.config.STRICT_MODE to False) the level of theory is set to <cite>Undefined</cite>
+and all the properties are kept.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.condensed_fukui_hirshfeld">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">condensed_fukui_hirshfeld</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.core.properties.Properties.condensed_fukui_hirshfeld" title="Permalink to this definition"></a></dt>
+<dd><p>The condensed Fukui values computed from the Hirshfeld charges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionaty containing the list of condensed Fukui values computed for each
+atom in the system starting from the values of the Hirshfeld charges. The functions
+are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> and <cite>f0</cite> keys.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, List[float]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.condensed_fukui_mulliken">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">condensed_fukui_mulliken</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.core.properties.Properties.condensed_fukui_mulliken" title="Permalink to this definition"></a></dt>
+<dd><p>The condensed Fukui values computed from the Mulliken charges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionaty containing the list of condensed Fukui values computed for each
+atom in the system starting from the values of the Mulliken charges. The functions
+are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> and <cite>f0</cite> keys.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, List[float]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.electronic_energy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">electronic_energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#spycci.core.properties.Properties.electronic_energy" title="Permalink to this definition"></a></dt>
+<dd><p>The electronic energy of the system in Hartree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The electronic energy of the system in Hartree.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.from_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.from_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Construct a Properties object from the data encoded in a dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – The dictionary containing the class attributes</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The fully initialized Properties object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#spycci.core.properties.Properties" title="spycci.core.properties.Properties">Properties</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.gibbs_free_energy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gibbs_free_energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#spycci.core.properties.Properties.gibbs_free_energy" title="Permalink to this definition"></a></dt>
+<dd><p>The Gibbs free energy of the system in Hartree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The Gibbs free energy of the system in Hartree.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.helmholtz_free_energy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">helmholtz_free_energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#spycci.core.properties.Properties.helmholtz_free_energy" title="Permalink to this definition"></a></dt>
+<dd><p>The Helmholtz free energy of the system in Hartree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The Helmholtz free energy of the system in Hartree.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.hirshfeld_charges">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hirshfeld_charges</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.core.properties.Properties.hirshfeld_charges" title="Permalink to this definition"></a></dt>
+<dd><p>The Hirshfeld charges of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The list of Hirshfeld charges associated to each atom in the system.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.hirshfeld_spin_populations">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hirshfeld_spin_populations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.core.properties.Properties.hirshfeld_spin_populations" title="Permalink to this definition"></a></dt>
+<dd><p>The Hirshfeld spin populations of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The list of Hirshfeld spin populations associated to each atom in the system.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.level_of_theory_electronic">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">level_of_theory_electronic</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#spycci.core.properties.Properties.level_of_theory_electronic" title="Permalink to this definition"></a></dt>
+<dd><p>The level of theory adopted for the electronic structure calculations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The string encoding the electronic level of theory</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.level_of_theory_vibronic">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">level_of_theory_vibronic</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#spycci.core.properties.Properties.level_of_theory_vibronic" title="Permalink to this definition"></a></dt>
+<dd><p>The level of theory adopted for the vibronic calculations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The string encoding the vibronic level of theory</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.mulliken_charges">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mulliken_charges</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.core.properties.Properties.mulliken_charges" title="Permalink to this definition"></a></dt>
+<dd><p>The Mulliken charges of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The list of Mulliken charges associated to each atom in the system.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.mulliken_spin_populations">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mulliken_spin_populations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.core.properties.Properties.mulliken_spin_populations" title="Permalink to this definition"></a></dt>
+<dd><p>The Mulliken spin populations of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The list of Mulliken spin populations associated to each atom in the system.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.pka">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pka</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#spycci.core.properties.Properties.pka" title="Permalink to this definition"></a></dt>
+<dd><p>The pKa of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The pKa the system.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.set_condensed_fukui_hirshfeld">
+<span class="sig-name descname"><span class="pre">set_condensed_fukui_hirshfeld</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electronic_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_condensed_fukui_hirshfeld" title="Permalink to this definition"></a></dt>
+<dd><p>Sets condensed Fukui values computed from the Hirshfeld charges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Dict</strong><strong>[</strong><strong>str</strong> – The dictionaty containing the list of condensed Fukui values computed for each
+atom in the system starting from the values of the Hirshfeld charges. The functions
+are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> and <cite>f0</cite> keys.</p></li>
+<li><p><strong>List</strong><strong>[</strong><strong>float</strong><strong>]</strong><strong>]</strong> – The dictionaty containing the list of condensed Fukui values computed for each
+atom in the system starting from the values of the Hirshfeld charges. The functions
+are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> and <cite>f0</cite> keys.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
+<li><p><strong>value</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.set_condensed_fukui_mulliken">
+<span class="sig-name descname"><span class="pre">set_condensed_fukui_mulliken</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electronic_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_condensed_fukui_mulliken" title="Permalink to this definition"></a></dt>
+<dd><p>Sets condensed Fukui values computed from the Mulliken charges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Dict</strong><strong>[</strong><strong>str</strong> – The dictionaty containing the list of condensed Fukui values computed for each
+atom in the system starting from the values of the Mulliken charges. The functions
+are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> and <cite>f0</cite> keys.</p></li>
+<li><p><strong>List</strong><strong>[</strong><strong>float</strong><strong>]</strong><strong>]</strong> – The dictionaty containing the list of condensed Fukui values computed for each
+atom in the system starting from the values of the Mulliken charges. The functions
+are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> and <cite>f0</cite> keys.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
+<li><p><strong>value</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.set_electronic_energy">
+<span class="sig-name descname"><span class="pre">set_electronic_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electronic_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_electronic_energy" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the electronic energy of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>float</em>) – The electronic energy of the system in Hartree.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the calculation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.set_gibbs_free_energy">
+<span class="sig-name descname"><span class="pre">set_gibbs_free_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electronic_engine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vibronic_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_gibbs_free_energy" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the Gibbs free energy of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>float</em>) – The Gibbs free energy of the system in Hartree.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
+<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the vibronic calculation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.set_helmholtz_free_energy">
+<span class="sig-name descname"><span class="pre">set_helmholtz_free_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electronic_engine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vibronic_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_helmholtz_free_energy" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the Helmholtz free energy of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>float</em>) – The Helmholtz free energy of the system in Hartree.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
+<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the vibronic calculation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.set_hirshfeld_charges">
+<span class="sig-name descname"><span class="pre">set_hirshfeld_charges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electronic_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_hirshfeld_charges" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the Hirshfeld charges of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>float</em>) – The list of Hirshfeld charges associated to each atom of the system.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.set_hirshfeld_spin_populations">
+<span class="sig-name descname"><span class="pre">set_hirshfeld_spin_populations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electronic_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_hirshfeld_spin_populations" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the Hirshfeld spin populations of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>float</em>) – The list of Hirshfeld spin populations associated to each atom of the system.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.set_mulliken_charges">
+<span class="sig-name descname"><span class="pre">set_mulliken_charges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electronic_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_mulliken_charges" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the Mulliken charges of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>float</em>) – The list of Mulliken charges associated to each atom of the system.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.set_mulliken_spin_populations">
+<span class="sig-name descname"><span class="pre">set_mulliken_spin_populations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electronic_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_mulliken_spin_populations" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the Mulliken spin populations of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>float</em>) – The list of Mulliken spin populations associated to each atom of the system.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.set_pka">
+<span class="sig-name descname"><span class="pre">set_pka</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electronic_engine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vibronic_engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_pka" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the pKa of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>float</em>) – The pKa of the system.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
+<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the vibronic calculation. (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.set_vibrational_data">
+<span class="sig-name descname"><span class="pre">set_vibrational_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vibronic_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_vibrational_data" title="Permalink to this definition"></a></dt>
+<dd><p>Sets condensed Fukui values computed from the Hirshfeld charges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>VibrationalData</em>) – The class encoding all the vibrational data associated to the molecule</p></li>
+<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the vibronic calculation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.set_vibronic_energy">
+<span class="sig-name descname"><span class="pre">set_vibronic_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vibronic_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_vibronic_energy" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the vibronic energy of the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>float</em>) – The vibronic energy of the system in Hartree.</p></li>
+<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the calculation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Generates a dictionary representation of the class. The obtained dictionary can be
+saved and used to re-load the object using the built-in <cite>from_dict</cite> class method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary listing, with human friendly names, the attributes of the class</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.vibrational_data">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vibrational_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">VibrationalData</span></em><a class="headerlink" href="#spycci.core.properties.Properties.vibrational_data" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the class containing all the available vibrational data about the molecule</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The class containing all the available vibrational data</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>VibrationalData</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.vibronic_energy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vibronic_energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#spycci.core.properties.Properties.vibronic_energy" title="Permalink to this definition"></a></dt>
+<dd><p>The vibronic energy of the system in Hartree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The vibronic energy of the system in Hartree.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./API"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../api.html" class="btn btn-neutral float-left" title="API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="systems.html" class="btn btn-neutral float-right" title="spycci.systems sub-module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

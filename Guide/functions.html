@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculating properties &mdash; SPyCCI User Guide</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../_static/sphinx-thebe.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Useful tools" href="tools.html" />
+    <link rel="prev" title="Running calculations" href="run.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../intro.html" class="icon icon-home">
+            Python
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../user-guide.html">User guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="systems.html">Defining molecular systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html">Setting up calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run.html">Running calculations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Calculating properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html">Useful tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributor-guide.html">Contributor’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../intro.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../intro.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../user-guide.html">User guide</a></li>
+      <li class="breadcrumb-item active">Calculating properties</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Guide/functions.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="calculating-properties">
+<span id="guide-functions"></span><h1>Calculating properties<a class="headerlink" href="#calculating-properties" title="Permalink to this heading"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">spycci.functions</span></code> submodule contains a series of methods to “manually” calculate some physical properties of the system under study. The user is expected to provide the exact intended states for the system(s) under study, as the functions will simply take the inputs and generate the output without carrying out any checks. For example, if the user calculates the pKa of a molecule in an unoptimised geometry, the resulting pKa will be that of the unoptimised geometry.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">spycci.functions</span></code> functions can be imported via the following syntax:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spycci.functions</span> <span class="kn">import</span> <span class="n">calculate_pka</span>
+</pre></div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Empirical corrections</p>
+<p>The functions to calculate pKa and reduction potentials take into account the self-energy of proton and electron for calculations carried out with GFN2-xTB:</p>
+<ul class="simple">
+<li><p>electron self energy = <span class="math notranslate nohighlight">\(111.75\, \mathrm{kcal/mol}\)</span></p></li>
+<li><p>proton self energy = <span class="math notranslate nohighlight">\(164.22\, \mathrm{kcal/mol}\)</span></p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<section id="pka">
+<h2>pKa<a class="headerlink" href="#pka" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">spycci.functions.pka</span></code> submodule provides an interface for the computation of the pKa or a given species. The module is, at this time, composed by two functions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">calculate_pka</span></code>: Computes the pKa of a molecular system and its deprotomer. The user must provide both streucture in the form of <code class="docutils literal notranslate"><span class="pre">System</span></code> objects with an already defined electronic energy and possibly a vibronic one.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">auto_calculate_pka</span></code>: Computes the pKa of a given molecule by automatically searching the lowest-energy deprotomer using CREST. Once the proper deprotomer has been identified the function take care of the geometry optimization of both structures, the calculation of electronic energies and frequencies.</p></li>
+</ul>
+<div class="info admonition">
+<p class="admonition-title">Note</p>
+<p>Both functions return the computed pKa value and set the pKa as a property (<code class="docutils literal notranslate"><span class="pre">system.properties.pka</span></code>) of the protonated system. The <code class="docutils literal notranslate"><span class="pre">auto_calculate_pka</span></code> also returns the deprotonated system.</p>
+</div>
+<p>In general terms both functions calculate the pKa of a molecule <span class="math notranslate nohighlight">\(HA\)</span> considering a reaction of the type:</p>
+<div class="math notranslate nohighlight">
+\[
+HA \rightarrow H^{+} + A^{-}
+\]</div>
+<p>The equilibrium constant of the reaction is calculated as</p>
+<div class="math notranslate nohighlight">
+\[
+pK_{a} = \frac{G_{A^{-}} + G_{H^{+}} - G_{HA}}{2.303 \cdot RT}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(G_{A^{-}}\)</span> and <span class="math notranslate nohighlight">\(G_{HA}\)</span> are calculated summing the electronic + vibronic energies at the selected/provided level of theory, <span class="math notranslate nohighlight">\(G_{H^{+}} = -270.29 kcal/mol\)</span>, <span class="math notranslate nohighlight">\(R = 1.987 \cdot 10^{-3} kcal/(mol \cdot K)\)</span> and <span class="math notranslate nohighlight">\(T = 298.15 K\)</span>.</p>
+<section id="the-calculate-pka-function">
+<h3>The <code class="docutils literal notranslate"><span class="pre">calculate_pka()</span></code> function:<a class="headerlink" href="#the-calculate-pka-function" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">calculate_pka</span></code> function takes as arguments the following elements:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">protonated</span></code> (<code class="docutils literal notranslate"><span class="pre">System</span></code>): molecule in its protonated form</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deprotonated</span></code> (<code class="docutils literal notranslate"><span class="pre">System</span></code>): molecule in its deprotonated form</p></li>
+</ul>
+<p>Please notice how both the <code class="docutils literal notranslate"><span class="pre">protonated</span></code> and <code class="docutils literal notranslate"><span class="pre">deprotonated</span></code> molecules must already be optimized (in water) and must posses a valid electronic energy value. If the vibronic energy is provided, its contribution is taken into account during the calculation.</p>
+<p>An example script that can be used to compute the pKa of a molecule is provided in what follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spycci.engines.xtb</span> <span class="kn">import</span> <span class="n">XtbInput</span>
+<span class="kn">from</span> <span class="nn">spycci.systems</span> <span class="kn">import</span> <span class="n">System</span>
+<span class="kn">from</span> <span class="nn">spycci.functions.pka</span> <span class="kn">import</span> <span class="n">calculate_pka</span>
+
+<span class="n">protonated</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;protonated.xyz&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">deprotonated</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;deprotonated.xyz&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">xtb</span> <span class="o">=</span> <span class="n">XtbInput</span><span class="p">(</span><span class="n">solvent</span><span class="o">=</span><span class="s2">&quot;water&quot;</span><span class="p">)</span>
+<span class="n">xtb</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">protonated</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">xtb</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">deprotonated</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">pka</span> <span class="o">=</span> <span class="n">calculate_pka</span><span class="p">(</span><span class="n">protonated</span><span class="p">,</span> <span class="n">deprotonated</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="the-auto-calculate-pka-function">
+<h3>The <code class="docutils literal notranslate"><span class="pre">auto_calculate_pka()</span></code> function:<a class="headerlink" href="#the-auto-calculate-pka-function" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">auto_calculate_pka</span></code> function takes as main argument the protonated molecule structure (in the form of a <code class="docutils literal notranslate"><span class="pre">System</span></code> object). The molecule is sequentially deprotonated using the CREST deprotomer search routine until the lowest energy deprotomer is identified. Once the deprotomer search has been completed, the structure of both molecules is optimized using the specified level of theory and both electronic and vibronic energies are computed at the user defined level of theory. The routine takes as arguments the following elements:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">protonated</span></code> (<code class="docutils literal notranslate"><span class="pre">System</span></code>): The protonated molecule for which the pKa must be computed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method_el</span></code> (<code class="docutils literal notranslate"><span class="pre">Engine</span></code>): The computational engine to be used in the electronic level of theory calculations.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method_vib</span></code> (<code class="docutils literal notranslate"><span class="pre">Engine</span></code>):  The computational engine to be used in the vibronic level of theory calculations. (optional)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method_opt</span></code> (<code class="docutils literal notranslate"><span class="pre">Engine</span></code>): The computational engine to be used in the geometry optimization of the protonated molecule and its deprotomers. (optional)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ncores</span></code> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): The number of cores to be used in the calculations. (optional)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxcore</span></code> (<code class="docutils literal notranslate"><span class="pre">int</span></code>):  For the engines that supprots it, the memory assigned to each core used in the computation. (optional)</p></li>
+</ul>
+<p>An example script that can be used to compute the pKa of a molecule is provided in what follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spycci.engines.xtb</span> <span class="kn">import</span> <span class="n">XtbInput</span>
+<span class="kn">from</span> <span class="nn">spycci.systems</span> <span class="kn">import</span> <span class="n">System</span>
+<span class="kn">from</span> <span class="nn">spycci.functions.pka</span> <span class="kn">import</span> <span class="n">calculate_pka</span>
+
+<span class="n">protonated</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;protonated.xyz&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">xtb</span> <span class="o">=</span> <span class="n">XtbInput</span><span class="p">(</span><span class="n">solvent</span><span class="o">=</span><span class="s2">&quot;water&quot;</span><span class="p">)</span>
+
+<span class="n">pka</span><span class="p">,</span> <span class="n">deprotonated</span> <span class="o">=</span> <span class="n">auto_calculate_pka</span><span class="p">(</span>
+    <span class="n">protonated</span><span class="p">,</span>
+    <span class="n">method_el</span><span class="o">=</span><span class="n">xtb</span><span class="p">,</span>
+    <span class="n">method_vib</span><span class="o">=</span><span class="n">xtb</span><span class="p">,</span>
+    <span class="n">method_opt</span><span class="o">=</span><span class="n">xtb</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Please notice how the optimized structure of the deprotonated system is also returned together with the pKa value.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="el-redox-potential">
+<h2>1-el redox potential<a class="headerlink" href="#el-redox-potential" title="Permalink to this heading"></a></h2>
+<p>Calculates the one-electron reduction potential of a molecule <span class="math notranslate nohighlight">\(MH_{n}\)</span>, considering a generic reaction of the type:</p>
+<div class="math notranslate nohighlight">
+\[
+MH_{n} \rightarrow M^{\cdot (n-1)-} + n\cdot H^{+} + e^{-}
+\]</div>
+<p>provided the following arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">oxidised</span></code> (<code class="docutils literal notranslate"><span class="pre">System</span></code>): molecule in its oxidised state</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reduced</span></code> (<code class="docutils literal notranslate"><span class="pre">System</span></code>): molecule in its reduced state</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pH</span></code> (<code class="docutils literal notranslate"><span class="pre">float</span></code>, default: <code class="docutils literal notranslate"><span class="pre">7.0</span></code>): pH at which the reduction potential is calculated</p></li>
+</ul>
+<p>and returns the reduction potential of the molecule considering the provided states at the provided pH, including eventual PCET mechanisms, calculated as:</p>
+<div class="math notranslate nohighlight">
+\[
+E°_{MH_{n}/M^{\cdot(n-1)-}} = - \frac{G_{M^{\cdot(n-1)-}} - (G_{MH_{n}} + n \cdot G_{H^{+}}) }{F} - E°_{SHE} - n \cdot 0.059 \cdot pH 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(G_{M^{\cdot(n-1)-}}\)</span> and <span class="math notranslate nohighlight">\(G_{MH_{n}}\)</span> are calculated summing the electronic + vibronic energies at the selected level of theory, <span class="math notranslate nohighlight">\(G_{H^{+}} = -270.29 kcal/mol\)</span>, <span class="math notranslate nohighlight">\(F = 23.061 kcal/volt–gram-equivalent\)</span>, and <span class="math notranslate nohighlight">\(E_{SHE} = 4.28 V\)</span>.</p>
+</section>
+<section id="fukui-functions">
+<h2>Fukui functions<a class="headerlink" href="#fukui-functions" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">spycci.functions.calculate_fukui</span></code> function calculates the Fukui functions <span class="math notranslate nohighlight">\(f^+(r)\)</span>, <span class="math notranslate nohighlight">\(f^-(r)\)</span> and <span class="math notranslate nohighlight">\(f^0(r)\)</span> associated with a given molecular geometry. The Fukui functions are computed according to the definitions:</p>
+<div class="math notranslate nohighlight">
+\[
+f^+(r) = \rho_{N+1}(r) - \rho_{N}(r)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+f^-(r) = \rho_{N}(r) - \rho_{N-1}(r)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+f^0(r) = \frac{1}{2} \left[\rho_{N+1}(r) - \rho_{N-1}(r)\right]
+\]</div>
+<p>Where, given a molecule with <span class="math notranslate nohighlight">\(N\)</span> electrons, <span class="math notranslate nohighlight">\(\rho_{N}(r)\)</span> represents its electronic density while <span class="math notranslate nohighlight">\(\rho_{N\pm1}(r)\)</span> represents the electronic density of the molecule, in the same nuclear configuration, when one electron is either added (<span class="math notranslate nohighlight">\(+1\)</span>) or removed (<span class="math notranslate nohighlight">\(-1\)</span>).</p>
+<p>The Fukui functions are both computed as volumetric quantities and saved in a <a class="reference external" href="http://paulbourke.net/dataformats/cube/">Gaussian Cube</a> compatible format in the <code class="docutils literal notranslate"><span class="pre">output_density</span></code> folder and as condensed values saved in the <code class="docutils literal notranslate"><span class="pre">System</span></code> object <code class="docutils literal notranslate"><span class="pre">properties</span></code> attribute in the form of a dictionary. The condensed Fukui functions are computed by applying the <span class="math notranslate nohighlight">\(f^+\)</span>, <span class="math notranslate nohighlight">\(f^-\)</span> and <span class="math notranslate nohighlight">\(f^0\)</span> definitions replacing the charge density with either the Mulliken charges or the Hirshfeld charges (changing the sign accordingly given that a localized electronic density represents an accumulation of electrons hence of negative charge). Please notice how the Hirshfeld charges are supported only by the <code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code> engine.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Please notice how the Fukui cubes contain the localized Mulliken-charge-based Fukui values in place of the atomic charges. This is explained in the first comment line of each cube file and, for sake of clarity, all the files are saved using the extension <code class="docutils literal notranslate"><span class="pre">.fukui.cube</span></code>.</p>
+</div>
+<p>The function can be called with the following minimal arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">molecule</span></code> (<code class="docutils literal notranslate"><span class="pre">System</span></code>): The molecular structure to be used in the computation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">engine</span></code> (<code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code> or <code class="docutils literal notranslate"><span class="pre">XtbInput</span></code>): The engine defining the level of theory to be used in the calculation.</p></li>
+</ul>
+<p>The function assumes that the molecule supports only singlet and doublet states and switches the spin multeplicity according to the number of electrons. If different spin states needs to be considered the <code class="docutils literal notranslate"><span class="pre">spins_states</span></code> option can be used to provide the spin multeplicity values as a list.</p>
+<p>An example code snippet is provided in what follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spycci.systems</span> <span class="kn">import</span> <span class="n">System</span>
+<span class="kn">from</span> <span class="nn">spycci.engines.orca</span> <span class="kn">import</span> <span class="n">OrcaInput</span>
+<span class="kn">from</span> <span class="nn">spycci.functions.fukui</span> <span class="kn">import</span> <span class="n">calculate_fukui</span>
+
+<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;./acetaldehyde.xyz&quot;</span><span class="p">)</span>
+<span class="n">orca</span> <span class="o">=</span> <span class="n">OrcaInput</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;PBE&quot;</span><span class="p">,</span> <span class="n">basis_set</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">)</span>
+
+<span class="n">orca</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">calculate_fukui</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">orca</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>That for the acetaldehyde molecule returns the following result:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=========================================================
+SYSTEM: acetaldehyde
+=========================================================
+
+Number of atoms: 7
+Charge: 0
+Spin multiplicity: 1
+
+********************** GEOMETRY *************************
+
+Total system mass: 44.0526 amu
+
+----------------------------------------------
+ index  atom    x (Å)      y (Å)      z (Å)   
+----------------------------------------------
+ 0       C    -3.00790    0.17495    0.13810  
+ 1       C    -3.66800    1.53034    0.11359  
+ 2       H    -3.22195    2.19896    0.87341  
+ 3       H    -4.75895    1.41874    0.29379  
+ 4       H    -3.56793    1.97830   -0.89850  
+ 5       O    -2.11052   -0.15105    0.88722  
+ 6       H    -3.42225   -0.55833   -0.62459  
+----------------------------------------------
+
+********************** PROPERTIES *************************
+
+Geometry level of theory: OrcaInput || method: PBE | basis: def2-SVP | solvent: None
+Electronic level of theory: OrcaInput || method: PBE | basis: def2-SVP | solvent: None
+Vibronic level of theory: OrcaInput || method: PBE | basis: def2-SVP | solvent: None
+
+Electronic energy: -153.528266323306 Eh
+Vibronic energy: 0.02861407 Eh
+Helmholtz free energy: None Eh
+Gibbs free energy: -153.49965226 Eh
+pKa: None
+
+MULLIKEN ANALYSIS
+----------------------------------------------
+ index  atom   charge    spin
+----------------------------------------------
+ 0       C    0.05436   0.00000  
+ 1       C    -0.04823  0.00000  
+ 2       H    0.05176   0.00000  
+ 3       H    0.05695   0.00000  
+ 4       H    0.05677   0.00000  
+ 5       O    -0.17156  0.00000  
+ 6       H    -0.00005  0.00000  
+
+CONDENSED FUKUI - MULLIKEN
+----------------------------------------------
+ index  atom    f+      f-      f0
+----------------------------------------------
+ 0       C    0.23610   0.08077   0.15843  
+ 1       C    -0.11416  -0.02731  -0.07074 
+ 2       H    0.12882   0.11125   0.12003  
+ 3       H    0.15563   0.12121   0.13842  
+ 4       H    0.15492   0.12121   0.13806  
+ 5       O    0.22073   0.35571   0.28822  
+ 6       H    0.21797   0.23717   0.22757  
+
+HIRSHFELD ANALYSIS
+----------------------------------------------
+ index  atom   charge    spin
+----------------------------------------------
+ 0       C    0.14702   0.00000  
+ 1       C    -0.07279  0.00000  
+ 2       H    0.04088   0.00000  
+ 3       H    0.04575   0.00000  
+ 4       H    0.04567   0.00000  
+ 5       O    -0.22623  0.00000  
+ 6       H    0.01970   0.00000  
+
+CONDENSED FUKUI - HIRSHFELD
+----------------------------------------------
+ index  atom    f+      f-      f0
+----------------------------------------------
+ 0       C    0.28818   0.15946   0.22382  
+ 1       C    0.07190   0.09734   0.08462  
+ 2       H    0.05820   0.06063   0.05941  
+ 3       H    0.09907   0.07355   0.08631  
+ 4       H    0.09850   0.07352   0.08601  
+ 5       O    0.25823   0.37205   0.31514  
+ 6       H    0.12592   0.16345   0.14468  
+</pre></div>
+</div>
+</div>
+</div>
+<p>The volumetric fukui functions can then be plotted using the built in <code class="docutils literal notranslate"><span class="pre">vmd</span></code> based rendering tool. As an example the following code can be used to render the the <span class="math notranslate nohighlight">\(f^+(r)\)</span> Fukui function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spycci.tools.vmdtools</span> <span class="kn">import</span> <span class="n">render_fukui_cube</span>
+
+<span class="n">render_fukui_cube</span><span class="p">(</span>
+    <span class="s2">&quot;./output_densities/acetaldehyde_Fukui_plus.fukui.cube&quot;</span><span class="p">,</span>
+    <span class="n">include_negative</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">isovalue</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The rendered volume is saved in a <code class="docutils literal notranslate"><span class="pre">.bmp</span></code> bitmap image format. In the case of the acetaldehyde molecule considered in the example, the following image is obtained:</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/acetaldehyde_fukui_plus.bmp"><img alt="fukui_plus" class="bg-primary mb-1 align-center" src="../_images/acetaldehyde_fukui_plus.bmp" style="width: 600px;" /></a>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Guide"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="run.html" class="btn btn-neutral float-left" title="Running calculations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tools.html" class="btn btn-neutral float-right" title="Useful tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
