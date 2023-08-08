@@ -144,8 +144,17 @@ def test_MolecularGeometry_properties():
     mol = MolecularGeometry.from_xyz(xyzfile)
 
     assert_almost_equal(mol.mass, 18.01528, decimal=4)
+    assert_array_almost_equal(mol.center_of_mass, [-3.1718, -0.6241,  0.0241], decimal=4)
     assert mol.atomic_numbers == [8, 1, 1]
 
+# Test the MolecularGeometry translate method
+def test_MolecularGeometry_translate():
+
+    xyzfile = join(TEST_DIR, "utils/xyz_examples/with_comment.xyz")
+    mol = MolecularGeometry.from_xyz(xyzfile)
+
+    mol.translate([1., -2., 3.])
+    assert_array_almost_equal(mol.center_of_mass, [1., -2., 3.], decimal=4)
 
 # Test the MolecularGeometry bureid_volume_fraction method
 def test_MolecularGeometry_buried_volume_fraction():

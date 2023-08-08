@@ -312,6 +312,42 @@ class MolecularGeometry:
         for atom in self.__atoms:
             mass += atomic_masses[atom]
         return mass
+    
+    @property
+    def center_of_mass(self) -> np.ndarray:
+        """
+        The center of mass of the molecule as a vector from the cartesian system origin
+
+        Returns
+        -------
+        np.ndarray
+            An array encoding the position of the center of mass from the origin (0, 0, 0).
+        """
+        rcm = np.array([0., 0., 0.])
+        for atom, r in self:
+            rcm += atomic_masses[atom]*r
+
+        return rcm/self.mass
+    
+    def translate(self, rcm: List[float] = [0., 0., 0.]) -> None:
+        """
+        Translate, (move without rotations), the molecule center of mass to a new user-specified location.
+
+        Arguments
+        ---------
+        rcm: List[float]
+            The 3D vector encoding the new position of the molecule center of mass.
+        
+        Raises
+        ------
+        ValueError
+            Exception raised if the vector given by the user is invalid.
+        """
+        if len(rcm) != 3:
+            raise ValueError("A three-dimensional vector is espected as the new position of the center of mass")
+        
+        delta = np.array(rcm) - self.center_of_mass
+        self.__coordinates = [r + delta for r in self.__coordinates]
 
     def buried_volume_fraction(
         self,
@@ -397,3 +433,4 @@ class MolecularGeometry:
         )
 
         return bv.fraction_buried_volume
+    
