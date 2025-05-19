@@ -1,42 +1,40 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>spycci.engines.orca sub-module &mdash; SPyCCI User Guide</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d23eb610" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
-        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-        <script>let toggleHintShow = 'Click to show';</script>
-        <script>let toggleHintHide = 'Click to hide';</script>
-        <script>let toggleOpenOnPrint = 'true';</script>
-        <script src="../../_static/togglebutton.js"></script>
-        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-        <script src="../../_static/design-tabs.js"></script>
-        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+      <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -93,7 +91,7 @@ const thebe_selector_output = ".output, .cell_output"
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../intro.html">Python</a>
+          <a href="../../intro.html">Project name not set</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -117,12 +115,12 @@ const thebe_selector_output = ".output, .cell_output"
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="spycci-engines-orca-sub-module">
-<span id="api-wrappers-orca"></span><h1><code class="docutils literal notranslate"><span class="pre">spycci.engines.orca</span></code> sub-module<a class="headerlink" href="#spycci-engines-orca-sub-module" title="Permalink to this heading"></a></h1>
+<span id="api-wrappers-orca"></span><h1><code class="docutils literal notranslate"><span class="pre">spycci.engines.orca</span></code> sub-module<a class="headerlink" href="#spycci-engines-orca-sub-module" title="Link to this heading"></a></h1>
 <section id="orcainput-class">
-<h2><code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code> class<a class="headerlink" href="#orcainput-class" title="Permalink to this heading"></a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code> class<a class="headerlink" href="#orcainput-class" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spycci.engines.orca.</span></span><span class="sig-name descname"><span class="pre">OrcaInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PBE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'def2-TZVP'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'def2/J'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solvent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optionals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ORCADIR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spycci.engines.orca.</span></span><span class="sig-name descname"><span class="pre">OrcaInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PBE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'def2-TZVP'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'def2/J'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solvent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optionals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ORCADIR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput" title="Link to this definition"></a></dt>
 <dd><p>Interface for running Orca calculations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -147,7 +145,7 @@ following command can be invoked to define an engine capable of running electron
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.freq">
-<span class="sig-name descname"><span class="pre">freq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raman</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overtones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.freq" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">freq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raman</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overtones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.freq" title="Link to this definition"></a></dt>
 <dd><p>Frequency analysis (analytical frequencies).</p>
 <p>Note: if the SMD solvation model is detected, defaults to numerical frequencies
 (analytical frequencies are not currently supported)</p>
@@ -192,7 +190,7 @@ properties of the molecule can be set using the flag <code class="docutils liter
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.neb_ci">
-<span class="sig-name descname"><span class="pre">neb_ci</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reactant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nimages</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preoptimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.neb_ci" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">neb_ci</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reactant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nimages</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preoptimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.neb_ci" title="Link to this definition"></a></dt>
 <dd><p>Run a climbing image nudged elastic band calculation (NEB-CI) and output the ensemble encoding the optimized
 minimum energy path trajectory.</p>
 <dl class="field-list simple">
@@ -233,7 +231,7 @@ minimum energy path.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.neb_ts">
-<span class="sig-name descname"><span class="pre">neb_ts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reactant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">guess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nimages</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preoptimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.neb_ts" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">neb_ts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reactant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">guess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nimages</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preoptimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.neb_ts" title="Link to this definition"></a></dt>
 <dd><p>Run a climbing image nudged elastic band calculation (NEB-CI) followed by a transition state optimization
 and output the optimized transition state structure together with the ensemble encoding the optimized minimum
 energy path trajectory.</p>
@@ -289,7 +287,7 @@ different names.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.nfreq">
-<span class="sig-name descname"><span class="pre">nfreq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raman</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overtones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.nfreq" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">nfreq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raman</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overtones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.nfreq" title="Link to this definition"></a></dt>
 <dd><p>Frequency analysis (numerical frequencies).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -331,7 +329,7 @@ properties of the molecule can be set using the flag <code class="docutils liter
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.opt">
-<span class="sig-name descname"><span class="pre">opt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_cubes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cube_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hirshfeld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimization_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency_analysis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.opt" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">opt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_cubes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cube_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hirshfeld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimization_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency_analysis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.opt" title="Link to this definition"></a></dt>
 <dd><p>Geometry optimization + frequency analysis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -383,7 +381,7 @@ updated inplace using the command:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.opt_ts">
-<span class="sig-name descname"><span class="pre">opt_ts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_cubes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cube_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hirshfeld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scf_convergence_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TIGHTSCF'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convergence_strategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SLOWCONV'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculate_hessian</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency_analysis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.opt_ts" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">opt_ts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_cubes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cube_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hirshfeld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scf_convergence_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TIGHTSCF'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convergence_strategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SLOWCONV'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculate_hessian</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency_analysis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.opt_ts" title="Link to this definition"></a></dt>
 <dd><p>Transition state optimization + frequency analysis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -440,7 +438,7 @@ updated inplace using the command:</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.output_suffix">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_suffix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#spycci.engines.orca.OrcaInput.output_suffix" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_suffix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#spycci.engines.orca.OrcaInput.output_suffix" title="Link to this definition"></a></dt>
 <dd><p>Suffix used to compose the name of calculation output files</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -454,7 +452,7 @@ updated inplace using the command:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.parse_output">
-<span class="sig-name descname"><span class="pre">parse_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.parse_output" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">parse_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.parse_output" title="Link to this definition"></a></dt>
 <dd><p>The function will parse an ORCA output file automatically looking for all the relevant
 numerical properties derived form a calculation. All the properties of the given molecule
 will be set or updated.</p>
@@ -473,7 +471,7 @@ will be set or updated.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.scan">
-<span class="sig-name descname"><span class="pre">scan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invertconstraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.scan" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">scan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invertconstraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.scan" title="Link to this definition"></a></dt>
 <dd><p>Relaxed surface scan.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -511,7 +509,7 @@ electronic energies.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.scan_ts">
-<span class="sig-name descname"><span class="pre">scan_ts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fullscan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invertconstraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency_analysis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scf_convergence_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TIGHTSCF'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convergence_strategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SLOWCONV'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.scan_ts" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">scan_ts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fullscan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invertconstraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency_analysis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scf_convergence_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TIGHTSCF'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convergence_strategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'SLOWCONV'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.scan_ts" title="Link to this definition"></a></dt>
 <dd><p>Relaxed surface scan based transition state search.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -560,7 +558,7 @@ command is:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.spe">
-<span class="sig-name descname"><span class="pre">spe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_cubes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cube_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hirshfeld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.spe" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">spe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxcore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">750</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_cubes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cube_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hirshfeld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_tdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.spe" title="Link to this definition"></a></dt>
 <dd><p>Single point energy calculation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -604,7 +602,7 @@ If a new instance of the molecule <code class="docutils literal notranslate"><sp
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaInput.write_input">
-<span class="sig-name descname"><span class="pre">write_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.write_input" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">write_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.engines.orca.OrcaInput.write_input" title="Link to this definition"></a></dt>
 <dd><p>Function responsible of writing the orca input file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -623,10 +621,10 @@ If a new instance of the molecule <code class="docutils literal notranslate"><sp
 
 </section>
 <section id="orcajobinfo-class">
-<h2><code class="docutils literal notranslate"><span class="pre">OrcaJobInfo</span></code> class<a class="headerlink" href="#orcajobinfo-class" title="Permalink to this heading"></a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">OrcaJobInfo</span></code> class<a class="headerlink" href="#orcajobinfo-class" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spycci.engines.orca.</span></span><span class="sig-name descname"><span class="pre">OrcaJobInfo</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spycci.engines.orca.</span></span><span class="sig-name descname"><span class="pre">OrcaJobInfo</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo" title="Link to this definition"></a></dt>
 <dd><p>The OrcaJobInfo class is an helper class designed to provide a compact tool to define orca-based quantum chemical
 calculations. The attributes of the class univocally identify a calculation type and can be used to compile orca
 input files.</p>
@@ -634,7 +632,7 @@ input files.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.is_singlet">
-<span class="sig-name descname"><span class="pre">is_singlet</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.is_singlet" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_singlet</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.is_singlet" title="Link to this definition"></a></dt>
 <dd><p>If True, the molecule on which the calculation is performed is in a singlet state (If cube is saved also the
 spindensity will be saved).</p>
 <dl class="field-list simple">
@@ -646,7 +644,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.solvent">
-<span class="sig-name descname"><span class="pre">solvent</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.solvent" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">solvent</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.solvent" title="Link to this definition"></a></dt>
 <dd><p>The SMD solvent to be used during the calculation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -657,7 +655,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.opt">
-<span class="sig-name descname"><span class="pre">opt</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.opt" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">opt</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.opt" title="Link to this definition"></a></dt>
 <dd><p>If set to True, will trigger a geometry optimization calculation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -668,7 +666,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.opt_ts">
-<span class="sig-name descname"><span class="pre">opt_ts</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.opt_ts" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">opt_ts</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.opt_ts" title="Link to this definition"></a></dt>
 <dd><p>If set to True, will trigger a transition-state optimization calculation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -679,7 +677,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.freq">
-<span class="sig-name descname"><span class="pre">freq</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.freq" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">freq</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.freq" title="Link to this definition"></a></dt>
 <dd><p>If set to True, will trigger a frequency analysis (with analytical frequencies if not in solvent).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -690,7 +688,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.nfreq">
-<span class="sig-name descname"><span class="pre">nfreq</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.nfreq" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">nfreq</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.nfreq" title="Link to this definition"></a></dt>
 <dd><p>If set to True, will trigger a numerical frequency analysis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -701,7 +699,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.scan">
-<span class="sig-name descname"><span class="pre">scan</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.scan" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">scan</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.scan" title="Link to this definition"></a></dt>
 <dd><p>If not None, will encode the scan parameters in string format.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -712,7 +710,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.scan_ts">
-<span class="sig-name descname"><span class="pre">scan_ts</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.scan_ts" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">scan_ts</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.scan_ts" title="Link to this definition"></a></dt>
 <dd><p>If not None, will encode the transition state scan parameters in string format.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -723,7 +721,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.neb_ci">
-<span class="sig-name descname"><span class="pre">neb_ci</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_ci" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">neb_ci</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_ci" title="Link to this definition"></a></dt>
 <dd><p>If set to True will trigger a NEB-CI calculation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -734,7 +732,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.constraints">
-<span class="sig-name descname"><span class="pre">constraints</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.constraints" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">constraints</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.constraints" title="Link to this definition"></a></dt>
 <dd><p>If not None, will encode the constraints to be used during the scan or optimization operations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -745,7 +743,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.invert_constraints">
-<span class="sig-name descname"><span class="pre">invert_constraints</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.invert_constraints" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">invert_constraints</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.invert_constraints" title="Link to this definition"></a></dt>
 <dd><p>If set to True, will invert the constraints to be used in the calculation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -756,7 +754,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.fullscan">
-<span class="sig-name descname"><span class="pre">fullscan</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.fullscan" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">fullscan</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.fullscan" title="Link to this definition"></a></dt>
 <dd><p>If set to True during scan TS will continue the scan even if the transition state is located.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -767,7 +765,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.cube_dim">
-<span class="sig-name descname"><span class="pre">cube_dim</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.cube_dim" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">cube_dim</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.cube_dim" title="Link to this definition"></a></dt>
 <dd><p>If set to integer value will trigger the saving of cube files with a equally spaced grid of cube_dim points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -778,7 +776,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.calc_hess">
-<span class="sig-name descname"><span class="pre">calc_hess</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.calc_hess" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">calc_hess</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.calc_hess" title="Link to this definition"></a></dt>
 <dd><p>If set to True will compute the analytical hessian before the starting of a calculation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -789,7 +787,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.hirshfeld">
-<span class="sig-name descname"><span class="pre">hirshfeld</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.hirshfeld" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">hirshfeld</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.hirshfeld" title="Link to this definition"></a></dt>
 <dd><p>If set to True will trigger the Hirshfeld population analysis</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -800,7 +798,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.nearir">
-<span class="sig-name descname"><span class="pre">nearir</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.nearir" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">nearir</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.nearir" title="Link to this definition"></a></dt>
 <dd><p>If set to True will trigger the calcuation of overtones and combination bands in the infrared spectrum</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -811,7 +809,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.raman">
-<span class="sig-name descname"><span class="pre">raman</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.raman" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">raman</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.raman" title="Link to this definition"></a></dt>
 <dd><p>If set to True, will trigger the polarizability calcualtion outputting also the raman spectra.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -822,7 +820,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.neb_product">
-<span class="sig-name descname"><span class="pre">neb_product</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_product" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">neb_product</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_product" title="Link to this definition"></a></dt>
 <dd><p>If not None, will encode the final endopoint to be used in the neb calculation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -833,7 +831,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.neb_ts_guess">
-<span class="sig-name descname"><span class="pre">neb_ts_guess</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_ts_guess" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">neb_ts_guess</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_ts_guess" title="Link to this definition"></a></dt>
 <dd><p>In not None, will encode the xyz file to be used as a transition state guess.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -844,7 +842,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.neb_images">
-<span class="sig-name descname"><span class="pre">neb_images</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_images" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">neb_images</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_images" title="Link to this definition"></a></dt>
 <dd><p>If set to an integer value, will define the number of images to be used in the neb calculation (endpoints excluded)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -855,7 +853,7 @@ spindensity will be saved).</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.neb_preopt">
-<span class="sig-name descname"><span class="pre">neb_preopt</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_preopt" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">neb_preopt</span></span><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_preopt" title="Link to this definition"></a></dt>
 <dd><p>If set to True when a NEB calculation is performed, will preoptimize the reactant and product structures.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -866,7 +864,7 @@ spindensity will be saved).</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.cpcm_block">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cpcm_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.cpcm_block" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cpcm_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.cpcm_block" title="Link to this definition"></a></dt>
 <dd><p>Returns the %cpcm block generated by merging the user provided solvent options with the ones specified by the
 library flags.</p>
 <dl class="field-list simple">
@@ -881,7 +879,7 @@ library flags.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.elprop_block">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elprop_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.elprop_block" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elprop_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.elprop_block" title="Link to this definition"></a></dt>
 <dd><p>Returns the %elprop block generated by merging the user provided electronic properties options with the ones
 specified by the library flags.</p>
 <dl class="field-list simple">
@@ -896,7 +894,7 @@ specified by the library flags.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.geom_block">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">geom_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.geom_block" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">geom_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.geom_block" title="Link to this definition"></a></dt>
 <dd><p>Returns the %geom block generated by merging the user provided geometry options with the ones specified by the
 library flags.</p>
 <dl class="field-list simple">
@@ -911,7 +909,7 @@ library flags.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.maxcore">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">maxcore</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.maxcore" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">maxcore</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.maxcore" title="Link to this definition"></a></dt>
 <dd><p>The amount of RAM per core to be used in the calculation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -925,7 +923,7 @@ library flags.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.ncores">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ncores</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.ncores" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ncores</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.ncores" title="Link to this definition"></a></dt>
 <dd><p>The number of cores to be used in the calculation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -939,7 +937,7 @@ library flags.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.neb_block">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">neb_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_block" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">neb_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.neb_block" title="Link to this definition"></a></dt>
 <dd><p>Returns the %neb block generated by merging the user provided neb options with the ones specified by the library
 flags.</p>
 <dl class="field-list simple">
@@ -954,7 +952,7 @@ flags.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.optimization_level">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">optimization_level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.optimization_level" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">optimization_level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.optimization_level" title="Link to this definition"></a></dt>
 <dd><p>The optimization level to be used during the calculation. The possible values are “VERYTIGHTOPT”, “TIGHTOPT”,
 “NORMALOPT”, “LOOSEOPT”.</p>
 <dl class="field-list simple">
@@ -969,7 +967,7 @@ flags.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.output_block">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.output_block" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.output_block" title="Link to this definition"></a></dt>
 <dd><p>Returns the %output block generated by merging the user provided output options with the ones specified by the
 library flags.</p>
 <dl class="field-list simple">
@@ -984,7 +982,7 @@ library flags.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.parsed_blocks">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parsed_blocks</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.parsed_blocks" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parsed_blocks</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.parsed_blocks" title="Link to this definition"></a></dt>
 <dd><p>Returns the dictionary encoding all the blocks to be used in the definition of an orca input file. The function
 merges the user provided options with the ones specified by the library flags.</p>
 <dl class="field-list simple">
@@ -999,7 +997,7 @@ merges the user provided options with the ones specified by the library flags.</
 
 <dl class="py property">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.plots_block">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">plots_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.plots_block" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">plots_block</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.plots_block" title="Link to this definition"></a></dt>
 <dd><p>Returns the %plots block generated by merging the user provided plot options with the ones specified by the
 library flags.</p>
 <dl class="field-list simple">
@@ -1014,7 +1012,7 @@ library flags.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.print_level">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">print_level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.print_level" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">print_level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.print_level" title="Link to this definition"></a></dt>
 <dd><p>The print level to be used during the calculation. The possible values are “MINIPRINT”, “SMALLPRINT”,
 “NORMALPRINT”, “LARGEPRINT”.</p>
 <dl class="field-list simple">
@@ -1029,7 +1027,7 @@ library flags.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.scf_convergence_level">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scf_convergence_level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.scf_convergence_level" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scf_convergence_level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.scf_convergence_level" title="Link to this definition"></a></dt>
 <dd><p>The scf convergence level to be used during the calculation. The possible values are “NORMALSCF”, “LOOSESCF”,
 “SLOPPYSCF”, “STRONGSCF”, “TIGHTSCF”, “VERYTIGHTSCF”, “EXTREMESCF”.</p>
 <dl class="field-list simple">
@@ -1044,7 +1042,7 @@ library flags.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="spycci.engines.orca.OrcaJobInfo.scf_convergence_strategy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scf_convergence_strategy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.scf_convergence_strategy" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scf_convergence_strategy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#spycci.engines.orca.OrcaJobInfo.scf_convergence_strategy" title="Link to this definition"></a></dt>
 <dd><p>The scf convergence strategy to be used during the calculation. The possible values are “EASYCONV”, “NORMALCONV”,
 “SLOWCONV”, “VERYSLOWCONV”, “FORCECONV”, “IGNORECONV”.</p>
 <dl class="field-list simple">

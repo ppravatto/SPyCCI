@@ -1,44 +1,42 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculating properties &mdash; SPyCCI User Guide</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sphinx-thebe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=d23eb610" />
+
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/clipboard.min.js"></script>
-        <script src="../_static/copybutton.js"></script>
-        <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-        <script>let toggleHintShow = 'Click to show';</script>
-        <script>let toggleHintHide = 'Click to hide';</script>
-        <script>let toggleOpenOnPrint = 'true';</script>
-        <script src="../_static/togglebutton.js"></script>
-        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-        <script src="../_static/design-tabs.js"></script>
-        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-        <script async="async" src="../_static/sphinx-thebe.js"></script>
-        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/scripts/sphinx-book-theme.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+      <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -87,7 +85,7 @@ const thebe_selector_output = ".output, .cell_output"
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../intro.html">Python</a>
+          <a href="../intro.html">Project name not set</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -110,10 +108,10 @@ const thebe_selector_output = ".output, .cell_output"
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="calculating-properties">
-<span id="guide-functions"></span><h1>Calculating properties<a class="headerlink" href="#calculating-properties" title="Permalink to this heading"></a></h1>
+<span id="guide-functions"></span><h1>Calculating properties<a class="headerlink" href="#calculating-properties" title="Link to this heading"></a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">spycci.functions</span></code> submodule contains a series of methods to “manually” calculate some physical properties of the system under study. The user is expected to provide the exact intended states for the system(s) under study, as the functions will simply take the inputs and generate the output without carrying out any checks. For example, if the user calculates the pKa of a molecule in an unoptimised geometry, the resulting pKa will be that of the unoptimised geometry.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">spycci.functions</span></code> functions can be imported via the following syntax:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spycci.functions</span> <span class="kn">import</span> <span class="n">calculate_pka</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.functions</span><span class="w"> </span><span class="kn">import</span> <span class="n">calculate_pka</span>
 </pre></div>
 </div>
 <div class="warning admonition">
@@ -126,7 +124,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <hr class="docutils" />
 <section id="pka">
-<h2>pKa<a class="headerlink" href="#pka" title="Permalink to this heading"></a></h2>
+<h2>pKa<a class="headerlink" href="#pka" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">spycci.functions.pka</span></code> submodule provides an interface for the computation of the pKa or a given species. The module is, at this time, composed by two functions:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">calculate_pka</span></code>: Computes the pKa of a molecular system and its deprotomer. The user must provide both streucture in the form of <code class="docutils literal notranslate"><span class="pre">System</span></code> objects with an already defined electronic energy and possibly a vibronic one.</p></li>
@@ -148,7 +146,7 @@ pK_{a} = \frac{G_{A^{-}} + G_{H^{+}} - G_{HA}}{2.303 \cdot RT}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(G_{A^{-}}\)</span> and <span class="math notranslate nohighlight">\(G_{HA}\)</span> are calculated summing the electronic + vibronic energies at the selected/provided level of theory, <span class="math notranslate nohighlight">\(G_{H^{+}} = -270.29 kcal/mol\)</span>, <span class="math notranslate nohighlight">\(R = 1.987 \cdot 10^{-3} kcal/(mol \cdot K)\)</span> and <span class="math notranslate nohighlight">\(T = 298.15 K\)</span>.</p>
 <section id="the-calculate-pka-function">
-<h3>The <code class="docutils literal notranslate"><span class="pre">calculate_pka()</span></code> function:<a class="headerlink" href="#the-calculate-pka-function" title="Permalink to this heading"></a></h3>
+<h3>The <code class="docutils literal notranslate"><span class="pre">calculate_pka()</span></code> function:<a class="headerlink" href="#the-calculate-pka-function" title="Link to this heading"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">calculate_pka</span></code> function takes as arguments the following elements:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">protonated</span></code> (<code class="docutils literal notranslate"><span class="pre">System</span></code>): molecule in its protonated form</p></li>
@@ -156,9 +154,9 @@ pK_{a} = \frac{G_{A^{-}} + G_{H^{+}} - G_{HA}}{2.303 \cdot RT}
 </ul>
 <p>Please notice how both the <code class="docutils literal notranslate"><span class="pre">protonated</span></code> and <code class="docutils literal notranslate"><span class="pre">deprotonated</span></code> molecules must already be optimized (in water) and must posses a valid electronic energy value. If the vibronic energy is provided, its contribution is taken into account during the calculation.</p>
 <p>An example script that can be used to compute the pKa of a molecule is provided in what follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spycci.engines.xtb</span> <span class="kn">import</span> <span class="n">XtbInput</span>
-<span class="kn">from</span> <span class="nn">spycci.systems</span> <span class="kn">import</span> <span class="n">System</span>
-<span class="kn">from</span> <span class="nn">spycci.functions.pka</span> <span class="kn">import</span> <span class="n">calculate_pka</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.engines.xtb</span><span class="w"> </span><span class="kn">import</span> <span class="n">XtbInput</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.functions.pka</span><span class="w"> </span><span class="kn">import</span> <span class="n">calculate_pka</span>
 
 <span class="n">protonated</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;protonated.xyz&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">deprotonated</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;deprotonated.xyz&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -172,7 +170,7 @@ pK_{a} = \frac{G_{A^{-}} + G_{H^{+}} - G_{HA}}{2.303 \cdot RT}
 </div>
 </section>
 <section id="the-auto-calculate-pka-function">
-<h3>The <code class="docutils literal notranslate"><span class="pre">auto_calculate_pka()</span></code> function:<a class="headerlink" href="#the-auto-calculate-pka-function" title="Permalink to this heading"></a></h3>
+<h3>The <code class="docutils literal notranslate"><span class="pre">auto_calculate_pka()</span></code> function:<a class="headerlink" href="#the-auto-calculate-pka-function" title="Link to this heading"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">auto_calculate_pka</span></code> function takes as main argument the protonated molecule structure (in the form of a <code class="docutils literal notranslate"><span class="pre">System</span></code> object). The molecule is sequentially deprotonated using the CREST deprotomer search routine until the lowest energy deprotomer is identified. Once the deprotomer search has been completed, the structure of both molecules is optimized using the specified level of theory and both electronic and vibronic energies are computed at the user defined level of theory. The routine takes as arguments the following elements:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">protonated</span></code> (<code class="docutils literal notranslate"><span class="pre">System</span></code>): The protonated molecule for which the pKa must be computed.</p></li>
@@ -183,9 +181,9 @@ pK_{a} = \frac{G_{A^{-}} + G_{H^{+}} - G_{HA}}{2.303 \cdot RT}
 <li><p><code class="docutils literal notranslate"><span class="pre">maxcore</span></code> (<code class="docutils literal notranslate"><span class="pre">int</span></code>):  For the engines that supprots it, the memory assigned to each core used in the computation. (optional)</p></li>
 </ul>
 <p>An example script that can be used to compute the pKa of a molecule is provided in what follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spycci.engines.xtb</span> <span class="kn">import</span> <span class="n">XtbInput</span>
-<span class="kn">from</span> <span class="nn">spycci.systems</span> <span class="kn">import</span> <span class="n">System</span>
-<span class="kn">from</span> <span class="nn">spycci.functions.pka</span> <span class="kn">import</span> <span class="n">calculate_pka</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.engines.xtb</span><span class="w"> </span><span class="kn">import</span> <span class="n">XtbInput</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.functions.pka</span><span class="w"> </span><span class="kn">import</span> <span class="n">calculate_pka</span>
 
 <span class="n">protonated</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;protonated.xyz&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">xtb</span> <span class="o">=</span> <span class="n">XtbInput</span><span class="p">(</span><span class="n">solvent</span><span class="o">=</span><span class="s2">&quot;water&quot;</span><span class="p">)</span>
@@ -203,7 +201,7 @@ pK_{a} = \frac{G_{A^{-}} + G_{H^{+}} - G_{HA}}{2.303 \cdot RT}
 </section>
 <hr class="docutils" />
 <section id="el-redox-potential">
-<h2>1-el redox potential<a class="headerlink" href="#el-redox-potential" title="Permalink to this heading"></a></h2>
+<h2>1-el redox potential<a class="headerlink" href="#el-redox-potential" title="Link to this heading"></a></h2>
 <p>Calculates the one-electron reduction potential of a molecule <span class="math notranslate nohighlight">\(MH_{n}\)</span>, considering a generic reaction of the type:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -223,7 +221,7 @@ E°_{MH_{n}/M^{\cdot(n-1)-}} = - \frac{G_{M^{\cdot(n-1)-}} - (G_{MH_{n}} + n \cd
 <p>where <span class="math notranslate nohighlight">\(G_{M^{\cdot(n-1)-}}\)</span> and <span class="math notranslate nohighlight">\(G_{MH_{n}}\)</span> are calculated summing the electronic + vibronic energies at the selected level of theory, <span class="math notranslate nohighlight">\(G_{H^{+}} = -270.29 kcal/mol\)</span>, <span class="math notranslate nohighlight">\(F = 23.061 kcal/volt–gram-equivalent\)</span>, and <span class="math notranslate nohighlight">\(E_{SHE} = 4.28 V\)</span>.</p>
 </section>
 <section id="fukui-functions">
-<h2>Fukui functions<a class="headerlink" href="#fukui-functions" title="Permalink to this heading"></a></h2>
+<h2>Fukui functions<a class="headerlink" href="#fukui-functions" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">spycci.functions.calculate_fukui</span></code> function calculates the Fukui functions <span class="math notranslate nohighlight">\(f^+(r)\)</span>, <span class="math notranslate nohighlight">\(f^-(r)\)</span> and <span class="math notranslate nohighlight">\(f^0(r)\)</span> associated with a given molecular geometry. The Fukui functions are computed according to the definitions:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -250,9 +248,9 @@ f^0(r) = \frac{1}{2} \left[\rho_{N+1}(r) - \rho_{N-1}(r)\right]
 </ul>
 <p>The function assumes that the molecule supports only singlet and doublet states and switches the spin multeplicity according to the number of electrons. If different spin states needs to be considered the <code class="docutils literal notranslate"><span class="pre">spins_states</span></code> option can be used to provide the spin multeplicity values as a list.</p>
 <p>An example code snippet is provided in what follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spycci.systems</span> <span class="kn">import</span> <span class="n">System</span>
-<span class="kn">from</span> <span class="nn">spycci.engines.orca</span> <span class="kn">import</span> <span class="n">OrcaInput</span>
-<span class="kn">from</span> <span class="nn">spycci.functions.fukui</span> <span class="kn">import</span> <span class="n">calculate_fukui</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.engines.orca</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrcaInput</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.functions.fukui</span><span class="w"> </span><span class="kn">import</span> <span class="n">calculate_fukui</span>
 
 <span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;./acetaldehyde.xyz&quot;</span><span class="p">)</span>
 <span class="n">orca</span> <span class="o">=</span> <span class="n">OrcaInput</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;PBE&quot;</span><span class="p">,</span> <span class="n">basis_set</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">)</span>
@@ -354,7 +352,7 @@ CONDENSED FUKUI - HIRSHFELD
 </div>
 </div>
 <p>The volumetric fukui functions can then be plotted using the built in <code class="docutils literal notranslate"><span class="pre">vmd</span></code> based rendering tool. As an example the following code can be used to render the the <span class="math notranslate nohighlight">\(f^+(r)\)</span> Fukui function.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spycci.tools.vmdtools</span> <span class="kn">import</span> <span class="n">render_fukui_cube</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.tools.vmdtools</span><span class="w"> </span><span class="kn">import</span> <span class="n">render_fukui_cube</span>
 
 <span class="n">render_fukui_cube</span><span class="p">(</span>
     <span class="s2">&quot;./output_densities/acetaldehyde_Fukui_plus.fukui.cube&quot;</span><span class="p">,</span>
@@ -364,7 +362,8 @@ CONDENSED FUKUI - HIRSHFELD
 </pre></div>
 </div>
 <p>The rendered volume is saved in a <code class="docutils literal notranslate"><span class="pre">.bmp</span></code> bitmap image format. In the case of the acetaldehyde molecule considered in the example, the following image is obtained:</p>
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/acetaldehyde_fukui_plus.bmp"><img alt="fukui_plus" class="bg-primary mb-1 align-center" src="../_images/acetaldehyde_fukui_plus.bmp" style="width: 600px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/acetaldehyde_fukui_plus.bmp"><img alt="fukui_plus" class="bg-primary mb-1 align-center" src="../_images/acetaldehyde_fukui_plus.bmp" style="width: 600px;" />
+</a>
 </section>
 </section>
 
