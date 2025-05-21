@@ -715,7 +715,7 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 <li><p><strong>List</strong><strong>[</strong><strong>float</strong><strong>]</strong><strong>]</strong> – The dictionaty containing the list of condensed Fukui values computed for each
 atom in the system starting from the values of the Hirshfeld charges. The functions
 are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> and <cite>f0</cite> keys.</p></li>
-<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the electronic calculation.</p></li>
 <li><p><strong>value</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em>)</p></li>
 </ul>
 </dd>
@@ -738,7 +738,7 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 <li><p><strong>List</strong><strong>[</strong><strong>float</strong><strong>]</strong><strong>]</strong> – The dictionaty containing the list of condensed Fukui values computed for each
 atom in the system starting from the values of the Mulliken charges. The functions
 are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> and <cite>f0</cite> keys.</p></li>
-<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the electronic calculation.</p></li>
 <li><p><strong>value</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>float</em><em>]</em><em>]</em>)</p></li>
 </ul>
 </dd>
@@ -756,7 +756,7 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<em>float</em>) – The electronic energy of the system in Hartree.</p></li>
-<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the calculation.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the calculation.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -773,8 +773,8 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<em>float</em>) – The Gibbs free energy of the system in Hartree.</p></li>
-<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
-<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the vibronic calculation.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the electronic calculation.</p></li>
+<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the vibronic calculation.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -791,8 +791,8 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<em>float</em>) – The Helmholtz free energy of the system in Hartree.</p></li>
-<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
-<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the vibronic calculation.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the electronic calculation.</p></li>
+<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the vibronic calculation.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -809,7 +809,7 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<em>float</em>) – The list of Hirshfeld charges associated to each atom of the system.</p></li>
-<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the electronic calculation.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -826,7 +826,7 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<em>float</em>) – The list of Hirshfeld spin populations associated to each atom of the system.</p></li>
-<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the electronic calculation.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -843,7 +843,7 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<em>float</em>) – The list of Mulliken charges associated to each atom of the system.</p></li>
-<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the electronic calculation.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -860,7 +860,7 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<em>float</em>) – The list of Mulliken spin populations associated to each atom of the system.</p></li>
-<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the electronic calculation.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -877,8 +877,8 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<em>float</em>) – The pKa of the system.</p></li>
-<li><p><strong>electronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the electronic calculation.</p></li>
-<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the vibronic calculation. (optional)</p></li>
+<li><p><strong>electronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the electronic calculation.</p></li>
+<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the vibronic calculation. (optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -895,7 +895,7 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<em>VibrationalData</em>) – The class encoding all the vibrational data associated to the molecule</p></li>
-<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the vibronic calculation.</p></li>
+<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the vibronic calculation.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -912,7 +912,7 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<em>float</em>) – The vibronic energy of the system in Hartree.</p></li>
-<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>(</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>)</em>) – The engine used in the calculation.</p></li>
+<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the calculation.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
