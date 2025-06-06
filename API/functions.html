@@ -113,8 +113,9 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="spycci.functions.calculate_pka">
 <span class="sig-prename descclassname"><span class="pre">spycci.functions.</span></span><span class="sig-name descname"><span class="pre">calculate_pka</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protonated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deprotonated</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.functions.calculate_pka" title="Link to this definition"></a></dt>
-<dd><p>Calculates the pKa of a molecule, given the protonated and deprotonated forms assuming
-that energies have already been computed.</p>
+<dd><p>Calculates the pKa of a molecule using the direct method. The function expects as arguments
+the protonated and deprotonated forms of the molecule as a <cite>System</cite> objects for which the
+energies must have already been computed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -122,19 +123,11 @@ that energies have already been computed.</p>
 <li><p><strong>deprotonated</strong> (<em>System object</em>) – molecule in the deprotonated form</p></li>
 </ul>
 </dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>TypeError</strong> – Exception raised if either protonated or deprotonated molecules are Ensembles</p></li>
-<li><p><strong>RuntimeError</strong> – Exception raised if the difference in number of atoms between protonated and
-    deprotonated species is different from 1 or if a mismatch is detected between electronic
-    levels of theory.</p></li>
-</ul>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>pKa</strong> – pKa of the molecule.</p>
 </dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pKa</strong> – pKa of the molecule.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>float</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 </dd></dl>
