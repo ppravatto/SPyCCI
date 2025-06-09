@@ -112,17 +112,19 @@
 <h2><code class="docutils literal notranslate"><span class="pre">System</span></code> class<a class="headerlink" href="#system-class" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="spycci.systems.System">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spycci.systems.</span></span><span class="sig-name descname"><span class="pre">System</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_side</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.systems.System" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spycci.systems.</span></span><span class="sig-name descname"><span class="pre">System</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">molecule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_side</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.systems.System" title="Link to this definition"></a></dt>
 <dd><p>The System object describes a generic molecular system described at a given level of
 theory. A system is defined based on a molecular geometry, a charge, a spin multiplicity
 and, one a level of theory is selected, by a set of computed properties.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filepath</strong> (<em>str</em>) – The path to the file containing the system geometry or data</p></li>
+<li><p><strong>molecule</strong> (<em>str</em>) – Either the path to the <cite>.xyz</cite> or <cite>.json</cite> file containing the system geometry/data or
+the name to be assigned to the sctructure provided as the <cite>geometry</cite> argument.</p></li>
 <li><p><strong>charge</strong> (<em>int</em><em>, </em><em>optional</em>) – The total charge of the system. (Default: 0 neutral)</p></li>
 <li><p><strong>spin</strong> (<em>int</em><em>, </em><em>optional</em>) – The total spin multiplicity of the system. (Default: 1 singlet)</p></li>
-<li><p><strong>box_side</strong> (<em>float</em><em>, </em><em>optional</em>) – For periodic systems, defines the length (in Å) of the box side</p></li>
+<li><p><strong>box_side</strong> (<em>Optional</em><em>[</em><em>float</em><em>] </em><em>= None</em><em>,</em>) – For periodic systems, defines the length (in Å) of the box side</p></li>
+<li><p><strong>geometry</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="core.html#spycci.core.geometry.MolecularGeometry" title="spycci.core.geometry.MolecularGeometry"><em>MolecularGeometry</em></a><em>]</em>) – The <cite>MolecularGeometry</cite> object from which the System can be constructred.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
