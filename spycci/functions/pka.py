@@ -1,197 +1,20 @@
-import logging, sh, shutil, os
-from tempfile import mkdtemp
+import logging
 from copy import deepcopy
 from typing import Union, Optional, Dict, Tuple
 
-from spycci.systems import Ensemble
 from spycci.systems import System
 from spycci.core.base import Engine
 from spycci.engines.xtb import XtbInput
 from spycci.engines.orca import OrcaInput
 from spycci.wrappers.crest import deprotonate
 from spycci.tools.reorderenergies import reorder_energies
+from spycci.functions.utils import retrieve_structure, validate_acid_base_pair, check_structure_acid_base_pair
 
 import spycci.constants as scon
 import numpy as np
 
 logger = logging.getLogger(__name__)
 
-
-def _check_structure_acid_base_pair(protonated: System, deprotonated: System) -> None:
-    """
-    Checks if the provided `protonated` and `deprotonated` objects are compatible with each other and
-    with a pKa calculation. If validation fails an exception is raised.
-
-    Parameters
-    ----------
-    protonated : System object
-        The molecule in the protonated form
-    deprotonated : System object
-        The molecule in the deprotonated form
-
-    Raises
-    ------
-    TypeError
-        Exception raised if either of the objects type is different from `System`
-    RuntimeError
-        Excpetion raised if the atom count and charge variation are not compatible.
-    """
-    # Check if the objects are instances of `System`
-    if type(protonated) == Ensemble or type(deprotonated) == Ensemble:
-        msg = "The calculation of pKa for Ensemble objects is currently not supported."
-        logger.error(msg)
-        raise TypeError(msg)
-    elif type(protonated) != System or type(deprotonated) != System:
-        msg = "The calculation of pKa requires System type arguments."
-        logger.error(msg)
-        raise TypeError(msg)
-
-    # Check that the atomcount of the two molecules matches
-    if protonated.geometry.atomcount - deprotonated.geometry.atomcount != 1:
-        msg = f"{protonated.name} deprotomer differs for more than 1 atom."
-        logger.error(msg)
-        raise RuntimeError(msg)
-
-    # Check that the molecular charge of the deprotomer is 1 unit less than the protonated one
-    if deprotonated.charge - protonated.charge != -1:
-        msg = f"{protonated.name} deprotomer differs for more than 1 unit of charge."
-        logger.error(msg)
-        raise RuntimeError(msg)
-
-
-def _validate_acid_base_pair(
-    protonated: System,
-    deprotonated: System,
-    water: Optional[System] = None,
-    oxonium: Optional[System] = None,
-) -> bool:
-    """
-    Checks if the provided `protonated` and `deprotonated` objects are compatible with each other and
-    with a pKa calculation and verify the matching between levels of theory used in the computation.
-    The function also accepts a `water` and `oxonium` object as optionals to verify the compatibility
-    of the levels of theory in case of the oxonium scheme. If validation fails an exception is raised.
-    The function returns a bool value correspondent to the availability of vibronic calculations.
-
-    Parameters
-    ----------
-    protonated : System object
-        The molecule in the protonated form
-    deprotonated : System object
-        The molecule in the deprotonated form
-    water : Optional[System]
-        The water molecule to be used in the calculation
-    oxonium : Optional[System]
-        The oxonium molecule to be used in the calculation
-
-    Raises
-    ------
-    TypeError
-        Exception raised if either of the objects type is different from `System`
-    RuntimeError
-        Excpetion raised if the electronic level of theory is not found
-
-    Returns
-    -------
-    bool
-        True if the two system have appropriate and matching vibronic levels of theory. False otherwise.
-    """
-    # Check if the user provided both water and oxonium and check the structures
-    if oxonium is None and water is None:
-        pass
-    elif None in [oxonium, water]:
-        msg = "water and oxonium molecules must be checked simultaneously."
-        logger.error(msg)
-        raise RuntimeError(msg)
-
-    # Check the provided structures for type, atomcount and charge
-    _check_structure_acid_base_pair(protonated, deprotonated)
-
-    # Check that both the species have an electronic energy value associated
-    if protonated.properties.electronic_energy is None:
-        msg = "Electronic energy not found for protonated molecule."
-        logger.error(msg)
-        raise RuntimeError(msg)
-
-    if deprotonated.properties.electronic_energy is None:
-        msg = "Electronic energy not found for deprotonated molecule."
-        logger.error(msg)
-        raise RuntimeError(msg)
-
-    # Check if the electronic level of theory for both molecules match
-    elot_protonated = protonated.properties.level_of_theory_electronic
-    elot_deprotonated = deprotonated.properties.level_of_theory_electronic
-    if elot_protonated != elot_deprotonated:
-        msg = "Mismatch found between electronic levels of theory."
-        logger.error(msg)
-        raise RuntimeError(msg)
-
-    # Check, if povided, the water and oxonium molecules
-    if oxonium and water:
-
-        # Check the provided structures for type, atomcount and charge
-        _check_structure_acid_base_pair(oxonium, water)
-
-        # Check that both the species have an electronic energy value associated
-        if water.properties.electronic_energy is None:
-            msg = "Electronic energy not found for water molecule."
-            logger.error(msg)
-            raise RuntimeError(msg)
-
-        if oxonium.properties.electronic_energy is None:
-            msg = "Electronic energy not found for oxonium ion."
-            logger.error(msg)
-            raise RuntimeError(msg)
-
-        # Check if the electronic level of theory for both molecules match
-        elot_water = water.properties.level_of_theory_electronic
-        elot_oxonium = oxonium.properties.level_of_theory_electronic
-        if elot_water != elot_oxonium or elot_water != elot_protonated:
-            msg = "Mismatch found between electronic levels of theory."
-            logger.error(msg)
-            raise RuntimeError(msg)
-
-    # Check if the species have vibronic energy values associated
-    if (
-        protonated.properties.vibronic_energy is None
-        or deprotonated.properties.vibronic_energy is None
-    ):
-        msg = "Vibronic energies not found. The pKa calculation will be executed with only electronic energies"
-        logger.warning(msg)
-        return False
-
-    if oxonium and water:
-
-        if (
-            water.properties.vibronic_energy is None
-            or oxonium.properties.vibronic_energy is None
-        ):
-            msg = "Vibronic energies not found. The pKa calculation will be executed with only electronic energies"
-            logger.warning(msg)
-            return False
-
-    # Check if the level
-    vlot_protonated = protonated.properties.level_of_theory_vibronic
-    vlot_deprotonated = deprotonated.properties.level_of_theory_vibronic
-    if vlot_protonated == vlot_deprotonated:
-
-        if oxonium and water:
-            vlot_water = water.properties.level_of_theory_vibronic
-            vlot_oxonium = oxonium.properties.level_of_theory_vibronic
-            if vlot_protonated != vlot_water or vlot_protonated != vlot_oxonium:
-                msg = "Vibronic energies not found. The pKa calculation will be executed with only electronic energies"
-                logger.warning(msg)
-                return False
-
-        if elot_protonated != vlot_protonated:
-            msg = f"Vibronic level of theory ({vlot_protonated}) is different form the electronic one ({elot_protonated}). The pKa calculation will be executed anyway."
-            logger.warning(msg)
-
-        return True
-
-    else:
-        msg = "Vibronic energies not found. The pKa calculation will be executed with only electronic energies"
-        logger.warning(msg)
-        return False
 
 
 def calculate_pka(protonated: System, deprotonated: System):
@@ -213,7 +36,7 @@ def calculate_pka(protonated: System, deprotonated: System):
         pKa of the molecule.
     """
     # Validate systems and check if vibronic energies are available
-    with_vibronic = _validate_acid_base_pair(protonated, deprotonated)
+    with_vibronic = validate_acid_base_pair(protonated, deprotonated)
 
     # Extract electronic energies
     protonated_energy = protonated.properties.electronic_energy * scon.Eh_to_kcalmol
@@ -270,7 +93,7 @@ def calculate_pka_oxonium_scheme(
         pKa of the molecule.
     """
     # Validate systems and check if vibronic energies are available
-    with_vibronic = _validate_acid_base_pair(protonated, deprotonated)
+    with_vibronic = validate_acid_base_pair(protonated, deprotonated)
 
     # Extract electronic energies
     protonated_energy = protonated.properties.electronic_energy * scon.Eh_to_kcalmol
@@ -307,18 +130,19 @@ def run_pKa_workflow(
     method_geometry: Union[XtbInput, OrcaInput],
     method_energy: Union[XtbInput, OrcaInput],
     use_cosmors: bool = False,
+    use_engine_settings: bool = False,
     ncores: Optional[int] = None,
     maxcore: int = 350,
 ) -> Tuple[Dict[str, float], Dict[str, float]]:
     """
-    The function runs a complete pKa workflow and retuns the pKa computed with different schemes and
-    all the computed free energies. The method runs a geometry optimization of both the protonated and
-    deprotonated species in solvent (water). On the obtained geometries a frequecy calculation is carried
-    out to compute the Gibbs free energies for all the species. Water and Oxonium ion are automatically
-    generated and optimized. The function then computes the pKa using the direct scheme and the oxonium 
-    scheme. If the `use_cosmors` option is used, the function also computes frequencies in vacuum and
-    solvation free energies using OpenCOSMO-RS interface (requires orca>=6.0.0). The COSMO-RS calculation
-    are then used to obtain the corresponding pKa using the oxonium method.
+    The function runs a complete pKa workflow and retuns the pKa values, computed with different schemes, 
+    and all the computed free energies. The method runs a geometry optimization of both the protonated and
+    deprotonated species in solvent (water). On the obtained geometries a frequecy calculation and, if necessaty,
+    a single point calculation are carried out to compute the Gibbs free energies for all the species. 
+    Water and Oxonium ion are automatically generated and optimized if required. The function then computes
+    the pKa using the direct scheme and the oxonium scheme. If the `use_cosmors` option is used, the function
+    also computes frequencies in vacuum and solvation free energies using OpenCOSMO-RS interface (requires orca>=6.0.0).
+    The COSMO-RS calculation are then used to obtain the corresponding pKa using the oxonium method.
 
     Arguments
     ---------
@@ -329,9 +153,11 @@ def run_pKa_workflow(
     method_geometry : Union[XtbInput, OrcaInput]
         The engine to be used to run the geometry optimizations
     method_energy : Union[XtbInput, OrcaInput]
-        The engine to be used to run the energy/frequency calculations
+        The engine to be used to run the energy calculations.
     use_cosmors : bool
         If set to `True` will use OpenCOSMO-RS to compute solvation energies
+    use_engine_settings : bool
+        If set to `True` will use the engine level of theory to run the COSMO-RS calculation (not advisable)
     ncores : Optional[int]
         The number of cores to be used in the calculations. If set to `None` (default) will use
         the maximun number of available cores.
@@ -348,7 +174,7 @@ def run_pKa_workflow(
         The dictionary containing all the Gibbs Free energies used in the computations.
     """
     # Check if the given structures are compatible with a pKa calculation
-    _check_structure_acid_base_pair(protonated, deprotonated)
+    check_structure_acid_base_pair(protonated, deprotonated)
 
     # Check if the method to be used for geometry optimization is xtb or orca
     if type(method_geometry) not in [XtbInput, OrcaInput]:
@@ -356,41 +182,14 @@ def run_pKa_workflow(
 
     # Check if the method to be used for energy calculations is xtb or orca
     if type(method_energy) not in [XtbInput, OrcaInput]:
-        raise TypeError("The geometry optimization method must be xTB or orca.")
+        raise TypeError("The energy calculation method must be xTB or orca.")
 
     # Define structures of water and oxonium ion
-    WATER = [
-        ["O", -5.02534, 1.26595, 0.01097],
-        ["H", -4.05210, 1.22164, -0.01263],
-        ["H", -5.30240, 0.44124, -0.42809],
-    ]
+    water_xyz = retrieve_structure("water")
+    water = System("water", charge=0, spin=1, geometry=water_xyz)
 
-    OXONIUM = [
-        ["O", -7.37112, 1.56763, 0.10145],
-        ["H", -6.40989, 1.39069, -0.03899],
-        ["H", -7.67217, 2.18471, -0.60766],
-        ["H", -7.85266, 0.71353, -0.01396],
-    ]
-
-    # Write temporary files with the coordinates for water and oxonium and create
-    # the corresponding systems
-    tdir = mkdtemp(prefix="pka_workflow_", suffix=f"_tmp", dir=os.getcwd())
-
-    with sh.pushd(tdir):
-        with open("water.xyz", "w") as xyzfile:
-            xyzfile.write(f"{len(WATER)}\n\n")
-            for line in WATER:
-                xyzfile.write("    ".join(str(x) for x in line) + "\n")
-
-        with open("oxonium.xyz", "w") as xyzfile:
-            xyzfile.write(f"{len(OXONIUM)}\n\n")
-            for line in OXONIUM:
-                xyzfile.write("    ".join(str(x) for x in line) + "\n")
-
-        water = System("water.xyz", charge=0, spin=1)
-        oxonium = System("oxonium.xyz", charge=1, spin=1)
-
-    shutil.rmtree(tdir)
+    oxonium_xyz = retrieve_structure("oxonium")
+    oxonium = System("oxonium", charge=1, spin=1, geometry=oxonium_xyz)
 
     # Create an empty dictionary to store the computed pKas and Gibbs free energies
     computed_pka, free_energies = {}, {}
@@ -429,13 +228,13 @@ def run_pKa_workflow(
     computed_pka["oxonium"] = pKa_oxonium
 
     # If required run the cosmors based schemes
-    if use_cosmors:
+    if use_cosmors and type(method_energy) == OrcaInput:
 
         # Run COSMO-RS calculation for all molecules
-        dG_solv_prot = method_energy.cosmors(protonated_sol, ncores=ncores, maxcore=maxcore)
-        dG_solv_deprot = method_energy.cosmors(deprotonated_sol, ncores=ncores, maxcore=maxcore)
-        dG_solv_water = method_energy.cosmors(water_sol, ncores=ncores, maxcore=maxcore)
-        dG_solv_oxonium = method_energy.cosmors(oxonium_sol, ncores=ncores, maxcore=maxcore)
+        dG_solv_prot = method_energy.cosmors(protonated_sol, use_engine_settings=use_engine_settings, ncores=ncores, maxcore=maxcore)
+        dG_solv_deprot = method_energy.cosmors(deprotonated_sol, use_engine_settings=use_engine_settings, ncores=ncores, maxcore=maxcore)
+        dG_solv_water = method_energy.cosmors(water_sol, use_engine_settings=use_engine_settings, ncores=ncores, maxcore=maxcore)
+        dG_solv_oxonium = method_energy.cosmors(oxonium_sol, use_engine_settings=use_engine_settings, ncores=ncores, maxcore=maxcore)
 
         # Store the solvation free energies computed with OpenCOSMO-RS
         free_energies["dG(COSMO-RS) Protonated"] = dG_solv_prot
@@ -474,7 +273,10 @@ def run_pKa_workflow(
         # Compute the corrected free energy in solvent and the corresponding pKa
         dG_cosmors = (dG_vac + ddG_solv) * scon.Eh_to_kcalmol
         pKa_cosmo = (dG_cosmors  / (np.log(10.0) * scon.R * 298.15 / scon.kcal_to_J)) - np.log10(997.0 / 18.01528)
-        computed_pka["oxonium COSMO-RS"] = pKa_cosmo        
+        computed_pka["oxonium COSMO-RS"] = pKa_cosmo
+    
+    elif use_cosmors:
+        logger.warning("COSMO-RS calculations can be run only by OrcaInput engine as energy method.")
 
     return computed_pka, free_energies
 
