@@ -271,10 +271,10 @@ def run_pka_workflow(
     if use_cosmors and type(method_cosmors)==OrcaInput:
 
         # Run COSMO-RS calculation for all molecules
-        dG_solv_prot = method_cosmors.cosmors(protonated_sol, use_engine_settings=use_engine_settings, ncores=ncores, maxcore=maxcore)
-        dG_solv_deprot = method_cosmors.cosmors(deprotonated_sol, use_engine_settings=use_engine_settings, ncores=ncores, maxcore=maxcore)
-        dG_solv_water = method_cosmors.cosmors(water_sol, use_engine_settings=use_engine_settings, ncores=ncores, maxcore=maxcore)
-        dG_solv_oxonium = method_cosmors.cosmors(oxonium_sol, use_engine_settings=use_engine_settings, ncores=ncores, maxcore=maxcore)
+        dG_solv_prot = method_cosmors.cosmors(protonated_sol,solvent="water", use_engine_settings=use_engine_settings, ncores=ncores, maxcore=maxcore)
+        dG_solv_deprot = method_cosmors.cosmors(deprotonated_sol,solvent="water", use_engine_settings=use_engine_settings, ncores=ncores, maxcore=maxcore)
+        dG_solv_water = method_cosmors.cosmors(water_sol,solvent="water", use_engine_settings=use_engine_settings, ncores=ncores, maxcore=maxcore)
+        dG_solv_oxonium = method_cosmors.cosmors(oxonium_sol,solvent="water", use_engine_settings=use_engine_settings, ncores=ncores, maxcore=maxcore)
 
         # Store the solvation free energies computed with OpenCOSMO-RS
         free_energies["dG(COSMO-RS) Protonated"] = dG_solv_prot
