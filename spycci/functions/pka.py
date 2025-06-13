@@ -124,12 +124,12 @@ def calculate_pka_oxonium_scheme(
     return pka
 
 
-def run_pKa_workflow(
+def run_pka_workflow(
     protonated: System,
     deprotonated: System,
-    method_geometry: Union[XtbInput, OrcaInput],
     method_vibronic: Union[XtbInput, OrcaInput],
     method_electonic: Optional[Union[XtbInput, OrcaInput]] = None,
+    method_geometry: Optional[Union[XtbInput, OrcaInput]] = None,
     use_cosmors: bool = False,
     use_engine_settings: bool = False,
     ncores: Optional[int] = None,
@@ -137,10 +137,10 @@ def run_pKa_workflow(
 ) -> Tuple[Dict[str, float], Dict[str, float]]:
     """
     The function runs a complete pKa workflow and retuns the pKa values, computed with different schemes, 
-    and all the computed free energies. The method runs a geometry optimization of both the protonated and
+    and all the computed Gibbs free energies. The method runs a geometry optimization of both the protonated and
     deprotonated species in solvent (water). On the obtained geometries a frequecy calculation and, if necessaty,
     a single point calculation are carried out to compute the Gibbs free energies for all the species. 
-    Water and Oxonium ion are automatically generated and optimized if required. The function then computes
+    Water and Oxonium ion are automatically generated and optimized. The function then computes
     the pKa using the direct scheme and the oxonium scheme. If the `use_cosmors` option is used, the function
     also computes frequencies in vacuum and solvation free energies using OpenCOSMO-RS interface (requires orca>=6.0.0).
     The COSMO-RS calculation are then used to obtain the corresponding pKa using the oxonium method.
@@ -151,8 +151,6 @@ def run_pKa_workflow(
         The protonated system for which the pKa must be computed
     deprotonated : System
         The deprotomer generated during the dissociation reaction
-    method_geometry : Union[XtbInput, OrcaInput]
-        The engine to be used to run the geometry optimizations
     method_vibronic: Union[XtbInput, OrcaInput]
         The engine to be used to run the frequency calculations.
     method_electonic : Optional[Union[XtbInput, OrcaInput]]
@@ -160,10 +158,15 @@ def run_pKa_workflow(
         energy computed by the `method_vibronic` engine. Please notice that, if the electronic method is different
         from the vibronic one, the computed Gibbs Free energy will be a mix of two different levels of theory (not
         advaisable)
+    method_geometry : Optional[Union[XtbInput, OrcaInput]]
+        The engine to be used to run the geometry optimizations. If set to `None` the user-provided geometries will be
+        use directly without optimization while the water molecule and oxonium ion structures will be otimized using
+        the BP86/def2-TZVPD (as the default OpenCOSMO-RS settings).
     use_cosmors : bool
-        If set to `True` will use OpenCOSMO-RS to compute solvation energies
+        If set to `True` will also use OpenCOSMO-RS to compute solvation energies.
     use_engine_settings : bool
-        If set to `True` will use the engine level of theory to run the COSMO-RS calculation (not advisable)
+        If set to `True` will use the engine level of theory to run the COSMO-RS calculation (not advisable) else
+        the default BP86/def2-TZVPD level of theory will be used.
     ncores : Optional[int]
         The number of cores to be used in the calculations. If set to `None` (default) will use
         the maximun number of available cores.
@@ -182,10 +185,6 @@ def run_pKa_workflow(
     # Check if the given structures are compatible with a pKa calculation
     check_structure_acid_base_pair(protonated, deprotonated)
 
-    # Check if the method to be used for geometry optimization is xtb or orca
-    if type(method_geometry) not in [XtbInput, OrcaInput]:
-        raise TypeError("The geometry optimization method must be xTB or orca.")
-
     # Check if the method to be used for frequency calculations is xtb or orca
     if type(method_vibronic) not in [XtbInput, OrcaInput]:
         raise TypeError("The frequency calculation method must be xTB or orca.")
@@ -193,7 +192,10 @@ def run_pKa_workflow(
     # Check if the method to be used for energy calculations is xtb or orca
     if type(method_electonic) not in [XtbInput, OrcaInput] and method_electonic is not None:
         raise TypeError("The energy calculation method must be xTB or orca.")
-
+    
+    # Create an empty dictionary to store the computed pKas and Gibbs free energies
+    computed_pka, free_energies = {}, {}
+    
     # Define structures of water and oxonium ion
     water_xyz = retrieve_structure("water")
     water = System("water", charge=0, spin=1, geometry=water_xyz)
@@ -201,14 +203,29 @@ def run_pKa_workflow(
     oxonium_xyz = retrieve_structure("oxonium")
     oxonium = System("oxonium", charge=1, spin=1, geometry=oxonium_xyz)
 
-    # Create an empty dictionary to store the computed pKas and Gibbs free energies
-    computed_pka, free_energies = {}, {}
+    # RUN THE REQUIRED GEOMETRY OPTIMIZATIONS
+    if method_geometry is None:
+        logger.warning("No geometry method provided, the pKa calculations will run using the user-provided structures")
+        logger.info("The geometries for the water and oxonium ions will be computed using BP86/def2-TZVPD")
 
-    # Run geometry optimization for all structures in solvent
-    protonated_sol = method_geometry.opt(protonated, ncores=ncores, maxcore=maxcore)
-    deprotonated_sol = method_geometry.opt(deprotonated, ncores=ncores, maxcore=maxcore)
-    water_sol = method_geometry.opt(water, ncores=ncores, maxcore=maxcore)
-    oxonium_sol = method_geometry.opt(oxonium, ncores=ncores, maxcore=maxcore)
+        # Run only the geometry optimizations for the water and oxonium molecules using BP86/def2-TZVPD as default
+        default_geom_engine = OrcaInput(method="BP86", basis_set="def2-TZVPD", solvent="water")
+        water_sol = default_geom_engine.opt(water, ncores=ncores, maxcore=maxcore)
+        oxonium_sol = default_geom_engine.opt(oxonium, ncores=ncores, maxcore=maxcore)
+
+        # Copy user provided input structures
+        protonated_sol = deepcopy(protonated)
+        deprotonated_sol = deepcopy(deprotonated)
+
+    elif type(method_geometry) not in [XtbInput, OrcaInput]:
+        raise TypeError("The geometry optimization method must be xTB or orca.")
+
+    else:
+        # Run geometry optimization for all structures in solvent
+        protonated_sol = method_geometry.opt(protonated, ncores=ncores, maxcore=maxcore)
+        deprotonated_sol = method_geometry.opt(deprotonated, ncores=ncores, maxcore=maxcore)
+        water_sol = method_geometry.opt(water, ncores=ncores, maxcore=maxcore)
+        oxonium_sol = method_geometry.opt(oxonium, ncores=ncores, maxcore=maxcore)
 
     # Run frequency calculation for all structures in solvent
     if method_vibronic != method_geometry:
