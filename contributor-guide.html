@@ -123,7 +123,7 @@
 </li>
 <li><p>Now, when running the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code> command, the following reposiotries shold be visible:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">upstream</span></code>, which refers to the GES-compchem repository</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upstream</span></code>, which refers to the SPyCCI repository</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">origin</span></code>, which refers to your personal fork</p></li>
 </ul>
 </li>
@@ -142,7 +142,7 @@
 </pre></div>
 </div>
 </li>
-<li><p>Commit locally as you progress (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>) Use a properly formatted commit message. If possible, write tests that fail before your change and pass afterward, run all the tests locally. Be aware that the whole suite of tests can be run using <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">--cov</span></code>. Before the commit use <code class="docutils literal notranslate"><span class="pre">tox</span></code> to verify the compatibility with all the supported version of python (<code class="docutils literal notranslate"><span class="pre">tox</span></code> will run only unit tests if executed using the provided <code class="docutils literal notranslate"><span class="pre">tox.ini</span></code> configuration file). Be sure to document any changed behavior in docstrings, keeping to the <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">NumPy docstring standard</a>. Sphinx annotation are very welcome. If brand new functionality are added to the package make sure to update the documentation as well.</p></li>
+<li><p>Commit locally as you progress (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>) and use a properly formatted commit message. If possible, write tests that fail before your change and pass afterward, run all the tests locally. Be aware that the whole suite of tests can be run using <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">--cov</span></code>. More informations about testing can be found in the <a class="reference internal" href="#testing-info"><span class="std std-ref">dedicated section</span></a>. Before the commit use <code class="docutils literal notranslate"><span class="pre">tox</span></code> to verify the compatibility with all the supported version of python (<code class="docutils literal notranslate"><span class="pre">tox</span></code> will run only unit tests if executed using the provided <code class="docutils literal notranslate"><span class="pre">tox.ini</span></code> configuration file). Be sure to document any changed behavior in docstrings, keeping to the <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">NumPy docstring standard</a>. Sphinx annotation are very welcome. If brand new functionality are added to the package make sure to update the documentation as well.</p></li>
 </ul>
 </li>
 <li><p>To submit your contribution:</p>
@@ -158,6 +158,24 @@
 </ul>
 </li>
 </ul>
+</section>
+<section id="more-info-about-testing">
+<span id="testing-info"></span><h2>More info about testing<a class="headerlink" href="#more-info-about-testing" title="Link to this heading"></a></h2>
+<p>Testing in the SPyCCI library has been divided into three categories:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">unit</span></code>: All the tests related to the inner workings of the library, the object definitions and all the sanity checks concerning data integrity and interactions between class objects.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">integration</span></code>: All the tests related to the interaction between <code class="docutils literal notranslate"><span class="pre">SPyCCI</span></code> and the calculation softwares. These test are intended to verify the correctness of the submitted calculations and the results obtained from the parsing routines.
+*<code class="docutils literal notranslate"><span class="pre">functional</span></code>: All the rest related to the operation of composite functions involving one or more calculation software and further data processing by <code class="docutils literal notranslate"><span class="pre">SPyCCI</span></code> itself.</p></li>
+</ul>
+<p>As such, <code class="docutils literal notranslate"><span class="pre">unit</span></code> test can be run without any third party software while <code class="docutils literal notranslate"><span class="pre">integration</span></code> and <code class="docutils literal notranslate"><span class="pre">functional</span></code> tests require the computational softwares to be available. For the current version of <code class="docutils literal notranslate"><span class="pre">SPyCCI</span></code> the following version of third party software are required for testing:</p>
+<ul class="simple">
+<li><p>orca <code class="docutils literal notranslate"><span class="pre">6.0.1</span></code></p></li>
+<li><p>xtb <code class="docutils literal notranslate"><span class="pre">6.7.1</span></code></p></li>
+<li><p>crest <code class="docutils literal notranslate"><span class="pre">3.0.2</span></code></p></li>
+<li><p>dftb+ <code class="docutils literal notranslate"><span class="pre">24.1</span></code></p></li>
+<li><p>packmol <code class="docutils literal notranslate"><span class="pre">20.14.2</span></code></p></li>
+</ul>
+<p>Compatibility of the available test with other versions must be verified.</p>
 </section>
 </section>
 
