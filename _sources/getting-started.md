@@ -14,6 +14,8 @@ kernelspec:
 
 # Getting Started
 
+Only Python **3.10**, **3.11**, and **3.12** are officially supported. Although Python **3.13** is not yet among the actively supported versions, no compatibility issues have been reported, and it will be officially supported soon.
+
 The `SPyCCI` package can be installed by first downloading the repository from our [GitHub](https://github.com/hbar-team/SPyCCI) page and then installing via `pip`. 
 
 :::{admonition} Note
