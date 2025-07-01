@@ -184,30 +184,78 @@
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;../example_files/water.xyz&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">mol_opt</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;../example_files/water.json&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; ~~~ mol: ~~~ &quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> ~~~ mol: ~~~ 
+=========================================================
+SYSTEM: water
+=========================================================
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/spycci/systems.py:81,</span> in <span class="ni">System.__init__</span><span class="nt">(self, molecule, charge, spin, box_side, geometry)</span>
-<span class="g g-Whitespace">     </span><span class="mi">79</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__box_side</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Box Side&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">80</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__geometry</span> <span class="o">=</span> <span class="n">MolecularGeometry</span><span class="p">()</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Geometry&quot;</span><span class="p">])</span>
-<span class="ne">---&gt; </span><span class="mi">81</span>     <span class="bp">self</span><span class="o">.</span><span class="n">properties</span> <span class="o">=</span> <span class="n">Properties</span><span class="p">()</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Properties&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span>     <span class="bp">self</span><span class="o">.</span><span class="n">flags</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Flags&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">84</span> <span class="k">elif</span> <span class="n">geometry</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+Number of atoms: 3
+Charge: 0
+Spin multiplicity: 1
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/spycci/core/properties.py:264,</span> in <span class="ni">Properties.from_dict</span><span class="nt">(cls, data)</span>
-<span class="g g-Whitespace">    </span><span class="mi">262</span> <span class="n">obj</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">263</span> <span class="n">obj</span><span class="o">.</span><span class="n">__level_of_theory_electronic</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Level of theory electronic&quot;</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">264</span> <span class="n">obj</span><span class="o">.</span><span class="n">__level_of_theory_vibrational</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Level of theory vibrational&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">265</span> <span class="n">obj</span><span class="o">.</span><span class="n">__electronic_energy</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Electronic energy (Eh)&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">266</span> <span class="n">obj</span><span class="o">.</span><span class="n">__free_energy_correction</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Free energy correction G-E(el) (Eh)&quot;</span><span class="p">]</span>
+********************** GEOMETRY *************************
 
-<span class="ne">KeyError</span>: &#39;Level of theory vibrational&#39;
+Total system mass: 18.0153 amu
+
+----------------------------------------------
+ index  atom    x (Å)      y (Å)      z (Å)   
+----------------------------------------------
+ 0       O     0.03595    2.78898    0.00000  
+ 1       H     1.00595    2.78898    0.00000  
+ 2       H    -0.28738    2.19789    0.69783  
+----------------------------------------------
+
+********************** PROPERTIES *************************
+
+Geometry level of theory: None
+Electronic level of theory: None
+Vibronic level of theory: None
+
+Electronic energy: None Eh
+Gibbs free energy correction G-E(el): None Eh
+Gibbs free energy: None Eh
+pKa: None
+
+
+ ~~~ mol_opt: ~~~ 
+=========================================================
+SYSTEM: water
+=========================================================
+
+Number of atoms: 3
+Charge: 0
+Spin multiplicity: 1
+
+********************** GEOMETRY *************************
+
+Total system mass: 18.0153 amu
+
+----------------------------------------------
+ index  atom    x (Å)      y (Å)      z (Å)   
+----------------------------------------------
+ 0       O     0.00000   -0.37937    0.00000  
+ 1       H     0.77221    0.18968   -0.00000  
+ 2       H    -0.77221    0.18969    0.00000  
+----------------------------------------------
+
+********************** PROPERTIES *************************
+
+Geometry level of theory: XtbInput || method: gfn2 | solvent: None
+Electronic level of theory: XtbInput || method: gfn2 | solvent: None
+Vibronic level of theory: XtbInput || method: gfn2 | solvent: None
+
+Electronic energy: -5.070544446692 Eh
+Gibbs free energy correction G-E(el): 0.002508973529 Eh
+Gibbs free energy: -5.0680354731629995 Eh
+pKa: None
+
+MULLIKEN ANALYSIS
+----------------------------------------------
+ index  atom   charge    spin
+----------------------------------------------
+ 0       O    -0.56500  0.00000  
+ 1       H    0.28200   0.00000  
+ 2       H    0.28200   0.00000  
 </pre></div>
 </div>
 </div>
@@ -229,6 +277,82 @@
 </pre></div>
 </div>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> ~~~ mol before opt: ~~~ 
+=========================================================
+SYSTEM: water
+=========================================================
+
+Number of atoms: 3
+Charge: 0
+Spin multiplicity: 1
+
+********************** GEOMETRY *************************
+
+Total system mass: 18.0153 amu
+
+----------------------------------------------
+ index  atom    x (Å)      y (Å)      z (Å)   
+----------------------------------------------
+ 0       O     0.03595    2.78898    0.00000  
+ 1       H     1.00595    2.78898    0.00000  
+ 2       H    -0.28738    2.19789    0.69783  
+----------------------------------------------
+
+********************** PROPERTIES *************************
+
+Geometry level of theory: None
+Electronic level of theory: None
+Vibronic level of theory: None
+
+Electronic energy: None Eh
+Gibbs free energy correction G-E(el): None Eh
+Gibbs free energy: None Eh
+pKa: None
+
+
+ ~~~ mol after opt: ~~~ 
+=========================================================
+SYSTEM: water
+=========================================================
+
+Number of atoms: 3
+Charge: 0
+Spin multiplicity: 1
+
+********************** GEOMETRY *************************
+
+Total system mass: 18.0153 amu
+
+----------------------------------------------
+ index  atom    x (Å)      y (Å)      z (Å)   
+----------------------------------------------
+ 0       O     0.00000   -0.37937    0.00000  
+ 1       H     0.77221    0.18968   -0.00000  
+ 2       H    -0.77221    0.18969    0.00000  
+----------------------------------------------
+
+********************** PROPERTIES *************************
+
+Geometry level of theory: XtbInput || method: gfn2 | solvent: None
+Electronic level of theory: XtbInput || method: gfn2 | solvent: None
+Vibronic level of theory: XtbInput || method: gfn2 | solvent: None
+
+Electronic energy: -5.070544446692 Eh
+Gibbs free energy correction G-E(el): 0.002508973529 Eh
+Gibbs free energy: -5.0680354731629995 Eh
+pKa: None
+
+MULLIKEN ANALYSIS
+----------------------------------------------
+ index  atom   charge    spin
+----------------------------------------------
+ 0       O    -0.56500  0.00000  
+ 1       H    0.28200   0.00000  
+ 2       H    0.28200   0.00000  
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <hr class="docutils" />
@@ -319,6 +443,196 @@
 </pre></div>
 </div>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=========================================================
+SYSTEM: urea_50waters
+=========================================================
+
+Number of atoms: 158
+Charge: 0
+Spin multiplicity: 1
+Periodic system with box size: 11.6968 Å
+
+********************** GEOMETRY *************************
+
+Total system mass: 960.8193 amu
+
+----------------------------------------------
+ index  atom    x (Å)      y (Å)      z (Å)   
+----------------------------------------------
+ 0       C     5.67500    5.59400    6.27900  
+ 1       N     5.71300    4.95300    5.03000  
+ 2       H     5.90100    3.95900    5.06700  
+ 3       H     6.17200    5.43600    4.26800  
+ 4       N     5.71500    6.99700    6.23800  
+ 5       H     6.16900    7.43100    5.44400  
+ 6       H     5.90800    7.44500    7.12600  
+ 7       O     5.53500    4.97100    7.33300  
+ 8       O     2.47400    9.08200   10.90000  
+ 9       H     3.23500    9.68300   10.87900  
+ 10      H     1.81500    9.37200   10.25000  
+ 11      O    10.78300    7.99900   10.76900  
+ 12      H    11.70800    7.70900   10.73400  
+ 13      H    10.49500    8.04700   11.69400  
+ 14      O     2.17100   11.77100   11.44600  
+ 15      H     1.70000   10.96300   11.70400  
+ 16      H     3.10000   11.70300   11.71400  
+ 17      O     9.93400    5.53200    5.55800  
+ 18      H     9.91300    6.50100    5.58600  
+ 19      H    10.36900    5.19500    6.35800  
+ 20      O    10.99800    5.21200   11.69500  
+ 21      H    10.22100    5.79300   11.68000  
+ 22      H    10.72600    4.30400   11.49000  
+ 23      O    10.85700    5.88700    1.00600  
+ 24      H    10.07800    5.55300    1.47800  
+ 25      H    11.63600    5.36900    1.26200  
+ 26      O    11.61800    1.74200    1.63700  
+ 27      H    11.69700    2.34600    2.39200  
+ 28      H    10.98200    2.10200    1.00000  
+ 29      O     5.06300    3.49700    8.90800  
+ 30      H     4.13400    3.77700    8.88100  
+ 31      H     5.11000    2.52900    8.88300  
+ 32      O     8.61600   10.41700   11.62500  
+ 33      H     9.27500    9.77700   11.31400  
+ 34      H     8.99600   11.30900   11.60200  
+ 35      O     1.74500    1.12200    9.39300  
+ 36      H     2.55100    1.00100    8.86700  
+ 37      H     1.06200    1.54000    8.84600  
+ 38      O     3.34600    5.04200    6.98500  
+ 39      H     2.56800    5.27900    7.51400  
+ 40      H     3.47600    5.70300    6.28800  
+ 41      O     1.31800    9.69100    3.75600  
+ 42      H     2.19300    9.66500    4.17300  
+ 43      H     1.34900   10.26600    2.97500  
+ 44      O     8.52200    5.14800    3.92300  
+ 45      H     8.27600    6.04300    4.20500  
+ 46      H     8.51700    5.10200    2.95400  
+ 47      O     1.70200    7.82300    7.62700  
+ 48      H     1.12000    7.07800    7.41100  
+ 49      H     2.47900    7.80500    7.04700  
+ 50      O     5.67500   10.96200   10.65500  
+ 51      H     5.02200   11.67900   10.65100  
+ 52      H     6.09300   10.91100   11.52900  
+ 53      O    10.90200   11.12500    7.60400  
+ 54      H    10.12200   11.69900    7.55800  
+ 55      H    11.69800   11.66900    7.71000  
+ 56      O     4.97500    4.77100   11.60400  
+ 57      H     4.02800    4.66900   11.42300  
+ 58      H     5.40300    3.90100   11.58200  
+ 59      O     4.15300    8.12600    8.44100  
+ 60      H     4.20000    7.15900    8.39500  
+ 61      H     3.53700    8.38700    9.14300  
+ 62      O     8.71900    2.92700    5.07200  
+ 63      H     9.65300    3.18900    5.11100  
+ 64      H     8.62300    2.02300    5.41100  
+ 65      O    11.57200    9.44900    5.69900  
+ 66      H    11.67400    8.60700    5.22800  
+ 67      H    11.65000    9.29600    6.65400  
+ 68      O     8.52400    4.57400    7.27900  
+ 69      H     8.31200    5.49400    7.05600  
+ 70      H     7.89500    3.98200    6.83800  
+ 71      O    11.62100   10.71500    1.88400  
+ 72      H    11.54200    9.91200    1.34500  
+ 73      H    10.80900   11.24000    1.80300  
+ 74      O     5.53900   10.74300    6.88500  
+ 75      H     5.41800   11.69500    7.02100  
+ 76      H     4.70200   10.34900    6.59200  
+ 77      O     1.62300    4.47100    9.31600  
+ 78      H     2.32600    4.37300    9.97700  
+ 79      H     1.00700    3.72500    9.38500  
+ 80      O    10.96000   11.13300    4.49800  
+ 81      H    11.69600   11.68400    4.80900  
+ 82      H    10.29800   11.69400    4.06400  
+ 83      O     4.75300    9.95800    3.51200  
+ 84      H     4.60500    9.01000    3.37400  
+ 85      H     4.47600   10.20200    4.40900  
+ 86      O     4.14300    7.75400   11.32000  
+ 87      H     4.73200    8.38100   11.76900  
+ 88      H     4.35300    6.85200   11.60700  
+ 89      O     1.79700   11.68700    5.82700  
+ 90      H     0.99500   11.28000    5.46300  
+ 91      H     2.54500   11.51200    5.23500  
+ 92      O     8.55900    1.56200   11.67000  
+ 93      H     8.87900    2.43900   11.40700  
+ 94      H     8.38300    1.03100   10.87800  
+ 95      O     8.48500    7.43200    8.05400  
+ 96      H     8.10400    8.23500    7.66600  
+ 97      H     9.03000    7.67000    8.82000  
+ 98      O     4.12100    3.00400    4.22900  
+ 99      H     4.05300    2.05000    4.07300  
+ 100     H     3.44200    3.27700    4.86600  
+ 101     O     2.42700    2.30300    6.61300  
+ 102     H     2.99500    2.53900    7.36300  
+ 103     H     2.11600    1.39000    6.71900  
+ 104     O     5.87600    7.49700    9.92000  
+ 105     H     6.32400    7.28500   10.75400  
+ 106     H     5.77900    8.45900    9.84100  
+ 107     O    10.75800    1.15400   10.42100  
+ 108     H    10.70300    1.23900   11.38600  
+ 109     H    11.68000    1.00000   10.16200  
+ 110     O     3.21800    2.66200   11.00900  
+ 111     H     3.15800    1.69400   10.97800  
+ 112     H     2.62000    3.00000   11.69400  
+ 113     O    11.00700    7.30500    7.30100  
+ 114     H    11.09200    7.59800    8.22200  
+ 115     H    11.75400    6.72900    7.07500  
+ 116     O     7.99000   10.93200    8.70000  
+ 117     H     7.10100   10.56800    8.83200  
+ 118     H     8.52100   10.30800    8.18200  
+ 119     O    11.42300    1.01000    7.65600  
+ 120     H    11.68500    1.43200    6.82300  
+ 121     H    10.63400    1.45100    8.00800  
+ 122     O     1.94600    7.16000    9.92400  
+ 123     H     1.03900    7.39600    9.67300  
+ 124     H     2.31400    6.54900    9.26800  
+ 125     O    11.13200    4.43200    4.08400  
+ 126     H    11.69600    3.64500    4.14600  
+ 127     H    11.68700    5.21900    3.97000  
+ 128     O     8.93500    8.62000    3.76600  
+ 129     H     8.38500    9.24600    4.26300  
+ 130     H     9.87100    8.84800    3.88700  
+ 131     O    11.60900    3.25900    8.27200  
+ 132     H    11.67900    4.04600    8.83400  
+ 133     H    11.35400    3.52500    7.37400  
+ 134     O    10.78200   11.05900   10.35900  
+ 135     H    11.71300   11.31800   10.44700  
+ 136     H    10.34100   11.65100    9.73000  
+ 137     O     1.98800    7.38900    2.56100  
+ 138     H     2.69800    8.04500    2.47400  
+ 139     H     2.16900    6.81800    3.32400  
+ 140     O     6.42500    1.80800   10.47800  
+ 141     H     6.39500    1.81500   11.44800  
+ 142     H     5.99100    1.00700   10.14700  
+ 143     O     6.69100    5.59300    9.40600  
+ 144     H     6.85800    6.05700    8.57100  
+ 145     H     7.48300    5.09600    9.66400  
+ 146     O     9.31200    1.00000    2.02900  
+ 147     H     8.87300    1.80800    1.71900  
+ 148     H     9.84100    1.20100    2.81600  
+ 149     O     1.36500    3.68100    4.28200  
+ 150     H     1.00300    3.16500    5.01900  
+ 151     H     1.29200    3.16800    3.46200  
+ 152     O    10.16100    5.51700    9.35700  
+ 153     H     9.98800    5.75600    8.43300  
+ 154     H    10.98000    5.94600    9.65300  
+ 155     O     1.74500   11.70100    9.19700  
+ 156     H     2.36700   11.00300    8.94000  
+ 157     H     0.99600   11.30700    9.67100  
+----------------------------------------------
+
+********************** PROPERTIES *************************
+
+Geometry level of theory: None
+Electronic level of theory: None
+Vibronic level of theory: None
+
+Electronic energy: None Eh
+Gibbs free energy correction G-E(el): None Eh
+Gibbs free energy: None Eh
+pKa: None
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
