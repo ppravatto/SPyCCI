@@ -264,89 +264,28 @@ f^0(r) = \frac{1}{2} \left[\rho_{N+1}(r) - \rho_{N-1}(r)\right]
 <p>That for the acetaldehyde molecule returns the following result:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=========================================================
-SYSTEM: acetaldehyde
-=========================================================
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;../example_files/acetaldehyde.json&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 
-Number of atoms: 7
-Charge: 0
-Spin multiplicity: 1
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/spycci/systems.py:81,</span> in <span class="ni">System.__init__</span><span class="nt">(self, molecule, charge, spin, box_side, geometry)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__box_side</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Box Side&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__geometry</span> <span class="o">=</span> <span class="n">MolecularGeometry</span><span class="p">()</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Geometry&quot;</span><span class="p">])</span>
+<span class="ne">---&gt; </span><span class="mi">81</span>     <span class="bp">self</span><span class="o">.</span><span class="n">properties</span> <span class="o">=</span> <span class="n">Properties</span><span class="p">()</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Properties&quot;</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>     <span class="bp">self</span><span class="o">.</span><span class="n">flags</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Flags&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span> <span class="k">elif</span> <span class="n">geometry</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
-********************** GEOMETRY *************************
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/spycci/core/properties.py:264,</span> in <span class="ni">Properties.from_dict</span><span class="nt">(cls, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span> <span class="n">obj</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">263</span> <span class="n">obj</span><span class="o">.</span><span class="n">__level_of_theory_electronic</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Level of theory electronic&quot;</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">264</span> <span class="n">obj</span><span class="o">.</span><span class="n">__level_of_theory_vibrational</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Level of theory vibrational&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span> <span class="n">obj</span><span class="o">.</span><span class="n">__electronic_energy</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Electronic energy (Eh)&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span> <span class="n">obj</span><span class="o">.</span><span class="n">__free_energy_correction</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Free energy correction G-E(el) (Eh)&quot;</span><span class="p">]</span>
 
-Total system mass: 44.0526 amu
-
-----------------------------------------------
- index  atom    x (Å)      y (Å)      z (Å)   
-----------------------------------------------
- 0       C    -3.00790    0.17495    0.13810  
- 1       C    -3.66800    1.53034    0.11359  
- 2       H    -3.22195    2.19896    0.87341  
- 3       H    -4.75895    1.41874    0.29379  
- 4       H    -3.56793    1.97830   -0.89850  
- 5       O    -2.11052   -0.15105    0.88722  
- 6       H    -3.42225   -0.55833   -0.62459  
-----------------------------------------------
-
-********************** PROPERTIES *************************
-
-Geometry level of theory: OrcaInput || method: PBE | basis: def2-SVP | solvent: None
-Electronic level of theory: OrcaInput || method: PBE | basis: def2-SVP | solvent: None
-Vibronic level of theory: OrcaInput || method: PBE | basis: def2-SVP | solvent: None
-
-Electronic energy: -153.528266323306 Eh
-Vibronic energy: 0.02861407 Eh
-Helmholtz free energy: None Eh
-Gibbs free energy: -153.49965226 Eh
-pKa: None
-
-MULLIKEN ANALYSIS
-----------------------------------------------
- index  atom   charge    spin
-----------------------------------------------
- 0       C    0.05436   0.00000  
- 1       C    -0.04823  0.00000  
- 2       H    0.05176   0.00000  
- 3       H    0.05695   0.00000  
- 4       H    0.05677   0.00000  
- 5       O    -0.17156  0.00000  
- 6       H    -0.00005  0.00000  
-
-CONDENSED FUKUI - MULLIKEN
-----------------------------------------------
- index  atom    f+      f-      f0
-----------------------------------------------
- 0       C    0.23610   0.08077   0.15843  
- 1       C    -0.11416  -0.02731  -0.07074 
- 2       H    0.12882   0.11125   0.12003  
- 3       H    0.15563   0.12121   0.13842  
- 4       H    0.15492   0.12121   0.13806  
- 5       O    0.22073   0.35571   0.28822  
- 6       H    0.21797   0.23717   0.22757  
-
-HIRSHFELD ANALYSIS
-----------------------------------------------
- index  atom   charge    spin
-----------------------------------------------
- 0       C    0.14702   0.00000  
- 1       C    -0.07279  0.00000  
- 2       H    0.04088   0.00000  
- 3       H    0.04575   0.00000  
- 4       H    0.04567   0.00000  
- 5       O    -0.22623  0.00000  
- 6       H    0.01970   0.00000  
-
-CONDENSED FUKUI - HIRSHFELD
-----------------------------------------------
- index  atom    f+      f-      f0
-----------------------------------------------
- 0       C    0.28818   0.15946   0.22382  
- 1       C    0.07190   0.09734   0.08462  
- 2       H    0.05820   0.06063   0.05941  
- 3       H    0.09907   0.07355   0.08631  
- 4       H    0.09850   0.07352   0.08601  
- 5       O    0.25823   0.37205   0.31514  
- 6       H    0.12592   0.16345   0.14468  
+<span class="ne">KeyError</span>: &#39;Level of theory vibrational&#39;
 </pre></div>
 </div>
 </div>

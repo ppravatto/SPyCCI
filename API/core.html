@@ -519,7 +519,7 @@ saved and used to re-load the object using the built-in <cite>from_dict</cite> c
 <dl class="py class">
 <dt class="sig sig-object py" id="spycci.core.properties.Properties">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spycci.core.properties.</span></span><span class="sig-name descname"><span class="pre">Properties</span></span><a class="headerlink" href="#spycci.core.properties.Properties" title="Link to this definition"></a></dt>
-<dd><p>Class containing the properties associated to a system when a given electronic and vibronic
+<dd><p>Class containing the properties associated to a system when a given electronic and vibrational
 level of theory are considered. The class automatically stores the level of theory associated
 to the coputed properties and checks, whenever a new property is set, that a given input data
 is compatible with the current used level of theory. In normal conditions (strict mode)
@@ -573,6 +573,21 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 </dl>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.free_energy_correction">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">free_energy_correction</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#spycci.core.properties.Properties.free_energy_correction" title="Link to this definition"></a></dt>
+<dd><p>The free energy correction G-E(el) as the difference between the Gibbs free energy
+and the electronic energy (in Hartree).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The free energy correction in Hartree.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="spycci.core.properties.Properties.from_dict">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.from_dict" title="Link to this definition"></a></dt>
@@ -593,24 +608,11 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 <dl class="py property">
 <dt class="sig sig-object py" id="spycci.core.properties.Properties.gibbs_free_energy">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gibbs_free_energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#spycci.core.properties.Properties.gibbs_free_energy" title="Link to this definition"></a></dt>
-<dd><p>The Gibbs free energy of the system in Hartree.</p>
+<dd><p>The Gibbs free energy of the system in Hartree as the
+sum of Electronic energy and free energy correction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The Gibbs free energy of the system in Hartree.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="spycci.core.properties.Properties.helmholtz_free_energy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">helmholtz_free_energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#spycci.core.properties.Properties.helmholtz_free_energy" title="Link to this definition"></a></dt>
-<dd><p>The Helmholtz free energy of the system in Hartree.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The Helmholtz free energy of the system in Hartree.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>float</p>
@@ -661,12 +663,12 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="spycci.core.properties.Properties.level_of_theory_vibronic">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">level_of_theory_vibronic</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#spycci.core.properties.Properties.level_of_theory_vibronic" title="Link to this definition"></a></dt>
-<dd><p>The level of theory adopted for the vibronic calculations</p>
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.level_of_theory_vibrational">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">level_of_theory_vibrational</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#spycci.core.properties.Properties.level_of_theory_vibrational" title="Link to this definition"></a></dt>
+<dd><p>The level of theory adopted for the vibrational calculations</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The string encoding the vibronic level of theory</p>
+<dd class="field-odd"><p>The string encoding the vibrational level of theory</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
@@ -780,37 +782,18 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="spycci.core.properties.Properties.set_gibbs_free_energy">
-<span class="sig-name descname"><span class="pre">set_gibbs_free_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electronic_engine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vibronic_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_gibbs_free_energy" title="Link to this definition"></a></dt>
-<dd><p>Sets the Gibbs free energy of the system.</p>
+<dt class="sig sig-object py" id="spycci.core.properties.Properties.set_free_energy_correction">
+<span class="sig-name descname"><span class="pre">set_free_energy_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vibrational_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_free_energy_correction" title="Link to this definition"></a></dt>
+<dd><p>Sets the free energy correction G-E(el) of the system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>float</em>) – The Gibbs free energy of the system in Hartree.</p></li>
-<li><p><strong>electronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the electronic calculation.</p></li>
-<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the vibronic calculation.</p></li>
+<li><p><strong>value</strong> (<em>float</em>) – The free energy correction of the system in Hartree.</p></li>
+<li><p><strong>vibrational_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the calculation.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spycci.core.properties.Properties.set_helmholtz_free_energy">
-<span class="sig-name descname"><span class="pre">set_helmholtz_free_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electronic_engine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vibronic_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_helmholtz_free_energy" title="Link to this definition"></a></dt>
-<dd><p>Sets the Helmholtz free energy of the system.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>float</em>) – The Helmholtz free energy of the system in Hartree.</p></li>
-<li><p><strong>electronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the electronic calculation.</p></li>
-<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the vibronic calculation.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>float</p>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -885,14 +868,14 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spycci.core.properties.Properties.set_pka">
-<span class="sig-name descname"><span class="pre">set_pka</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electronic_engine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vibronic_engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_pka" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_pka</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electronic_engine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vibrational_engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_pka" title="Link to this definition"></a></dt>
 <dd><p>Sets the pKa of the system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<em>float</em>) – The pKa of the system.</p></li>
 <li><p><strong>electronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the electronic calculation.</p></li>
-<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the vibronic calculation. (optional)</p></li>
+<li><p><strong>vibrational_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the vibrational calculation. (optional)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -903,30 +886,13 @@ are stored in the dictionary according to the <cite>f+</cite>, <cite>f-</cite> a
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spycci.core.properties.Properties.set_vibrational_data">
-<span class="sig-name descname"><span class="pre">set_vibrational_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vibronic_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_vibrational_data" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_vibrational_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vibrational_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_vibrational_data" title="Link to this definition"></a></dt>
 <dd><p>Sets condensed Fukui values computed from the Hirshfeld charges.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<em>VibrationalData</em>) – The class encoding all the vibrational data associated to the molecule</p></li>
-<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the vibronic calculation.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="spycci.core.properties.Properties.set_vibronic_energy">
-<span class="sig-name descname"><span class="pre">set_vibronic_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vibronic_engine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.core.properties.Properties.set_vibronic_energy" title="Link to this definition"></a></dt>
-<dd><p>Sets the vibronic energy of the system.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>float</em>) – The vibronic energy of the system in Hartree.</p></li>
-<li><p><strong>vibronic_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the calculation.</p></li>
+<li><p><strong>vibrational_engine</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em>, </em><em>str</em><em>]</em>) – The engine used in the vibrational calculation.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -960,20 +926,6 @@ saved and used to re-load the object using the built-in <cite>from_dict</cite> c
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>VibrationalData</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="spycci.core.properties.Properties.vibronic_energy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vibronic_energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#spycci.core.properties.Properties.vibronic_energy" title="Link to this definition"></a></dt>
-<dd><p>The vibronic energy of the system in Hartree.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The vibronic energy of the system in Hartree.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>float</p>
 </dd>
 </dl>
 </dd></dl>

@@ -146,8 +146,8 @@ their energy computed with a user-defined level of theory and calculates the pKa
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>protonated</strong> (<a class="reference internal" href="systems.html#spycci.systems.System" title="spycci.systems.System"><em>System</em></a>) – The protonated molecule for which the pKa must be computed</p></li>
 <li><p><strong>method_el</strong> (<a class="reference internal" href="core.html#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a>) – The computational engine to be used in the electronic level of theory calculations</p></li>
-<li><p><strong>method_vib</strong> (<a class="reference internal" href="core.html#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em> (</em><em>optional</em><em>)</em>) – The computational engine to be used in the vibronic level of theory calculations. If
-set to None (default) the pKa will be computed without the vibronic contributions.</p></li>
+<li><p><strong>method_vib</strong> (<a class="reference internal" href="core.html#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em> (</em><em>optional</em><em>)</em>) – The computational engine to be used in the vibrational level of theory calculations. If
+set to None (default) the pKa will be computed without the free energy corrections (only electronic energy).</p></li>
 <li><p><strong>method_opt</strong> (<a class="reference internal" href="core.html#spycci.core.base.Engine" title="spycci.core.base.Engine"><em>Engine</em></a><em> (</em><em>optional</em><em>)</em>) – The computational engine to be used in the geometry optimization of the protonated
 molecule and its deprotomers. If set to None (default) will use xTB gfn2 and the
 alpb solvent model for water.</p></li>

@@ -177,8 +177,7 @@ Electronic level of theory: None
 Vibronic level of theory: None
 
 Electronic energy: None Eh
-Vibronic energy: None Eh
-Helmholtz free energy: None Eh
+Gibbs free energy correction G-E(el): None Eh
 Gibbs free energy: None Eh
 pKa: None
 </pre></div>
@@ -226,45 +225,28 @@ pKa: None
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=========================================================
-SYSTEM: water
-=========================================================
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">water</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;../example_files/water.json&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">water</span><span class="p">)</span>
 
-Number of atoms: 3
-Charge: 0
-Spin multiplicity: 1
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/spycci/systems.py:81,</span> in <span class="ni">System.__init__</span><span class="nt">(self, molecule, charge, spin, box_side, geometry)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__box_side</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Box Side&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__geometry</span> <span class="o">=</span> <span class="n">MolecularGeometry</span><span class="p">()</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Geometry&quot;</span><span class="p">])</span>
+<span class="ne">---&gt; </span><span class="mi">81</span>     <span class="bp">self</span><span class="o">.</span><span class="n">properties</span> <span class="o">=</span> <span class="n">Properties</span><span class="p">()</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Properties&quot;</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>     <span class="bp">self</span><span class="o">.</span><span class="n">flags</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Flags&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span> <span class="k">elif</span> <span class="n">geometry</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
-********************** GEOMETRY *************************
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.23/x64/lib/python3.9/site-packages/spycci/core/properties.py:264,</span> in <span class="ni">Properties.from_dict</span><span class="nt">(cls, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span> <span class="n">obj</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">263</span> <span class="n">obj</span><span class="o">.</span><span class="n">__level_of_theory_electronic</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Level of theory electronic&quot;</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">264</span> <span class="n">obj</span><span class="o">.</span><span class="n">__level_of_theory_vibrational</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Level of theory vibrational&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span> <span class="n">obj</span><span class="o">.</span><span class="n">__electronic_energy</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Electronic energy (Eh)&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span> <span class="n">obj</span><span class="o">.</span><span class="n">__free_energy_correction</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Free energy correction G-E(el) (Eh)&quot;</span><span class="p">]</span>
 
-Total system mass: 18.0153 amu
-
-----------------------------------------------
- index  atom    x (Å)      y (Å)      z (Å)   
-----------------------------------------------
- 0       O     0.00000   -0.37937    0.00000  
- 1       H     0.77221    0.18968   -0.00000  
- 2       H    -0.77221    0.18969    0.00000  
-----------------------------------------------
-
-********************** PROPERTIES *************************
-
-Geometry level of theory: XtbInput || method: gfn2 | solvent: None
-Electronic level of theory: XtbInput || method: gfn2 | solvent: None
-Vibronic level of theory: XtbInput || method: gfn2 | solvent: None
-
-Electronic energy: -5.070544446692 Eh
-Vibronic energy: 0.002508973529 Eh
-Helmholtz free energy: None Eh
-Gibbs free energy: -5.068035473164 Eh
-pKa: None
-
-MULLIKEN ANALYSIS
-----------------------------------------------
- index  atom   charge    spin
-----------------------------------------------
- 0       O    -0.56500  0.00000  
- 1       H    0.28200   0.00000  
- 2       H    0.28200   0.00000  
+<span class="ne">KeyError</span>: &#39;Level of theory vibrational&#39;
 </pre></div>
 </div>
 </div>
