@@ -112,22 +112,25 @@
 <h2><code class="docutils literal notranslate"><span class="pre">calculate_pka</span></code> function<a class="headerlink" href="#calculate-pka-function" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="spycci.functions.calculate_pka">
-<span class="sig-prename descclassname"><span class="pre">spycci.functions.</span></span><span class="sig-name descname"><span class="pre">calculate_pka</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protonated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deprotonated</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.functions.calculate_pka" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">spycci.functions.</span></span><span class="sig-name descname"><span class="pre">calculate_pka</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protonated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deprotonated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_return</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.functions.calculate_pka" title="Link to this definition"></a></dt>
 <dd><p>Calculates the pKa of a molecule using the direct method. The function expects as arguments
 the protonated and deprotonated forms of the molecule as a <cite>System</cite> objects for which the
-energies must have already been computed.</p>
+energies must have already been computed. The function returns the computed pKa and sets (if
+not otherwise indicated by the user) the pka property of the <cite>protonated</cite> system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>protonated</strong> (<em>System object</em>) – molecule in the protonated form</p></li>
-<li><p><strong>deprotonated</strong> (<em>System object</em>) – molecule in the deprotonated form</p></li>
+<li><p><strong>protonated</strong> (<a class="reference internal" href="systems.html#spycci.systems.System" title="spycci.systems.System"><em>System</em></a>) – molecule in the protonated form</p></li>
+<li><p><strong>deprotonated</strong> (<a class="reference internal" href="systems.html#spycci.systems.System" title="spycci.systems.System"><em>System</em></a>) – molecule in the deprotonated form</p></li>
+<li><p><strong>only_return</strong> (<em>bool</em>) – If set to True will not set the computed pKa value in the properties of the <cite>protonated</cite>
+object. Else (default) the pKa property will be initialized using the <cite>DIRECT</cite> method.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>pKa</strong> – pKa of the molecule.</p>
+<dd class="field-even"><p><strong>pKa</strong> – the pKa object encoding the pka of the molecule computed using the direct method.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
+<dd class="field-odd"><p><a class="reference internal" href="core.html#spycci.core.properties.pKa" title="spycci.core.properties.pKa">pKa</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -159,10 +162,13 @@ computation.</p></li>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><em>float</em> – pKa of the molecule.</p></li>
+<li><p><em>pKa</em> – pKa object computed for the molecule.</p></li>
 <li><p><em>System</em> – the structure of the considered deprotomer.</p></li>
 </ul>
 </p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<a class="reference internal" href="core.html#spycci.core.properties.pKa" title="spycci.core.properties.pKa"><em>pKa</em></a>, <a class="reference internal" href="systems.html#spycci.systems.System" title="spycci.systems.System"><em>System</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>

@@ -109,11 +109,9 @@
              
   <section class="tex2jax_ignore mathjax_ignore" id="calculating-properties">
 <span id="guide-functions"></span><h1>Calculating properties<a class="headerlink" href="#calculating-properties" title="Link to this heading"></a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">spycci.functions</span></code> submodule contains a series of methods to “manually” calculate some physical properties of the system under study. The user is expected to provide the exact intended states for the system(s) under study, as the functions will simply take the inputs and generate the output without carrying out any checks. For example, if the user calculates the pKa of a molecule in an unoptimised geometry, the resulting pKa will be that of the unoptimised geometry.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">spycci.functions</span></code> functions can be imported via the following syntax:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.functions</span><span class="w"> </span><span class="kn">import</span> <span class="n">calculate_pka</span>
-</pre></div>
-</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">spycci.functions</span></code> submodule provides a suite of methods for calculating various physical properties of the system under investigation. These functions cover a broad range of topics and often perform multiple operations to assist users in computing chemically relevant results.</p>
+<p>When working within the functions submodule, it is important for users to understand the implications of the calculations performed, including the underlying assumptions and approximations. As <code class="docutils literal notranslate"><span class="pre">spycci.functions</span></code> is continuously evolving, it offers workflows of both general applicability and more specialized use cases. Consequently, users are expected to have a solid understanding of each function’s structure and its required arguments.</p>
+<p>Due to the complexity of many functions, they may perform only minimal sanity checks, relying on the user to ensure the accuracy and appropriateness of the input data. For instance, if a user calculates the pKa using a direct method with an unoptimized geometry, the result will reflect the properties of that unoptimized structure.</p>
 <div class="warning admonition">
 <p class="admonition-title">Empirical corrections</p>
 <p>The functions to calculate pKa and reduction potentials take into account the self-energy of proton and electron for calculations carried out with GFN2-xTB:</p>
@@ -123,28 +121,75 @@
 </ul>
 </div>
 <hr class="docutils" />
-<section id="pka">
-<h2>pKa<a class="headerlink" href="#pka" title="Link to this heading"></a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">spycci.functions.pka</span></code> submodule provides an interface for the computation of the pKa or a given species. The module is, at this time, composed by two functions:</p>
+<section id="pka-calculations">
+<h2>pKa calculations<a class="headerlink" href="#pka-calculations" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">spycci.functions.pka</span></code> submodule provides an interface for the computation of the <span class="math notranslate nohighlight">\(\mathrm{pKa}\)</span> of a given species. The module is, at this time, composed by four functions:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">calculate_pka</span></code>: Computes the pKa of a molecular system and its deprotomer. The user must provide both streucture in the form of <code class="docutils literal notranslate"><span class="pre">System</span></code> objects with an already defined electronic energy and possibly a vibronic one.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">auto_calculate_pka</span></code>: Computes the pKa of a given molecule by automatically searching the lowest-energy deprotomer using CREST. Once the proper deprotomer has been identified the function take care of the geometry optimization of both structures, the calculation of electronic energies and frequencies.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">calculate_pka</span></code>: Computes the pKa of a molecular system using the <a class="reference internal" href="#direct-scheme-pka"><span class="std std-ref">direct scheme</span></a>. The user must provide both the structures of the protomer <span class="math notranslate nohighlight">\(HA\)</span> and deprotomer <span class="math notranslate nohighlight">\(A^-\)</span> in the form of <code class="docutils literal notranslate"><span class="pre">System</span></code> objects with already optimized structures and defined electronic energy and possibly a vibronic one (see later the note about <em>Vibrationless</em> pKa calculations).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">calculate_pka_oxonium_scheme</span></code>: Computes the pKa of a molecular system using the <a class="reference internal" href="#oxonium-scheme-pka"><span class="std std-ref">oxonium scheme</span></a>. The user must provide the structures of the protomer <span class="math notranslate nohighlight">\(HA\)</span>, deprotomer <span class="math notranslate nohighlight">\(A^-\)</span>, water <span class="math notranslate nohighlight">\(H_2O\)</span> and oxonium ion <span class="math notranslate nohighlight">\(H_3O^+\)</span> in the form of <code class="docutils literal notranslate"><span class="pre">System</span></code> objects with already optimized structures and defined electronic energy and possibly a vibronic one (see later the note about <em>Vibrationless</em> pKa calculations).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">auto_calculate_pka</span></code>: Computes the pKa of a given molecule by automatically searching the lowest-energy deprotomer using CREST. Once the proper deprotomer has been identified the function takes care of the geometry optimization of both structures, the calculation of electronic energies and frequencies (see later the note about <em>Vibrationless</em> pKa calculations). With the obtained result the pka is automatically computed using the <a class="reference internal" href="#direct-scheme-pka"><span class="std std-ref">direct scheme</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run_pka_workflow</span></code>: Given the protomer and deprotomer structures, the function takes care of the geometry optimization of both structures in solvent and the calculation of electronic energies and frequencies both in solvent and, if required, in vacuum. The function then computes the pka using both the direct and the oxonium schemes. If required the function computes also a pka using the COSMO-RS solvation energies using the oxonium scheme. Please notice how by running this workflow the frequency calculation cannot be skipped.</p></li>
 </ul>
-<div class="info admonition">
-<p class="admonition-title">Note</p>
-<p>Both functions return the computed pKa value and set the pKa as a property (<code class="docutils literal notranslate"><span class="pre">system.properties.pka</span></code>) of the protonated system. The <code class="docutils literal notranslate"><span class="pre">auto_calculate_pka</span></code> also returns the deprotonated system.</p>
+<div class="danger admonition">
+<p class="admonition-title"><em>Vibrationless</em> pKa calculations</p>
+<p>The funtions <code class="docutils literal notranslate"><span class="pre">calculate_pka</span></code>, <code class="docutils literal notranslate"><span class="pre">calculate_pka_oxonium_scheme</span></code> and <code class="docutils literal notranslate"><span class="pre">auto_calculate_pka</span></code> allow the user to run a pKa calculation without running any frequency calculation. This is sometimes used in high-trhoughput settings but its <strong>not advisable</strong> for rigorous computational chemistry. Runnig these function without frequency calculations will subtitute the Gibbs free energy terms of each molecule involved with the corresponding electronic energies loosing all vibrational components and the free energy corrections.</p>
 </div>
-<p>In general terms both functions calculate the pKa of a molecule <span class="math notranslate nohighlight">\(HA\)</span> considering a reaction of the type:</p>
+<section id="the-direct-scheme">
+<span id="direct-scheme-pka"></span><h3>The <em>“direct”</em> scheme<a class="headerlink" href="#the-direct-scheme" title="Link to this heading"></a></h3>
+<p>In the direct scheme, the pKa of a given molecule <span class="math notranslate nohighlight">\(HA\)</span> is computed considering the reaction scheme:</p>
 <div class="math notranslate nohighlight">
 \[
 HA \rightarrow H^{+} + A^{-}
 \]</div>
-<p>The equilibrium constant of the reaction is calculated as</p>
+<p>The equilibrium constant of the reaction is then computed as:</p>
 <div class="math notranslate nohighlight">
 \[
-pK_{a} = \frac{G_{A^{-}} + G_{H^{+}} - G_{HA}}{2.303 \cdot RT}
+pK_{a} = \frac{\Delta G_{aq}}{2.303 \cdot RT}
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(G_{A^{-}}\)</span> and <span class="math notranslate nohighlight">\(G_{HA}\)</span> are calculated summing the electronic + vibronic energies at the selected/provided level of theory, <span class="math notranslate nohighlight">\(G_{H^{+}} = -270.29 kcal/mol\)</span>, <span class="math notranslate nohighlight">\(R = 1.987 \cdot 10^{-3} kcal/(mol \cdot K)\)</span> and <span class="math notranslate nohighlight">\(T = 298.15 K\)</span>.</p>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta G_{aq} = G_{aq}(A^{-}) + G_{aq}(H^{+}) - G_{aq}(HA) + RT \ln{(24.46)}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(G_{aq}(A^{-})\)</span>, <span class="math notranslate nohighlight">\(G_{aq}(H^{+})\)</span> and <span class="math notranslate nohighlight">\(G_{aq}(HA)\)</span> represents the free energies of the molecules in acquous solution and the term <span class="math notranslate nohighlight">\(RT \ln{(24.46)}\)</span> corresponds to the free energy variation associated to the change in standard state with a concentration of <span class="math notranslate nohighlight">\(1\mathrm{atm/l}\)</span> for gas phase and <span class="math notranslate nohighlight">\(1\mathrm{mol/l}\)</span> for solution phase to a standard state with concentrations of <span class="math notranslate nohighlight">\(1\mathrm{mol/l}\)</span> for both the gas phase and solution <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<p>In the direct scheme the free-energies <span class="math notranslate nohighlight">\(G_{aq}(HA)\)</span> and <span class="math notranslate nohighlight">\(G_{aq}(A^{-})\)</span>, associated with the protomer and deprotomer, are/should be computed running optimization and frequency calculations in water solvent. The proton free energy in water <span class="math notranslate nohighlight">\(G_{aq}(H^{+})\)</span> is obtained from empyrical data. In SPyCCI the proton free energy in water plus the <span class="math notranslate nohighlight">\(RT \ln{(24.46)}\)</span> is assumed to be <span class="math notranslate nohighlight">\(-270.29 \mathrm{kcal/mol}\)</span> at <span class="math notranslate nohighlight">\(298.15\mathrm{K}\)</span>.</p>
+</section>
+<section id="the-oxonium-scheme">
+<span id="oxonium-scheme-pka"></span><h3>The <em>“oxonium”</em> scheme<a class="headerlink" href="#the-oxonium-scheme" title="Link to this heading"></a></h3>
+<p>In the oxonium scheme the pKa of a given molecule <span class="math notranslate nohighlight">\(HA\)</span> is computed considering the following reaction scheme:</p>
+<div class="math notranslate nohighlight">
+\[
+HA + H_2O \rightarrow H_3O^{+} + A^{-}
+\]</div>
+<p>The equilibrium constant of such reaction can be related to the <span class="math notranslate nohighlight">\(K_a\)</span> according to:</p>
+<div class="math notranslate nohighlight">
+\[
+K_{eq} = \frac{[H_3O^+][A^-]}{[H_2O][HA]} = \frac{K_a}{[H_2O]}
+\]</div>
+<p>or equivalently:</p>
+<div class="math notranslate nohighlight">
+\[
+pK_a = pK_{eq} - \log[H_2O] = \frac{\Delta G_{aq}}{2,303 RT} - \log[H_2O]
+\]</div>
+<p>where, for the present scheme, <span class="math notranslate nohighlight">\(\Delta G_{aq}\)</span> can be obtained as:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta G_{aq} = G_{aq}(A^{-}) + G_{aq}(H_3O^{+}) - G_{aq}(HA) - G_{aq}(H_2O)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(G_{aq}(A^{-})\)</span>, <span class="math notranslate nohighlight">\(G_{aq}(H_3O^{+})\)</span>, <span class="math notranslate nohighlight">\(G_{aq}(HA)\)</span> and <span class="math notranslate nohighlight">\(G_{aq}(H_2O)\)</span> represents the free energies of the molecules in acquous solution. In the oxonium scheme all these quantities are computationally accessible and are/should be computed running optimization and frequency calculations in water solvent. The concentration of the water <span class="math notranslate nohighlight">\([H_2O]\)</span> is computed as the ratio of the water density of <span class="math notranslate nohighlight">\(997 \mathrm{g/l}\)</span> at <span class="math notranslate nohighlight">\(25\mathrm{°C}\)</span> and its molar mass of <span class="math notranslate nohighlight">\(18.01528 \mathrm{g/mol}\)</span>.</p>
+</section>
+<section id="the-pka-property-structure">
+<h3>The <code class="docutils literal notranslate"><span class="pre">pka</span></code> property structure<a class="headerlink" href="#the-pka-property-structure" title="Link to this heading"></a></h3>
+<p>Given the peculiarity of the pKa calculation process and the variety of possible schemes employed, the <code class="docutils literal notranslate"><span class="pre">pka</span></code> property has been structured to give to the user the most clear picture possible of its origin and the involved approximations. To do so, the dedicated class object <code class="docutils literal notranslate"><span class="pre">pKa</span></code> has been defined.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">spyccy.core.properties.pKa</span></code> class is a simple object collecting all the pka values computed according to different schemes (<code class="docutils literal notranslate"><span class="pre">direct</span></code>, <code class="docutils literal notranslate"><span class="pre">oxonium</span></code> and <code class="docutils literal notranslate"><span class="pre">oxonium_cosmors</span></code>), all the free energies used in the computation (<code class="docutils literal notranslate"><span class="pre">free_energies</span></code>) and, if used, the level of theory used in the COSMO-RS based calculations (<code class="docutils literal notranslate"><span class="pre">level_of_theory_cosmors</span></code>).</p>
+<p>To access the pka computed with a given scheme, an instance of the <code class="docutils literal notranslate"><span class="pre">pKa</span></code> class can be interrogated directly using a syntax equivalent to that of a dictionary. The available keys are <code class="docutils literal notranslate"><span class="pre">&quot;direct&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;oxonium&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;oxonium</span> <span class="pre">COSMO-RS&quot;</span></code>. The key provided to access the data are case-insensitive (e.g. “<code class="docutils literal notranslate"><span class="pre">direct</span></code>” and “<code class="docutils literal notranslate"><span class="pre">DIRECT</span></code>” are both valid).Alternatively each property can be accessed directly as <code class="docutils literal notranslate"><span class="pre">direct</span></code>, <code class="docutils literal notranslate"><span class="pre">oxonium</span></code> or <code class="docutils literal notranslate"><span class="pre">oxonium_cosmors</span></code> property attributes. Be aware that these arguments, together with the <code class="docutils literal notranslate"><span class="pre">level_of_theory_cosmors</span></code>, are protected as read-only properties to prevent involuntary write operations.</p>
+<p>If the user decides to manually set one of the pka values the syntax <code class="docutils literal notranslate"><span class="pre">set_direct(user_value)</span></code> or <code class="docutils literal notranslate"><span class="pre">set_oxonium(user_value)</span></code> must be used. The only difference is represented by the COSMO-RS related properties <code class="docutils literal notranslate"><span class="pre">oxonium_cosmors</span></code> and <code class="docutils literal notranslate"><span class="pre">level_of_theory_cosmors</span></code> that must be set simultaneously using the setter <code class="docutils literal notranslate"><span class="pre">set_oxonium_cormors(user_value,</span> <span class="pre">engine)</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">free_energies</span></code> argument is less structured and has been thought more to be a human-readable way to access the free energy values used in the calculations. As such no read-only protection has been implemented and the argumnent can be accessed and edit as a regular class attribute.</p>
+<div class="info admonition">
+<p class="admonition-title">The <code class="docutils literal notranslate"><span class="pre">pka</span></code> property</p>
+<p>All the functions return the computed pKa values and set the <code class="docutils literal notranslate"><span class="pre">pKa</span></code> property (<code class="docutils literal notranslate"><span class="pre">system.properties.pka</span></code>) of the protonated system. The <code class="docutils literal notranslate"><span class="pre">auto_calculate_pka</span></code> also returns the deprotonated system.</p>
+</div>
+</section>
 <section id="the-calculate-pka-function">
 <h3>The <code class="docutils literal notranslate"><span class="pre">calculate_pka()</span></code> function:<a class="headerlink" href="#the-calculate-pka-function" title="Link to this heading"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">calculate_pka</span></code> function takes as arguments the following elements:</p>
@@ -168,6 +213,101 @@ pK_{a} = \frac{G_{A^{-}} + G_{H^{+}} - G_{HA}}{2.303 \cdot RT}
 <span class="n">pka</span> <span class="o">=</span> <span class="n">calculate_pka</span><span class="p">(</span><span class="n">protonated</span><span class="p">,</span> <span class="n">deprotonated</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>The computed pka value is returned as a <code class="docutils literal notranslate"><span class="pre">pKa</span></code> object (with only the <code class="docutils literal notranslate"><span class="pre">direct</span></code> property set). The function automatically sets the <code class="docutils literal notranslate"><span class="pre">pka</span></code> property of the <code class="docutils literal notranslate"><span class="pre">protonated</span></code> system accordingly. If this is not desired, the feature can be decativated using the keyword <code class="docutils literal notranslate"><span class="pre">only_return=True</span></code>.</p>
+</section>
+<section id="the-calculate-pka-oxonium-scheme-function">
+<h3>The <code class="docutils literal notranslate"><span class="pre">calculate_pka_oxonium_scheme()</span></code> function:<a class="headerlink" href="#the-calculate-pka-oxonium-scheme-function" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">calculate_pka_oxonium_scheme</span></code> function takes as arguments the following elements:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">protonated</span></code> (<code class="docutils literal notranslate"><span class="pre">System</span></code>): molecule in its protonated form</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deprotonated</span></code> (<code class="docutils literal notranslate"><span class="pre">System</span></code>): molecule in its deprotonated form</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">water</span></code> (<code class="docutils literal notranslate"><span class="pre">System</span></code>): the water molecule</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oxonium</span></code> (<code class="docutils literal notranslate"><span class="pre">System</span></code>): the oxonium ion molecule</p></li>
+</ul>
+<p>Please notice how both the <code class="docutils literal notranslate"><span class="pre">protonated</span></code> and <code class="docutils literal notranslate"><span class="pre">deprotonated</span></code> molecules must already be optimized (in water) and must posses a valid electronic energy value. If the vibronic energy is provided, its contribution is taken into account during the calculation.</p>
+<p>An example script that can be used to compute the pKa of a molecule is provided in what follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.engines.xtb</span><span class="w"> </span><span class="kn">import</span> <span class="n">XtbInput</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.functions.pka</span><span class="w"> </span><span class="kn">import</span> <span class="n">calculate_pka_oxonium_scheme</span>
+
+<span class="n">protonated</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;protonated.xyz&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">deprotonated</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;deprotonated.xyz&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">water</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;water.xyz&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">oxonium</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;oxonium.xyz&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">xtb</span> <span class="o">=</span> <span class="n">XtbInput</span><span class="p">(</span><span class="n">solvent</span><span class="o">=</span><span class="s2">&quot;water&quot;</span><span class="p">)</span>
+<span class="n">xtb</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">protonated</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">xtb</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">deprotonated</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">xtb</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">water</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">xtb</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">oxonium</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">pka</span> <span class="o">=</span> <span class="n">calculate_pka_oxonium_scheme</span><span class="p">(</span><span class="n">protonated</span><span class="p">,</span> <span class="n">deprotonated</span><span class="p">,</span> <span class="n">water</span><span class="p">,</span> <span class="n">oxonium</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Please notice how the <code class="docutils literal notranslate"><span class="pre">water</span></code> and <code class="docutils literal notranslate"><span class="pre">oxonium</span></code> structures can either be entered manually by the user or retrived by the buit-in <code class="docutils literal notranslate"><span class="pre">retrieve_structure</span></code> helper function. The syntax of the previous scheme, in the second case, becomes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.engines.xtb</span><span class="w"> </span><span class="kn">import</span> <span class="n">XtbInput</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.functions.pka</span><span class="w"> </span><span class="kn">import</span> <span class="n">calculate_pka_oxonium_scheme</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.functions.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">retrieve_structure</span>
+
+<span class="n">protonated</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;protonated.xyz&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">deprotonated</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;deprotonated.xyz&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">water_xyz</span> <span class="o">=</span> <span class="n">retrieve_structure</span><span class="p">(</span><span class="s2">&quot;water&quot;</span><span class="p">)</span>
+<span class="n">water</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;water&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">water_xyz</span><span class="p">)</span>
+
+<span class="n">oxonium_xyz</span> <span class="o">=</span> <span class="n">retrieve_structure</span><span class="p">(</span><span class="s2">&quot;oxonium&quot;</span><span class="p">)</span>
+<span class="n">oxonium</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;oxonium&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">oxonium_xyz</span><span class="p">)</span>
+
+<span class="n">xtb</span> <span class="o">=</span> <span class="n">XtbInput</span><span class="p">(</span><span class="n">solvent</span><span class="o">=</span><span class="s2">&quot;water&quot;</span><span class="p">)</span>
+<span class="n">xtb</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">protonated</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">xtb</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">deprotonated</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">xtb</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">water</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">xtb</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">oxonium</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">pka</span> <span class="o">=</span> <span class="n">calculate_pka_oxonium_scheme</span><span class="p">(</span><span class="n">protonated</span><span class="p">,</span> <span class="n">deprotonated</span><span class="p">,</span> <span class="n">water</span><span class="p">,</span> <span class="n">oxonium</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The computed pka value is returned as a <code class="docutils literal notranslate"><span class="pre">pKa</span></code> object (with only the <code class="docutils literal notranslate"><span class="pre">oxonium</span></code> property set). The function automatically sets the <code class="docutils literal notranslate"><span class="pre">pka</span></code> property of the <code class="docutils literal notranslate"><span class="pre">protonated</span></code> system accordingly. If this is not desired, the feature can be decativated using the keyword <code class="docutils literal notranslate"><span class="pre">only_return=True</span></code>.</p>
+</section>
+<section id="the-run-pka-workflow-function">
+<h3>The <code class="docutils literal notranslate"><span class="pre">run_pka_workflow()</span></code> function:<a class="headerlink" href="#the-run-pka-workflow-function" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">run_pka_workflow</span></code> function, takes as arguments the protomer and deprotomer structures (in the form of <code class="docutils literal notranslate"><span class="pre">System</span></code> objects).
+The function takes care of the geometry optimization of both structures in solvent and the calculation of electronic energies and frequencies both in solvent and, if required, in vacuum. The level of theory of each calculation can be set using the <code class="docutils literal notranslate"><span class="pre">method_geometry</span></code>, <code class="docutils literal notranslate"><span class="pre">method_electonic</span></code>, <code class="docutils literal notranslate"><span class="pre">method_vibrational</span></code> keywords. Once all the calculations have been executed, the function then computes the pka using both the direct and the oxonium schemes. If required the function computes also a pka using the COSMO-RS solvation energies using the oxonium scheme. The routine takes as arguments the following elements:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">protonated</span></code> (<code class="docutils literal notranslate"><span class="pre">System</span></code>): The protonated system for which the pKa must be computed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deprotonated</span></code> (<code class="docutils literal notranslate"><span class="pre">System</span></code>): The deprotomer generated during the dissociation reaction</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method_vibrational</span></code> (<code class="docutils literal notranslate"><span class="pre">XtbInput</span></code> or <code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code>): The engine to be used to run the frequency calculations.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method_electonic</span></code> (<code class="docutils literal notranslate"><span class="pre">XtbInput</span></code> or <code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code>): The engine to be used to run the electronic calculations. If set to <code class="docutils literal notranslate"><span class="pre">None</span></code> (default) will use electronic energy computed by the <code class="docutils literal notranslate"><span class="pre">method_vibrational</span></code> engine. Please notice that, if the electronic method is different from the vibrational one, the computed Gibbs Free energy will be a mix of two different levels of theory (not advaisable)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method_geometry</span></code> (<code class="docutils literal notranslate"><span class="pre">XtbInput</span></code> or <code class="docutils literal notranslate"><span class="pre">OrcaInput</span></code>): The engine to be used to run the geometry optimizations. If set to <code class="docutils literal notranslate"><span class="pre">None</span></code> the user-provided geometries will be use directly without optimization while the water molecule and oxonium ion structures will be otimized using the BP86/def2-TZVPD (as the default OpenCOSMO-RS settings).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">use_cosmors</span></code> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): If set to <code class="docutils literal notranslate"><span class="pre">True</span></code> will also use OpenCOSMO-RS to compute solvation energies.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">use_engine_settings</span></code> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): If set to <code class="docutils literal notranslate"><span class="pre">True</span></code> will use the engine level of theory to run the COSMO-RS calculation (not advisable) else the default BP86/def2-TZVPD level of theory will be used.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ncores</span></code> (<code class="docutils literal notranslate"><span class="pre">Optional[int]</span></code>): The number of cores to be used in the calculations. If set to <code class="docutils literal notranslate"><span class="pre">None</span></code> (default) will use the maximun number of available cores.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxcore</span></code> (<code class="docutils literal notranslate"><span class="pre">Optional[int]</span></code>): For the engines that supprots it, the memory assigned to each core used in the computation.</p></li>
+</ul>
+<p>An example script that can be used to compute the pKa of a molecule is provided in what follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.engines.xtb</span><span class="w"> </span><span class="kn">import</span> <span class="n">XtbInput</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.engines.orca</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrcaInput</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.functions.pka</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_pka_workflow</span>
+
+<span class="n">protonated</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;protonated.xyz&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">deprotonated</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;deprotonated.xyz&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">xtb</span> <span class="o">=</span> <span class="n">XtbInput</span><span class="p">(</span><span class="n">solvent</span><span class="o">=</span><span class="s2">&quot;water&quot;</span><span class="p">)</span>
+<span class="n">orca</span> <span class="o">=</span> <span class="n">OrcaInput</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;BP86&quot;</span><span class="p">,</span> <span class="n">basis_set</span><span class="o">=</span><span class="s2">&quot;def2-TZVPD&quot;</span><span class="p">,</span> <span class="n">solvent</span><span class="o">=</span><span class="s2">&quot;water&quot;</span><span class="p">)</span>
+
+<span class="n">pka</span><span class="p">,</span> <span class="n">optimized_protonated</span> <span class="o">=</span> <span class="n">run_pka_workflow</span><span class="p">(</span>
+  <span class="n">protonated</span><span class="p">,</span>
+  <span class="n">deprotonated</span><span class="p">,</span>
+  <span class="n">method_vibrational</span> <span class="o">=</span> <span class="n">xtb</span><span class="p">,</span>
+  <span class="n">method_electonic</span> <span class="o">=</span> <span class="n">orca</span><span class="p">,</span>
+  <span class="n">method_geometry</span> <span class="o">=</span> <span class="n">xtb</span><span class="p">,</span>
+  <span class="n">use_cosmors</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+  <span class="p">)</span>
+</pre></div>
+</div>
+<p>The computed pka value is returned as a <code class="docutils literal notranslate"><span class="pre">pKa</span></code> object together with the structure of the protonated molecule optimized in solvent (<code class="docutils literal notranslate"><span class="pre">optimized_protonated</span></code>). Please notice how the pka object in this case is NOT set in the <code class="docutils literal notranslate"><span class="pre">protonated</span></code> object properties but rather in the <code class="docutils literal notranslate"><span class="pre">optimized_protonated</span></code> system since it is referred to the optimized molecular structure that can differ from the input one. <strong>BEWARE that this behavior is conserved also in the <code class="docutils literal notranslate"><span class="pre">method_geometry</span> <span class="pre">=</span> <span class="pre">None</span></code> use case.</strong></p>
 </section>
 <section id="the-auto-calculate-pka-function">
 <h3>The <code class="docutils literal notranslate"><span class="pre">auto_calculate_pka()</span></code> function:<a class="headerlink" href="#the-auto-calculate-pka-function" title="Link to this heading"></a></h3>
@@ -220,6 +360,7 @@ E°_{MH_{n}/M^{\cdot(n-1)-}} = - \frac{G_{M^{\cdot(n-1)-}} - (G_{MH_{n}} + n \cd
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(G_{M^{\cdot(n-1)-}}\)</span> and <span class="math notranslate nohighlight">\(G_{MH_{n}}\)</span> are calculated summing the electronic + vibronic energies at the selected level of theory, <span class="math notranslate nohighlight">\(G_{H^{+}} = -270.29 kcal/mol\)</span>, <span class="math notranslate nohighlight">\(F = 23.061 kcal/volt–gram-equivalent\)</span>, and <span class="math notranslate nohighlight">\(E_{SHE} = 4.28 V\)</span>.</p>
 </section>
+<hr class="docutils" />
 <section id="fukui-functions">
 <h2>Fukui functions<a class="headerlink" href="#fukui-functions" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">spycci.functions.calculate_fukui</span></code> function calculates the Fukui functions <span class="math notranslate nohighlight">\(f^+(r)\)</span>, <span class="math notranslate nohighlight">\(f^-(r)\)</span> and <span class="math notranslate nohighlight">\(f^0(r)\)</span> associated with a given molecular geometry. The Fukui functions are computed according to the definitions:</p>
@@ -297,7 +438,8 @@ Vibronic level of theory: OrcaInput || method: PBE | basis: def2-SVP | solvent: 
 Electronic energy: -153.528266323306 Eh
 Gibbs free energy correction G-E(el): 0.02861407 Eh
 Gibbs free energy: -153.499652253306 Eh
-pKa: None
+pKa: pKa object status is NOT SET
+
 
 MULLIKEN ANALYSIS
 ----------------------------------------------
@@ -363,6 +505,13 @@ CONDENSED FUKUI - HIRSHFELD
 <p>The rendered volume is saved in a <code class="docutils literal notranslate"><span class="pre">.bmp</span></code> bitmap image format. In the case of the acetaldehyde molecule considered in the example, the following image is obtained:</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/acetaldehyde_fukui_plus.bmp"><img alt="fukui_plus" class="bg-primary mb-1 align-center" src="../_images/acetaldehyde_fukui_plus.bmp" style="width: 600px;" />
 </a>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Rodrigo Casasnovas, Joaquin Ortega-Castro, Juan Frau, Josefa Donoso, Francisco Munoz, <em>International Journal of Quantum Chemistry</em>, (<strong>2014</strong>), 114, 1350–1363</p>
+</aside>
+</aside>
 </section>
 </section>
 

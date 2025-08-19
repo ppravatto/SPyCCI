@@ -34,3 +34,9 @@
 .. autoclass:: spycci.core.properties.Properties
     :members:
 ```
+### The `pKa` property
+
+```{eval-rst}
+.. autoclass:: spycci.core.properties.pKa
+    :members:
+```
