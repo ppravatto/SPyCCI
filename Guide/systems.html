@@ -122,9 +122,9 @@
 <hr class="docutils" />
 <section id="single-systems">
 <h2>Single systems<a class="headerlink" href="#single-systems" title="Link to this heading"></a></h2>
-<p>A <code class="docutils literal notranslate"><span class="pre">System</span></code> object is defined as a molecular system, containing one or more individual molecules, and is initialized by providing a molecular structure via a <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> file:</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">System</span></code> object is defined as a molecular system, containing one or more individual molecules. A <code class="docutils literal notranslate"><span class="pre">System</span></code> object can be initialized by providing a molecular structure via a <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> file making use of the <code class="docutils literal notranslate"><span class="pre">from_xyz()</span></code> classmethod:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
-<span class="n">my_mol</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;path/to/xyz/water.xyz&quot;</span><span class="p">)</span>
+<span class="n">my_mol</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_xyz</span><span class="p">(</span><span class="s2">&quot;path/to/xyz/water.xyz&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Optionally, the following parameters can be provided (if not provided, some default values are set):</p>
@@ -135,7 +135,7 @@
 </ul>
 <p>Example of a periodic system of side 18.27 Å containing a cation radical:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
-<span class="n">my_mol</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span>
+<span class="n">my_mol</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_xyz</span><span class="p">(</span>
     <span class="s2">&quot;path/to/xyz/water.xyz&quot;</span><span class="p">,</span> 
     <span class="n">charge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
     <span class="n">spin</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -192,9 +192,9 @@ pKa: pKa object status is NOT SET
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ensemble</span>
 
-<span class="n">my_mol1</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;path/to/xyz/my_mol1.xyz&quot;</span><span class="p">)</span>
-<span class="n">my_mol2</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;path/to/xyz/my_mol2.xyz&quot;</span><span class="p">)</span>
-<span class="n">my_mol3</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;path/to/xyz/my_mol3.xyz&quot;</span><span class="p">)</span>
+<span class="n">my_mol1</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_xyz</span><span class="p">(</span><span class="s2">&quot;path/to/xyz/my_mol1.xyz&quot;</span><span class="p">)</span>
+<span class="n">my_mol2</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_xyz</span><span class="p">(</span><span class="s2">&quot;path/to/xyz/my_mol2.xyz&quot;</span><span class="p">)</span>
+<span class="n">my_mol3</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_xyz</span><span class="p">(</span><span class="s2">&quot;path/to/xyz/my_mol3.xyz&quot;</span><span class="p">)</span>
 
 <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">my_mol1</span><span class="p">,</span> <span class="n">my_mol2</span><span class="p">,</span> <span class="n">my_mol3</span><span class="p">]</span>
 
@@ -209,17 +209,17 @@ pKa: pKa object status is NOT SET
 <p>It is possible to save/load <code class="docutils literal notranslate"><span class="pre">System</span></code> objects to/from <code class="docutils literal notranslate"><span class="pre">.json</span></code> files. To save a <code class="docutils literal notranslate"><span class="pre">System</span></code> object, dumping all the information currently stored in it after the undergone calculations (structure, charge, spin multiplicity, energies, frequencies, etc…) use the <code class="docutils literal notranslate"><span class="pre">system.save_json()</span></code> function and specify the path where you want to store the file:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
 
-<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;water.xyz&quot;</span><span class="p">)</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_xyz</span><span class="p">(</span><span class="s2">&quot;water.xyz&quot;</span><span class="p">)</span>
 
 <span class="o">...</span> <span class="n">calculations</span> <span class="o">...</span>
 
 <span class="n">mol</span><span class="o">.</span><span class="n">save_json</span><span class="p">(</span><span class="s2">&quot;water.json&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Then, you can load a previously saved <code class="docutils literal notranslate"><span class="pre">System</span></code> by passing the <code class="docutils literal notranslate"><span class="pre">.json</span></code> file path instead of a <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> file:</p>
+<p>Then, you can load a previously saved <code class="docutils literal notranslate"><span class="pre">System</span></code> by passing the <code class="docutils literal notranslate"><span class="pre">.json</span></code> file path to the <code class="docutils literal notranslate"><span class="pre">from_json()</span></code> classmethod:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
 
-<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;water.json&quot;</span><span class="p">)</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="s2">&quot;water.json&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 </pre></div>
 </div>

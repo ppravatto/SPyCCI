@@ -148,7 +148,7 @@
 <section id="creating-the-system-object">
 <h3>Creating the System object<a class="headerlink" href="#creating-the-system-object" title="Link to this heading"></a></h3>
 <p>After importing the necessary modules, we can create our molecule, by indicating the (relative, or complete) path where the <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> file is located:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">water</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;example_files/water.xyz&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">water</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_xyz</span><span class="p">(</span><span class="s2">&quot;example_files/water.xyz&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

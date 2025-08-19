@@ -130,8 +130,8 @@ from spycci.engines.xtb import XtbInput
 from spycci.systems import System
 from spycci.functions.pka import calculate_pka
 
-protonated = System("protonated.xyz", charge=0, spin=1)
-deprotonated = System("deprotonated.xyz", charge=-1, spin=1)
+protonated = System.from_xyz("protonated.xyz", charge=0, spin=1)
+deprotonated = System.from_xyz("deprotonated.xyz", charge=-1, spin=1)
 
 xtb = XtbInput(solvent="water")
 xtb.opt(protonated, inplace=True)
@@ -259,7 +259,7 @@ from spycci.engines.xtb import XtbInput
 from spycci.systems import System
 from spycci.functions.pka import calculate_pka
 
-protonated = System(f"protonated.xyz", charge=0, spin=1)
+protonated = System.from_xyz(f"protonated.xyz", charge=0, spin=1)
 xtb = XtbInput(solvent="water")
 
 pka, deprotonated = auto_calculate_pka(
@@ -332,7 +332,7 @@ from spycci.systems import System
 from spycci.engines.orca import OrcaInput
 from spycci.functions.fukui import calculate_fukui
 
-mol = System("./acetaldehyde.xyz")
+mol = System.from_xyz("./acetaldehyde.xyz")
 orca = OrcaInput(method="PBE", basis_set="def2-SVP")
 
 orca.opt(mol, inplace=True)
@@ -346,7 +346,7 @@ That for the acetaldehyde molecule returns the following result:
 ```{code-cell} python
 :tags: ["remove-input"]
 from spycci.systems import System
-mol = System("../example_files/acetaldehyde.json")
+mol = System.from_json("../example_files/acetaldehyde.json")
 print(mol)
 ```
 

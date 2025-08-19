@@ -155,7 +155,7 @@
 <p>For <code class="docutils literal notranslate"><span class="pre">wrappers</span></code>, you just need to import the corresponding <code class="docutils literal notranslate"><span class="pre">wrapper</span></code> submodule or any of the specific functions you wish to use:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.wrappers.crest</span><span class="w"> </span><span class="kn">import</span> <span class="n">tautomer_search</span>
 
-<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;water.xyz&quot;</span><span class="p">)</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_xyz</span><span class="p">(</span><span class="s2">&quot;water.xyz&quot;</span><span class="p">)</span>
 <span class="n">tautomers_list</span> <span class="o">=</span> <span class="n">tautomer_search</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 </pre></div>
 </div>

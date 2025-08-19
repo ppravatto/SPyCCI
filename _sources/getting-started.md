@@ -79,7 +79,7 @@ from spycci import XtbInput  # Engines can also be imported directly from spycci
 After importing the necessary modules, we can create our molecule, by indicating the (relative, or complete) path where the `.xyz` file is located:
 
 ```python
-water = System("example_files/water.xyz")
+water = System.from_xyz("example_files/water.xyz")
 ```
 
 ### Creating a XtbInput object
@@ -109,7 +109,7 @@ print(water)
 ```{code-cell} python
 :tags: ["remove-input"]
 from spycci.systems import System
-water = System("./example_files/water.xyz")
+water = System.from_xyz("./example_files/water.xyz")
 print(water)
 ```
 

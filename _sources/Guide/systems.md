@@ -33,11 +33,11 @@ In this section of the user guide, we will show you how to define molecular syst
 
 ## Single systems
 
-A `System` object is defined as a molecular system, containing one or more individual molecules, and is initialized by providing a molecular structure via a `.xyz` file:
+A `System` object is defined as a molecular system, containing one or more individual molecules. A `System` object can be initialized by providing a molecular structure via a `.xyz` file making use of the `from_xyz()` classmethod:
 
 ```python
 from spycci.systems import System
-my_mol = System("path/to/xyz/water.xyz")
+my_mol = System.from_xyz("path/to/xyz/water.xyz")
 ```
 
 Optionally, the following parameters can be provided (if not provided, some default values are set):
@@ -49,7 +49,7 @@ Optionally, the following parameters can be provided (if not provided, some defa
 Example of a periodic system of side 18.27 Å containing a cation radical:
 ```python
 from spycci.systems import System
-my_mol = System(
+my_mol = System.from_xyz(
     "path/to/xyz/water.xyz", 
     charge=1, 
     spin=2,
@@ -68,7 +68,7 @@ print(my_system)
 ```{code-cell} python
 :tags: ["remove-input"]
 from spycci.systems import System
-water = System("../example_files/water.xyz")
+water = System.from_xyz("../example_files/water.xyz")
 print(water)
 ```
 
@@ -82,9 +82,9 @@ An `Ensemble` object is defined as a collection of related `Systems`, for exampl
 from spycci.systems import System
 from spycci.systems import Ensemble
 
-my_mol1 = System("path/to/xyz/my_mol1.xyz")
-my_mol2 = System("path/to/xyz/my_mol2.xyz")
-my_mol3 = System("path/to/xyz/my_mol3.xyz")
+my_mol1 = System.from_xyz("path/to/xyz/my_mol1.xyz")
+my_mol2 = System.from_xyz("path/to/xyz/my_mol2.xyz")
+my_mol3 = System.from_xyz("path/to/xyz/my_mol3.xyz")
 
 my_list = [my_mol1, my_mol2, my_mol3]
 
@@ -102,26 +102,26 @@ It is possible to save/load `System` objects to/from `.json` files. To save a `S
 ```python
 from spycci.systems import System
 
-mol = System("water.xyz")
+mol = System.from_xyz("water.xyz")
 
 ... calculations ...
 
 mol.save_json("water.json")
 ```
 
-Then, you can load a previously saved `System` by passing the `.json` file path instead of a `.xyz` file:
+Then, you can load a previously saved `System` by passing the `.json` file path to the `from_json()` classmethod:
 
 ```python
 from spycci.systems import System
 
-mol = System("water.json")
+mol = System.from_json("water.json")
 print(mol)
 ```
 
 ```{code-cell} python
 :tags: ["remove-input"]
 from spycci.systems import System
-water = System("../example_files/water.json")
+water = System.from_json("../example_files/water.json")
 print(water)
 ```
 

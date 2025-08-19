@@ -171,7 +171,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">spycci.engines.xtb</span><span class="w"> </span><span class="kn">import</span> <span class="n">XtbInput</span>
 
-<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;water.xyz&quot;</span><span class="p">)</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_xyz</span><span class="p">(</span><span class="s2">&quot;water.xyz&quot;</span><span class="p">)</span>
 <span class="n">xtb</span> <span class="o">=</span> <span class="n">XtbInput</span><span class="p">()</span>
 
 <span class="n">mol_opt</span> <span class="o">=</span> <span class="n">xtb</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
@@ -266,7 +266,7 @@ MULLIKEN ANALYSIS
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">spycci.engines.xtb</span><span class="w"> </span><span class="kn">import</span> <span class="n">XtbInput</span>
 
-<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;water.xyz&quot;</span><span class="p">)</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_xyz</span><span class="p">(</span><span class="s2">&quot;water.xyz&quot;</span><span class="p">)</span>
 <span class="n">xtb</span> <span class="o">=</span> <span class="n">XtbInput</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; ~~~ mol before opt: ~~~ &quot;</span><span class="p">)</span>
@@ -397,7 +397,7 @@ MULLIKEN ANALYSIS
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">spycci.wrappers.crest</span><span class="w"> </span><span class="kn">import</span> <span class="n">conformer_search</span>
 
-<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;mymol.xyz&quot;</span><span class="p">)</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_xyz</span><span class="p">(</span><span class="s2">&quot;mymol.xyz&quot;</span><span class="p">)</span>
 <span class="n">conformers</span> <span class="o">=</span> <span class="n">conformer_search</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 
 <span class="n">lowest_energy_conformer</span> <span class="o">=</span> <span class="n">conformers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -407,8 +407,8 @@ MULLIKEN ANALYSIS
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">spycci.wrappers.crest</span><span class="w"> </span><span class="kn">import</span> <span class="n">qcg_grow</span>
 
-<span class="n">solute</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;solute.xyz&quot;</span><span class="p">)</span>
-<span class="n">solvent</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;solvent.xyz&quot;</span><span class="p">)</span>
+<span class="n">solute</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_xyz</span><span class="p">(</span><span class="s2">&quot;solute.xyz&quot;</span><span class="p">)</span>
+<span class="n">solvent</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_xyz</span><span class="p">(</span><span class="s2">&quot;solvent.xyz&quot;</span><span class="p">)</span>
 
 <span class="n">cluster</span> <span class="o">=</span> <span class="n">qcg_grow</span><span class="p">(</span><span class="n">solute</span><span class="p">,</span> <span class="n">solvent</span><span class="p">)</span>
 </pre></div>
@@ -439,8 +439,8 @@ MULLIKEN ANALYSIS
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">spycci.wrappers.packmol</span><span class="w"> </span><span class="kn">import</span> <span class="n">packmol_cube</span>
 
-<span class="n">solute</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;urea.xyz&quot;</span><span class="p">)</span>
-<span class="n">solvent</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="s2">&quot;water.xyz&quot;</span><span class="p">)</span>
+<span class="n">solute</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_xyz</span><span class="p">(</span><span class="s2">&quot;urea.xyz&quot;</span><span class="p">)</span>
+<span class="n">solvent</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_xyz</span><span class="p">(</span><span class="s2">&quot;water.xyz&quot;</span><span class="p">)</span>
 
 <span class="n">solvated_cube</span> <span class="o">=</span> <span class="n">packmol_cube</span><span class="p">(</span><span class="n">solute</span><span class="p">,</span> <span class="n">solvent</span><span class="p">,</span> <span class="n">nsolv</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">target_dens</span><span class="o">=</span><span class="mi">997</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">solvated_cube</span><span class="p">)</span>

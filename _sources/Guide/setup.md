@@ -58,6 +58,6 @@ For `wrappers`, you just need to import the corresponding `wrapper` submodule or
 ```python
 from spycci.wrappers.crest import tautomer_search
 
-mol = System("water.xyz")
+mol = System.from_xyz("water.xyz")
 tautomers_list = tautomer_search(mol)
 ```

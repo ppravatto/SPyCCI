@@ -42,7 +42,7 @@ Splits a .xyz file containing multiple structures into individual `System` objec
 The function requires the `System` object which will be used as "template" for the output, and the .xyz file in which the structures are collected. It returns a list of `System` objects, corresponding to the individual structures.
 
 ```python
-mymol = System("all_conformers.xyz")
+mymol = System.from_xyz("all_conformers.xyz")
 multi_xyz_list = tools.split_multixyz(mol=mymol, file="all_conformers.xyz", suffix="conf")
 ```
 
