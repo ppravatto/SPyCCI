@@ -138,15 +138,18 @@ and, once a level of theory is selected, by a set of computed properties.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – The path of the <cite>.json</cite> file.</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#spycci.systems.System" title="spycci.systems.System"><em>System</em></a></p>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>FileNotFoundError</strong> – Exception raised if the specified <cite>.json</cite> file cannot be found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#spycci.systems.System" title="spycci.systems.System"><em>System</em></a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="spycci.systems.System.from_smiles">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_smiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smiles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_side</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_uff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_mmffvariant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MMFF94'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_small_ring_torsions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_macrocycle_torsions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.systems.System.from_smiles" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_smiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smiles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_side</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_uff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_mmffvariant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MMFF94'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_small_ring_torsions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_macrocycle_torsions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.systems.System.from_smiles" title="Link to this definition"></a></dt>
 <dd><p>The function returns a fully initialized <cite>System</cite> object from the given SMILES string.
 The geometry of the molecule is generated in 3D using the ETKDGv3 algorithm, followed by force field
 optimization using either MMFF or UFF, depending on availability and user preference.
@@ -166,9 +169,9 @@ This can be useful when consistency across a dataset using UFF is desired. (defa
 <li><p><strong>default_mmffvariant</strong> (<em>str</em>) – Specifies the MMFF variant to use when MMFF is selected. Valid options are “MMFF94” or “MMFF94s”.
 “MMFF94s” is generally recommended for more accurate static geometries. (default: “MMFF94”)</p></li>
 <li><p><strong>use_small_ring_torsions</strong> (<em>bool</em>) – If True, enables special torsional sampling for small rings during 3D embedding.
-Recommended when working with strained ring systems (e.g., cyclopropanes, aziridines). (default: False)</p></li>
+Recommended when working with strained ring systems (e.g., cyclopropanes, aziridines). (default: True)</p></li>
 <li><p><strong>use_macrocycle_torsions</strong> (<em>bool</em>) – If True, enables special torsional treatment of macrocycles during embedding.
-Recommended for cyclic peptides or large ring systems (≥12 atoms). (default: False)</p></li>
+Recommended for cyclic peptides or large ring systems (≥12 atoms). (default: True)</p></li>
 <li><p><strong>maxiter</strong> (<em>int</em>) – The maximum number of iterations allowed for the force field optimization step. (default: 500)</p></li>
 <li><p><strong>random_seed</strong> (<em>int</em>) – If set to a positive integer, this value is used to seed the random number generator for
 the 3D embedding algorithm. This will ensure reproducible conformations for the same input SMILES.
@@ -195,7 +198,7 @@ This keyword is mainly used for testing. (default: -1)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>FileExistsError</strong> – Exception raised if the specified <cite>.xyz</cite> file cannot be found.</p>
+<dd class="field-even"><p><strong>FileNotFoundError</strong> – Exception raised if the specified <cite>.xyz</cite> file cannot be found.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#spycci.systems.System" title="spycci.systems.System"><em>System</em></a></p>
