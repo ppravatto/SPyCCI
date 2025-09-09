@@ -19,6 +19,7 @@
 
 ---
 
+(core-geometry-API)=
 ## The `spycci.core.geometry` sub-module
 
 ```{eval-rst}

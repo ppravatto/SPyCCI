@@ -107,10 +107,10 @@
              
   <section class="tex2jax_ignore mathjax_ignore" id="setting-up-calculations">
 <span id="guide-setup"></span><h1>Setting up calculations<a class="headerlink" href="#setting-up-calculations" title="Link to this heading"></a></h1>
-<p>After creating a <code class="docutils literal notranslate"><span class="pre">System</span></code>, you need to set up the calculation to which you wish to subject it. This is done with the <code class="docutils literal notranslate"><span class="pre">spycci.engines</span></code> and <code class="docutils literal notranslate"><span class="pre">spycci.wrappers</span></code> submodules.</p>
+<p>After creating a <code class="docutils literal notranslate"><span class="pre">System</span></code> object, encoding the molecular geometry, you need to set up the calculation to which you wish to subject it. This is done with the <code class="docutils literal notranslate"><span class="pre">spycci.engines</span></code> and <code class="docutils literal notranslate"><span class="pre">spycci.wrappers</span></code> submodules.</p>
 <p>Both <code class="docutils literal notranslate"><span class="pre">engines</span></code> and <code class="docutils literal notranslate"><span class="pre">wrappers</span></code> submodules contains a series of program-specific classes and functions for interfacing with external code and carrying out calculations on <code class="docutils literal notranslate"><span class="pre">System</span></code> objects. The distinction between the two and the philosophy behind them is as follows:</p>
 <ul class="simple">
-<li><p>an <code class="docutils literal notranslate"><span class="pre">engine</span></code> carries out calculations on a <code class="docutils literal notranslate"><span class="pre">System</span></code> for computing properties. For example, geometry optimizations, single point energies, frequencies, etc.</p></li>
+<li><p>an <code class="docutils literal notranslate"><span class="pre">engine</span></code> carries out calculations on a <code class="docutils literal notranslate"><span class="pre">System</span></code> for computing properties (e.g. geometry optimizations, single point energies, frequencies, etc.) and usually sets the <code class="docutils literal notranslate"><span class="pre">properties</span></code> of a system object based on a well defined level of theory for the electronic and/or vibrational part.</p></li>
 <li><p>a <code class="docutils literal notranslate"><span class="pre">wrapper</span></code> carries out calculations on a <code class="docutils literal notranslate"><span class="pre">System</span></code> for obtaining other, “processed” <code class="docutils literal notranslate"><span class="pre">System</span></code> objects. For example, conformer/tautomer searches, building of solvation boxes, etc.</p></li>
 </ul>
 <p>The programs currently implemented as <code class="docutils literal notranslate"><span class="pre">engines</span></code> are:</p>
@@ -118,8 +118,8 @@
 <li><p><a class="reference external" href="https://github.com/grimme-lab/xtb">xTB</a></p></li>
 <li><p><a class="reference external" href="https://orcaforum.kofo.mpg.de/index.php?sid=3c6c78cae3dd0cfffa26a293953422e3">Orca</a></p></li>
 <li><p><a class="reference external" href="https://dftbplus.org/">DFTB+</a></p></li>
-<li><p><a class="reference external" href="http://www.ks.uiuc.edu/Research/namd/">NAMD</a> (coming soon!)</p></li>
 </ul>
+<!-- * [NAMD](http://www.ks.uiuc.edu/Research/namd/) (coming soon!) -->
 <p>The programs currently implemented as <code class="docutils literal notranslate"><span class="pre">wrappers</span></code> are:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://crest-lab.github.io/crest-docs/">CREST</a></p></li>
@@ -127,9 +127,11 @@
 </ul>
 <div class="warning admonition">
 <p class="admonition-title">Note</p>
-<p>To function with the library, the external programs need to be already installed and available to the system from command line!</p>
+<p>To function with the library, the external programs need to be already installed and available to the system from command line. Please read the section about <a class="reference internal" href="../getting-started.html#third-party-software-compatibility"><span class="std std-ref">third party software compatibility</span></a> to have more info.</p>
 </div>
-<p>These general-purpose <code class="docutils literal notranslate"><span class="pre">engines</span></code> are implemented as <code class="docutils literal notranslate"><span class="pre">&lt;Program&gt;Input</span></code> classes in the corresponding submodules. To initialise an <code class="docutils literal notranslate"><span class="pre">engine</span></code>, you need to import it from its submodule and then create an instance of it:</p>
+<section id="calling-an-engine">
+<h2>Calling an <code class="docutils literal notranslate"><span class="pre">Engine</span></code><a class="headerlink" href="#calling-an-engine" title="Link to this heading"></a></h2>
+<p>The general-purpose <code class="docutils literal notranslate"><span class="pre">engines</span></code> are implemented as class objects named <code class="docutils literal notranslate"><span class="pre">&lt;Program&gt;Input</span></code>, where <code class="docutils literal notranslate"><span class="pre">&lt;Program&gt;</span></code> is the name of the software (with an initial capital letter). Each engine lives in its own submodule, nested under the main <code class="docutils literal notranslate"><span class="pre">engines</span></code> module. To use an engine, you first import it from its submodule, then create an instance of the corresponding class:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.engines.xtb</span><span class="w"> </span><span class="kn">import</span> <span class="n">XtbInput</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">spycci.engines.dftbplus</span><span class="w"> </span><span class="kn">import</span> <span class="n">DFTBInput</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">spycci.engines.orca</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrcaInput</span>
@@ -152,6 +154,9 @@
 <span class="p">)</span>
 </pre></div>
 </div>
+</section>
+<section id="calling-a-wrapper">
+<h2>Calling a <code class="docutils literal notranslate"><span class="pre">Wrapper</span></code><a class="headerlink" href="#calling-a-wrapper" title="Link to this heading"></a></h2>
 <p>For <code class="docutils literal notranslate"><span class="pre">wrappers</span></code>, you just need to import the corresponding <code class="docutils literal notranslate"><span class="pre">wrapper</span></code> submodule or any of the specific functions you wish to use:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.wrappers.crest</span><span class="w"> </span><span class="kn">import</span> <span class="n">tautomer_search</span>
 
@@ -159,6 +164,8 @@
 <span class="n">tautomers_list</span> <span class="o">=</span> <span class="n">tautomer_search</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Please refer to the <a class="reference internal" href="../API/wrappers.html#api-wrappers"><span class="std std-ref">API</span></a> section for a complete list of the available wrapper functions.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

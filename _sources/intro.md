@@ -2,7 +2,7 @@
 
 Version: [`0.0.1`](changelog)
 
-This is the user guide for the `SPyCCI` Python library. The philosophy of this software package is to provide a simple interface for carrying out calculations, workflows and data-analysis with a number of computational chemistry programs.
+This is the user guide for the **S**imple **Py**thon **C**omputational **C**hemistry **I**nterface (**SPyCCI**) Python pakage. The philosophy of this software package is that of providing the user with a simple unified interface to run computational chemistry calculations across multiple computational chemistry software backends. **SPyCCI** is more than a simple automation tool for the computational chemistry practitioner but rather a package aspiring to be a universal interface for routine calculations, high-trhoghput screenings, property calculations and methods benchmarking. **SPyCCI** not only gives to the user a convenient interface for using computational chemistry softwares but also provides the user with automated functions and workflow to manipulate molecules and compute properties and observables.
 
 ::::{grid} 1 1 2 2
 :class-container: text-center
@@ -49,5 +49,5 @@ A detailed collection of all the objects and features implemented in the library
 Contributor's guide 🖥️
 ^^^
 
-A short guide for all the developers that want to contribute to the libray
+A short guide for all the developers that want to contribute to the library
 :::

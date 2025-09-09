@@ -159,15 +159,29 @@
 </li>
 </ul>
 </section>
+<section id="basics-of-local-development">
+<h2>Basics of local development<a class="headerlink" href="#basics-of-local-development" title="Link to this heading"></a></h2>
+<p>If you are new to developing python software we strongly advise you to create a local virtual environemnt using Conda or similar tools. Once you have done so, you can install the library in your environment entering, once inside the main <code class="docutils literal notranslate"><span class="pre">SPyCCI</span></code> folder, the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>This will install the python pacakge in editable mode making all the changes you have made immediately effective. To test the functionality of the library you can use the existing tests that can be run using <code class="docutils literal notranslate"><span class="pre">pytest</span></code>. To do so, you can install the development requirements using the provided <code class="docutils literal notranslate"><span class="pre">requirements_dev.txt</span></code>. To do so you can use the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements_dev</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>All the tests can be run using the command <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">--cov</span></code> as explained above.</p>
 <section id="more-info-about-testing">
-<span id="testing-info"></span><h2>More info about testing<a class="headerlink" href="#more-info-about-testing" title="Link to this heading"></a></h2>
+<span id="testing-info"></span><h3>More info about testing<a class="headerlink" href="#more-info-about-testing" title="Link to this heading"></a></h3>
 <p>Testing in the SPyCCI library has been divided into three categories:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">unit</span></code>: All the tests related to the inner workings of the library, the object definitions and all the sanity checks concerning data integrity and interactions between class objects.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">integration</span></code>: All the tests related to the interaction between <code class="docutils literal notranslate"><span class="pre">SPyCCI</span></code> and the calculation softwares. These test are intended to verify the correctness of the submitted calculations and the results obtained from the parsing routines.
-*<code class="docutils literal notranslate"><span class="pre">functional</span></code>: All the rest related to the operation of composite functions involving one or more calculation software and further data processing by <code class="docutils literal notranslate"><span class="pre">SPyCCI</span></code> itself.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">integration</span></code>: All the tests related to the interaction between <code class="docutils literal notranslate"><span class="pre">SPyCCI</span></code> and the calculation softwares. These test are intended to verify the correctness of the submitted calculations and the results obtained from the parsing routines.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">functional</span></code>: All the rest related to the operation of composite functions involving one or more calculation software and further data processing by <code class="docutils literal notranslate"><span class="pre">SPyCCI</span></code> itself.</p></li>
 </ul>
-<p>As such, <code class="docutils literal notranslate"><span class="pre">unit</span></code> test can be run without any third party software while <code class="docutils literal notranslate"><span class="pre">integration</span></code> and <code class="docutils literal notranslate"><span class="pre">functional</span></code> tests require the computational softwares to be available. For the current version of <code class="docutils literal notranslate"><span class="pre">SPyCCI</span></code> the following version of third party software are required for testing:</p>
+<p>As such, <code class="docutils literal notranslate"><span class="pre">unit</span></code> test can be run without any third party software while <code class="docutils literal notranslate"><span class="pre">integration</span></code> and <code class="docutils literal notranslate"><span class="pre">functional</span></code> tests require the computational softwares to be available.</p>
+<div class="danger admonition">
+<p class="admonition-title">Third party software versions</p>
+<p>For the current version of <code class="docutils literal notranslate"><span class="pre">SPyCCI</span></code> the following version of third party software are <strong>required</strong> for testing:</p>
 <ul class="simple">
 <li><p>orca <code class="docutils literal notranslate"><span class="pre">6.0.1</span></code></p></li>
 <li><p>xtb <code class="docutils literal notranslate"><span class="pre">6.7.1</span></code></p></li>
@@ -175,7 +189,23 @@
 <li><p>dftb+ <code class="docutils literal notranslate"><span class="pre">24.1</span></code></p></li>
 <li><p>packmol <code class="docutils literal notranslate"><span class="pre">20.14.2</span></code></p></li>
 </ul>
-<p>Compatibility of the available test with other versions must be verified.</p>
+<p><strong>Compatibility of the available test with other versions must be verified.</strong></p>
+</div>
+<p>Specific test groups can be run explicitly by referencing the corresponding folder or script. For example, the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="n">tests</span><span class="o">/</span><span class="n">unit</span>
+</pre></div>
+</div>
+<p>will run only the unit tests, while the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="n">tests</span><span class="o">/</span><span class="n">integration</span><span class="o">/</span><span class="n">test_orca_integration</span><span class="o">.</span><span class="n">py</span> 
+</pre></div>
+</div>
+<p>will run only the integration tests for the ORCA engine.</p>
+<p>If a specific test needs to be executed (e.g., for development purposes), it can be selected using the <code class="docutils literal notranslate"><span class="pre">::</span></code> syntax. For example, the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="n">tests</span><span class="o">/</span><span class="n">integration</span><span class="o">/</span><span class="n">test_orca_integration</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_cosmors_solventfile</span>
+</pre></div>
+</div>
+<p>will run only the <code class="docutils literal notranslate"><span class="pre">test_cosmors_solventfile</span></code> from the integration tests for the ORCA engine.</p>
+</section>
 </section>
 </section>
 

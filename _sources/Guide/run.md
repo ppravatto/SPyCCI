@@ -32,6 +32,7 @@ Generic calculations are implemented as class methods in the various `engines`. 
 |  Transition state search via relaxed surface scan  |  `scan_ts` |  Orca  |
 |  Climbing Image Nudged Elastic Band method  |  `neb_ci` |  Orca  |
 |  Transition state search via Nudged Elastic Band method  |  `neb_ts` |  Orca  |
+|  COSMO-RS calculation of solvation energy | `cosmors` | Orca |
 |  NVT Molecular Dynamics  |  `md_nvt` |  DFTB+  |
 |  Simulated annealing  |  `simulated_annealing` |  DFTB+  |
 
