@@ -38,7 +38,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="API Documentation" href="../api.html" />
+    <link rel="next" title="Molecular visualization using VMD" href="molecular_visualization.html" />
     <link rel="prev" title="Calculating properties" href="functions.html" /> 
 </head>
 
@@ -70,6 +70,7 @@
 <li class="toctree-l2"><a class="reference internal" href="run.html">Running calculations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="functions.html">Calculating properties</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Useful tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="molecular_visualization.html">Molecular visualization using VMD</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
@@ -98,7 +99,7 @@
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="functions.html" class="btn btn-neutral float-left" title="Calculating properties" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../api.html" class="btn btn-neutral float-right" title="API Documentation" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="molecular_visualization.html" class="btn btn-neutral float-right" title="Molecular visualization using VMD" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -158,20 +159,7 @@
 </ul>
 <p>and returns the same list, but with a new ordering, given by the total energies recalculated at the new level of theory.</p>
 </section>
-<section id="vmd-based-tools">
-<h2>VMD based tools<a class="headerlink" href="#vmd-based-tools" title="Link to this heading"></a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">copechem.tools</span></code> module also provides a <code class="docutils literal notranslate"><span class="pre">vmdtools</span></code> submodule containing simple VMD-based functions to render graphical representations of molecular properties such as:</p>
-<ul class="simple">
-<li><p>Volumetric and condensed Fukui functions</p></li>
-<li><p>Spin densities</p></li>
-</ul>
-<p>The following conventions have been adopted in the representation:</p>
-<ul class="simple">
-<li><p>Positive/high values of functions/densities related to the electronic density are represented in red while negative/low values are represented in blue.</p></li>
-<li><p>Positive/high values of functions/densities related to the spin density are represented in orange while negative/low values are represented in violet.</p></li>
-</ul>
-<p>Please refer to the API for details about the call to the various render functions.</p>
-</section>
+<hr class="docutils" />
 <section id="mogli-based-tools">
 <h2><code class="docutils literal notranslate"><span class="pre">Mogli</span></code> based tools<a class="headerlink" href="#mogli-based-tools" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">copechem.tools</span></code> module also provides a <code class="docutils literal notranslate"><span class="pre">moglitools</span></code> submodule containing simple mogli-based molecular viewer. Please refer to the API for details about the call to the various render functions.</p>

@@ -330,13 +330,13 @@ An example code snippet is provided in what follows:
 ```python
 from spycci.systems import System
 from spycci.engines.orca import OrcaInput
-from spycci.functions.fukui import calculate_fukui
+from spycci.functions.fukui import calculate_fukui, CubeGrids 
 
 mol = System.from_xyz("./acetaldehyde.xyz")
 orca = OrcaInput(method="PBE", basis_set="def2-SVP")
 
 orca.opt(mol, inplace=True)
-calculate_fukui(mol, orca)
+calculate_fukui(mol, orca, cube_grid=CubeGrids.FINE)
 
 print(mol)
 ```
@@ -353,12 +353,15 @@ print(mol)
 The volumetric fukui functions can then be plotted using the built in `vmd` based rendering tool. As an example the following code can be used to render the the $f^+(r)$ Fukui function.
 
 ```python
-from spycci.tools.vmdtools import render_fukui_cube
+from spycci.tools.vmdtools import VMDRenderer
 
-render_fukui_cube(
-    "./output_densities/acetaldehyde_Fukui_plus.fukui.cube",
-    include_negative=True,
+renderer = VMDRenderer(resolution=1200)
+renderer.scale = 1.1
+
+renderer.render_fukui_cube(
+    "./output_densities/acetaldehyde_orca_PBE_def2-SVP_vacuum_Fukui_plus.fukui.cube",
     isovalue=0.02,
+    show_negative=True
 )
 ```
 

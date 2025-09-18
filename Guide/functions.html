@@ -72,6 +72,7 @@
 <li class="toctree-l2"><a class="reference internal" href="run.html">Running calculations</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Calculating properties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tools.html">Useful tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="molecular_visualization.html">Molecular visualization using VMD</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
@@ -391,13 +392,13 @@ f^0(r) = \frac{1}{2} \left[\rho_{N+1}(r) - \rho_{N-1}(r)\right]
 <p>An example code snippet is provided in what follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">spycci.engines.orca</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrcaInput</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.functions.fukui</span><span class="w"> </span><span class="kn">import</span> <span class="n">calculate_fukui</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.functions.fukui</span><span class="w"> </span><span class="kn">import</span> <span class="n">calculate_fukui</span><span class="p">,</span> <span class="n">CubeGrids</span> 
 
 <span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_xyz</span><span class="p">(</span><span class="s2">&quot;./acetaldehyde.xyz&quot;</span><span class="p">)</span>
 <span class="n">orca</span> <span class="o">=</span> <span class="n">OrcaInput</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;PBE&quot;</span><span class="p">,</span> <span class="n">basis_set</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">)</span>
 
 <span class="n">orca</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">calculate_fukui</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">orca</span><span class="p">)</span>
+<span class="n">calculate_fukui</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">orca</span><span class="p">,</span> <span class="n">cube_grid</span><span class="o">=</span><span class="n">CubeGrids</span><span class="o">.</span><span class="n">FINE</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 </pre></div>
@@ -493,12 +494,15 @@ CONDENSED FUKUI - HIRSHFELD
 </div>
 </div>
 <p>The volumetric fukui functions can then be plotted using the built in <code class="docutils literal notranslate"><span class="pre">vmd</span></code> based rendering tool. As an example the following code can be used to render the the <span class="math notranslate nohighlight">\(f^+(r)\)</span> Fukui function.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.tools.vmdtools</span><span class="w"> </span><span class="kn">import</span> <span class="n">render_fukui_cube</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.tools.vmdtools</span><span class="w"> </span><span class="kn">import</span> <span class="n">VMDRenderer</span>
 
-<span class="n">render_fukui_cube</span><span class="p">(</span>
-    <span class="s2">&quot;./output_densities/acetaldehyde_Fukui_plus.fukui.cube&quot;</span><span class="p">,</span>
-    <span class="n">include_negative</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="n">renderer</span> <span class="o">=</span> <span class="n">VMDRenderer</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+<span class="n">renderer</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="mf">1.1</span>
+
+<span class="n">renderer</span><span class="o">.</span><span class="n">render_fukui_cube</span><span class="p">(</span>
+    <span class="s2">&quot;./output_densities/acetaldehyde_orca_PBE_def2-SVP_vacuum_Fukui_plus.fukui.cube&quot;</span><span class="p">,</span>
     <span class="n">isovalue</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span>
+    <span class="n">show_negative</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 </pre></div>
 </div>

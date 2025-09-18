@@ -67,20 +67,7 @@ Reorders a `System` list at a specific level of theory, provided the following a
 
 and returns the same list, but with a new ordering, given by the total energies recalculated at the new level of theory.
 
-## VMD based tools
-
-The `copechem.tools` module also provides a `vmdtools` submodule containing simple VMD-based functions to render graphical representations of molecular properties such as:
-
-* Volumetric and condensed Fukui functions
-* Spin densities
-
-The following conventions have been adopted in the representation:
-
-* Positive/high values of functions/densities related to the electronic density are represented in red while negative/low values are represented in blue.
-* Positive/high values of functions/densities related to the spin density are represented in orange while negative/low values are represented in violet.
-
-Please refer to the API for details about the call to the various render functions.
-
+---
 
 ## `Mogli` based tools
 

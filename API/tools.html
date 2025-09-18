@@ -284,22 +284,52 @@ level of theory.</p>
 </section>
 <section id="module-spycci.tools.vmdtools">
 <span id="spycci-tools-vmdtools-sub-module"></span><h2><code class="docutils literal notranslate"><span class="pre">spycci.tools.vmdtools</span></code> sub-module<a class="headerlink" href="#module-spycci.tools.vmdtools" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="spycci.tools.vmdtools.render_condensed_fukui">
-<span class="sig-prename descclassname"><span class="pre">spycci.tools.vmdtools.</span></span><span class="sig-name descname"><span class="pre">render_condensed_fukui</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cubfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shadows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ambientocclusion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">VMD_PATH</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.tools.vmdtools.render_condensed_fukui" title="Link to this definition"></a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="spycci.tools.vmdtools.VMDRenderer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">spycci.tools.vmdtools.</span></span><span class="sig-name descname"><span class="pre">VMDRenderer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xyz_translation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xyx_rotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shadows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ambientocclusion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">VMD_PATH</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.tools.vmdtools.VMDRenderer" title="Link to this definition"></a></dt>
+<dd><p>The <cite>VMDRenderer</cite> class is a simple wrapper developed around the Visual Molecular Dynamics (VMD)
+software. The class allows the user to easily generate images and renders of molecules and cube files.
+Once an instance of the <cite>VMDRenderer</cite> is created, the user can use its render functionality through
+the provided built-in methods.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resolution</strong> (<em>Union</em><em>[</em><em>int</em><em>, </em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em>) – The resolution of the output image. This argument accepts either a single integer, which sets the
+same resolution for both the X and Y axes (producing a square image), or a list of two integers,
+which independently specify the resolution along the X (width) and Y (height) axes (producing a
+rectangular image). (default: 800).</p></li>
+<li><p><strong>scale</strong> (<em>float</em>) – Scales the frame zoom according to the user specified factor (default: 1. no
+zoom is applied)</p></li>
+<li><p><strong>xyz_translation</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – A list of three float values defining the translation vector (X, Y, Z) to apply to the
+object. (default: [0., 0., 0.] no translation is applied).</p></li>
+<li><p><strong>xyx_rotation</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>) – The list of 3 rotation angles (from 0 to 360°) defyning subsequent rotations around
+the X, Y and X axis. (default: [0., 0., 0.] no rotation is applied).</p></li>
+<li><p><strong>shadows</strong> (<em>bool</em>) – If set to <cite>True</cite> will enable the vmd shadows option</p></li>
+<li><p><strong>ambientocclusion</strong> (<em>bool</em>) – If set to <cite>True</cite> will enable the vmd ambientocclusion option</p></li>
+<li><p><strong>dof</strong> (<em>bool</em>) – If set to <cite>True</cite> will enable the vmd dof option</p></li>
+<li><p><strong>VMD_PATH</strong> (<em>str</em>) – The path to the vmd executable. Is set to <cite>None</cite> (default), will automatically search <cite>vmd</cite>
+in the system PATH.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>FileNotFoundError</strong> – Exception raised if the user provided <cite>VMD_PATH</cite> is invalid.</p></li>
+<li><p><strong>RuntimeError</strong> – Exception raised if either the <cite>vmd</cite> program or the Tachyon ray tracer are not found.</p></li>
+<li><p><strong>ValueError</strong> – Exception raised if scale or xyx rotation angles are not properly formatted.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.tools.vmdtools.VMDRenderer.render_condensed_fukui">
+<span class="sig-name descname"><span class="pre">render_condensed_fukui</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cubefile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.tools.vmdtools.VMDRenderer.render_condensed_fukui" title="Link to this definition"></a></dt>
 <dd><p>Given the path to a Fukui function cube file saves a <cite>.bmp</cite> render of the condensed Fukui
 functions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>cubefile</strong> (<em>str</em>) – The path to the <cite>.fukui.cube</cite> file that must be rendered.</p></li>
-<li><p><strong>resolution</strong> (<em>int</em>) – The resolution of the output image (default: 4800).</p></li>
-<li><p><strong>shadows</strong> (<em>bool</em>) – If set to True will enable the vmd shadows option</p></li>
-<li><p><strong>ambientocclusion</strong> (<em>bool</em>) – If set to True will enable the vmd ambientocclusion option</p></li>
-<li><p><strong>dof</strong> (<em>bool</em>) – If set to True will enable the vmd dof option</p></li>
-<li><p><strong>VMD_PATH</strong> (<em>str</em>) – The path to the vmd folder. Is set to None (default), will automatically search vmd
-in the system PATH.</p></li>
-<li><p><strong>cubfile</strong> (<em>str</em>)</p></li>
+<li><p><strong>filename</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The name, or the path, of the output <cite>.bmp</cite> file. If <cite>None</cite> (default) the output file will
+be generated from the root of the input filename (e.g. <cite>root_condensed.bmp</cite> from <cite>root.xyz</cite>).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -308,25 +338,71 @@ in the system PATH.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="spycci.tools.vmdtools.render_fukui_cube">
-<span class="sig-prename descclassname"><span class="pre">spycci.tools.vmdtools.</span></span><span class="sig-name descname"><span class="pre">render_fukui_cube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cubfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isovalue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.003</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_negative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shadows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ambientocclusion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">VMD_PATH</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.tools.vmdtools.render_fukui_cube" title="Link to this definition"></a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.tools.vmdtools.VMDRenderer.render_cube">
+<span class="sig-name descname"><span class="pre">render_cube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cube</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isovalue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positive_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">negative_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_negative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.tools.vmdtools.VMDRenderer.render_cube" title="Link to this definition"></a></dt>
+<dd><p>Given a <cite>Cube</cite> object the function saves a <cite>.bmp</cite> render of the contained
+volumetric data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cube</strong> (<em>Cube</em>) – The <cite>Cube</cite> object encoding the volumetric data.</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – The name, or the path, of the output <cite>.bmp</cite> file (Required because <cite>Cube</cite> objects
+have no pre-assigned names).</p></li>
+<li><p><strong>isovalue</strong> (<em>Optional</em><em>[</em><em>float</em><em>]</em>) – The isovalue at which the contour must be plotted. If set to <cite>None</cite> (default)
+a proper isovalue will be set automatically as the 20% of the maximum voxel value.</p></li>
+<li><p><strong>positive_color</strong> (<em>int</em>) – The color of the positive phase of the plot.</p></li>
+<li><p><strong>negative_color</strong> (<em>int</em>) – The color of the positive phase of the plot.</p></li>
+<li><p><strong>show_negative</strong> (<em>bool</em>) – If set to True, will render also the negative part of the Fukui function. (default:
+False)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.tools.vmdtools.VMDRenderer.render_cube_file">
+<span class="sig-name descname"><span class="pre">render_cube_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cubefile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isovalue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positive_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">negative_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_negative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.tools.vmdtools.VMDRenderer.render_cube_file" title="Link to this definition"></a></dt>
+<dd><p>Given the path to a generic <cite>.cube</cite> file, saves a <cite>.bmp</cite> render of the contained
+volumetric data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cubefile</strong> (<em>str</em>) – The path to the <cite>.fukui.cube</cite> file that must be rendered.</p></li>
+<li><p><strong>isovalue</strong> (<em>Optional</em><em>[</em><em>float</em><em>]</em>) – The isovalue at which the contour must be plotted. If set to <cite>None</cite> (default)
+a proper isovalue will be set automatically as the 20% of the maximum voxel value.</p></li>
+<li><p><strong>positive_color</strong> (<em>int</em>) – The color of the positive phase of the plot.</p></li>
+<li><p><strong>negative_color</strong> (<em>int</em>) – The color of the positive phase of the plot.</p></li>
+<li><p><strong>show_negative</strong> (<em>bool</em>) – If set to True, will render also the negative part of the Fukui function. (default:
+False)</p></li>
+<li><p><strong>filename</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The name, or the path, of the output <cite>.bmp</cite> file. If <cite>None</cite> (default) the output file
+will be generated from the root of the input filename (e.g. <cite>root.bmp</cite> from <cite>root.xyz</cite>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.tools.vmdtools.VMDRenderer.render_fukui_cube">
+<span class="sig-name descname"><span class="pre">render_fukui_cube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cubefile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isovalue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_negative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.tools.vmdtools.VMDRenderer.render_fukui_cube" title="Link to this definition"></a></dt>
 <dd><p>Given the path to a Fukui function cube file saves a <cite>.bmp</cite> render the volumetric Fukui
 function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>cubefile</strong> (<em>str</em>) – The path to the <cite>.fukui.cube</cite> file that must be rendered.</p></li>
-<li><p><strong>isovalue</strong> (<em>float</em>) – The isovalue at which the contour must be plotted (default: 0.003).</p></li>
-<li><p><strong>include_negative</strong> (<em>bool</em>) – If set to True, will render also the negative part of the Fukui function. (default:
+<li><p><strong>isovalue</strong> (<em>Optional</em><em>[</em><em>float</em><em>]</em>) – The isovalue at which the contour must be plotted. If set to <cite>None</cite> (default)
+a proper isovalue will be set automatically as the 20% of the maximum voxel value.</p></li>
+<li><p><strong>show_negative</strong> (<em>bool</em>) – If set to True, will render also the negative part of the Fukui function. (default:
 False)</p></li>
-<li><p><strong>resolution</strong> (<em>int</em>) – The resolution of the output image (default: 4800).</p></li>
-<li><p><strong>shadows</strong> (<em>bool</em>) – If set to True will enable the vmd shadows option</p></li>
-<li><p><strong>ambientocclusion</strong> (<em>bool</em>) – If set to True will enable the vmd ambientocclusion option</p></li>
-<li><p><strong>dof</strong> (<em>bool</em>) – If set to True will enable the vmd dof option</p></li>
-<li><p><strong>VMD_PATH</strong> (<em>str</em>) – The path to the vmd folder. Is set to None (default), will automatically search vmd
-in the system PATH.</p></li>
-<li><p><strong>cubfile</strong> (<em>str</em>)</p></li>
+<li><p><strong>filename</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The name, or the path, of the output <cite>.bmp</cite> file. If <cite>None</cite> (default) the output file
+will be generated from the root of the input filename (e.g. <cite>root.bmp</cite> from <cite>root.xyz</cite>).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -335,28 +411,124 @@ in the system PATH.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="spycci.tools.vmdtools.render_spin_density_cube">
-<span class="sig-prename descclassname"><span class="pre">spycci.tools.vmdtools.</span></span><span class="sig-name descname"><span class="pre">render_spin_density_cube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cubfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isovalue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.005</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shadows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ambientocclusion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">VMD_PATH</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.tools.vmdtools.render_spin_density_cube" title="Link to this definition"></a></dt>
-<dd><p>Given the path to a spin density cube file saves a <cite>.bmp</cite> render the function.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.tools.vmdtools.VMDRenderer.render_spin_density_cube">
+<span class="sig-name descname"><span class="pre">render_spin_density_cube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cubefile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isovalue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.tools.vmdtools.VMDRenderer.render_spin_density_cube" title="Link to this definition"></a></dt>
+<dd><p>Given the path to an ORCA spin density cube file saves a <cite>.bmp</cite> render the function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>cubefile</strong> (<em>str</em>) – The path to the <cite>.fukui.cube</cite> file that must be rendered.</p></li>
-<li><p><strong>isovalue</strong> (<em>float</em>) – The isovalue at which the contour must be plotted (default: 0.003).</p></li>
-<li><p><strong>resolution</strong> (<em>int</em>) – The resolution of the output image (default: 4800).</p></li>
-<li><p><strong>shadows</strong> (<em>bool</em>) – If set to True will enable the vmd shadows option</p></li>
-<li><p><strong>ambientocclusion</strong> (<em>bool</em>) – If set to True will enable the vmd ambientocclusion option</p></li>
-<li><p><strong>dof</strong> (<em>bool</em>) – If set to True will enable the vmd dof option</p></li>
-<li><p><strong>VMD_PATH</strong> (<em>str</em>) – The path to the vmd folder. Is set to None (default), will automatically search vmd
-in the system PATH.</p></li>
-<li><p><strong>cubfile</strong> (<em>str</em>)</p></li>
+<li><p><strong>isovalue</strong> (<em>Optional</em><em>[</em><em>float</em><em>]</em>) – The isovalue at which the contour must be plotted. If set to <cite>None</cite> (default)
+a proper isovalue will be set automatically as the 20% of the maximum voxel value.</p></li>
+<li><p><strong>xyx_rotation</strong> (<em>Optional</em><em>[</em><em>tuple</em><em>]</em>) – The tuple of 3 rotation angles (from 0 to 360°) defyning subsequent rotations around
+the X, Y and X axis. If None (default), no rotation is applied.</p></li>
+<li><p><strong>filename</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The name, or the path, of the output <cite>.bmp</cite> file. If <cite>None</cite> (default) the output file will
+be generated from the root of the input filename (e.g. <cite>root_condensed.bmp</cite> from <cite>root.xyz</cite>).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.tools.vmdtools.VMDRenderer.render_system">
+<span class="sig-name descname"><span class="pre">render_system</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.tools.vmdtools.VMDRenderer.render_system" title="Link to this definition"></a></dt>
+<dd><p>Given a <cite>System</cite> object the function saves a <cite>.bmp</cite> render of its molecular structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mol</strong> (<a class="reference internal" href="systems.html#spycci.systems.System" title="spycci.systems.System"><em>System</em></a>) – The <cite>System</cite> object to render.</p></li>
+<li><p><strong>filename</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The name, or the path, of the output <cite>.bmp</cite> file. If <cite>None</cite> (default) the output file
+will be generated from the root of the input filename (e.g. <cite>root.bmp</cite> from <cite>root.xyz</cite>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spycci.tools.vmdtools.VMDRenderer.render_system_file">
+<span class="sig-name descname"><span class="pre">render_system_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">molecule_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spycci.tools.vmdtools.VMDRenderer.render_system_file" title="Link to this definition"></a></dt>
+<dd><p>Given the path to a molecule file (e.g. .xyz, .pdb) the function saves a <cite>.bmp</cite> render
+of the molecular structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>molecule_file</strong> (<em>str</em>) – The path to the file encoding the structure of the molecule.</p></li>
+<li><p><strong>filename</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The name, or the path, of the output <cite>.bmp</cite> file. If <cite>None</cite> (default) the output file
+will be generated from the root of the input filename (e.g. <cite>root.bmp</cite> from <cite>root.xyz</cite>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.tools.vmdtools.VMDRenderer.resolution">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resolution</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.tools.vmdtools.VMDRenderer.resolution" title="Link to this definition"></a></dt>
+<dd><p>The list of two integer values setting the XY resolution of the output image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The list encoding the image resolution across the X and Y axes.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.tools.vmdtools.VMDRenderer.scale">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scale</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#spycci.tools.vmdtools.VMDRenderer.scale" title="Link to this definition"></a></dt>
+<dd><p>The float value setting the frame zoom. The value 1. is set by VMD on startup
+to render the whole molecule in the unrotated frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The scale of the frame.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.tools.vmdtools.VMDRenderer.xyx_rotation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">xyx_rotation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.tools.vmdtools.VMDRenderer.xyx_rotation" title="Link to this definition"></a></dt>
+<dd><p>The list of 3 rotation angles (from 0 to 360°) defyning subsequent rotations around
+the X, Y and X axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The list of XYX rotation angles.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="spycci.tools.vmdtools.VMDRenderer.xyz_translation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">xyz_translation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#spycci.tools.vmdtools.VMDRenderer.xyz_translation" title="Link to this definition"></a></dt>
+<dd><p>The list of three float values defining the translation vector (X, Y, Z) to apply to the
+object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The translation vector.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[float]</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>

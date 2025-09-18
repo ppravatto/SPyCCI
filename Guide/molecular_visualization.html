@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Molecular visualization using VMD &mdash; SPyCCI User Guide</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=d23eb610" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/scripts/sphinx-book-theme.js"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+      <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API Documentation" href="../api.html" />
+    <link rel="prev" title="Useful tools" href="tools.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../intro.html">
+            
+              <img src="../_static/SPyCCI_logo_tr-01.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../user-guide.html">User guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="systems.html">Defining molecular systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html">Setting up calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run.html">Running calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Calculating properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html">Useful tools</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Molecular visualization using VMD</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributor-guide.html">Contributor’s guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../intro.html">Project name not set</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../intro.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../user-guide.html">User guide</a></li>
+      <li class="breadcrumb-item active">Molecular visualization using VMD</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Guide/molecular_visualization.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="tools.html" class="btn btn-neutral float-left" title="Useful tools" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../api.html" class="btn btn-neutral float-right" title="API Documentation" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="molecular-visualization-using-vmd">
+<span id="guide-molecular-visualization"></span><h1>Molecular visualization using VMD<a class="headerlink" href="#molecular-visualization-using-vmd" title="Link to this heading"></a></h1>
+<p>Beyond allowing the user to run computational chemistry calculations, the SPyCCI package also provides a simple interface to the <a class="reference external" href="https://www.ks.uiuc.edu/Research/vmd/">Visual Molecular Dynamics (VMD) software</a> enabling the user to render molecular structures and cube files directly from a python script. The interface is constantly updated with new features and, at the moment, supports the rendering of both molecular structures, provided either in the form of <code class="docutils literal notranslate"><span class="pre">System</span></code> objects, <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> or <code class="docutils literal notranslate"><span class="pre">pdb</span></code> files, and volumetric data in the form of <code class="docutils literal notranslate"><span class="pre">.cube</span></code> files or <code class="docutils literal notranslate"><span class="pre">Cube</span></code> objects.</p>
+<p>The core of the interface is represented by the <code class="docutils literal notranslate"><span class="pre">VMDRenderer</span></code> class. The class represents a generic rendering tool that can be created setting a resolution value, system position, orientation and zoom, graphical effects such as shadows, ambientocclusion and depth of field (DoF). Once created the class provides specific methods capable of generating the required renders.</p>
+<div class="info admonition">
+<p class="admonition-title">Notes about cube files</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">.cube</span></code> format processed by SPyCCI is the <a class="reference external" href="https://paulbourke.net/dataformats/cube/">Gaussian cube file format</a>. The file is composed by a header and a body of volumetric data. The header is structured as:</p>
+<ul class="simple">
+<li><p>Two comment lines.</p></li>
+<li><p>A line listing the number of atoms included in the file followed by the position of the origin of the volumetric data.</p></li>
+<li><p>Three lines listing the number of voxels along each axis (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code>) followed by the axis vector. The length of each vector is the length of the side of the voxel thus allowing non cubic volumes. If the sign of the number of voxels in a dimension is positive then the units are Bohr, if negative then Angstroms.</p></li>
+<li><p>A section with a number of lines equal to the number of atoms in the molecule and consisting of 5 numbers: the first is the atom number, the second is the charge (this field is often used for other data types), and the last three are the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code> coordinates of the atom center.</p></li>
+</ul>
+<p>The body of volumetric data is represented by a series of lines listing floating point values for each voxel. The data is usually arranged in columns of 6 values generated by looping on the voxel coordinates with <code class="docutils literal notranslate"><span class="pre">x</span></code> axis as the outer loop and <code class="docutils literal notranslate"><span class="pre">z</span></code> as the most inner one.</p>
+</div>
+<h4> Rendering a molecule from a <code>.xyz</code> file </h4>
+<p>The structure of a molecule can be rendered starting from a <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> file by using the <code class="docutils literal notranslate"><span class="pre">render_system_file()</span></code> function. As an example, the following script can be used to render a simple <code class="docutils literal notranslate"><span class="pre">water.xyz</span></code> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.tools.vmdtools</span><span class="w"> </span><span class="kn">import</span> <span class="n">VMDRenderer</span>
+
+<span class="n">vmd</span> <span class="o">=</span> <span class="n">VMDRenderer</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+<span class="n">vmd</span><span class="o">.</span><span class="n">render_system_file</span><span class="p">(</span><span class="s2">&quot;./water.xyz&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will save a <code class="docutils literal notranslate"><span class="pre">water.bmp</span></code> image file that looks like this:</p>
+<a class="reference internal image-reference" href="../_images/water.bmp"><img alt="water.bmp" class="align-center" src="../_images/water.bmp" style="width: 300px;" />
+</a>
+<h4> Rendering a molecule from a <code>System</code> object </h4>
+<p>Similarly from what shown in the case of a <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> file, the <code class="docutils literal notranslate"><span class="pre">VMDRenderer</span></code> class directly supports the rendering of <code class="docutils literal notranslate"><span class="pre">System</span></code> objects. This can be done using the <code class="docutils literal notranslate"><span class="pre">render_system()</span></code> function. As an example, the following script can be used to render a benzene molecule generated from its SMILES string:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.tools.vmdtools</span><span class="w"> </span><span class="kn">import</span> <span class="n">VMDRenderer</span>
+
+<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="s2">&quot;benzene&quot;</span><span class="p">,</span> <span class="s2">&quot;c1ccccc1&quot;</span><span class="p">)</span>
+
+<span class="n">renderer</span> <span class="o">=</span> <span class="n">VMDRenderer</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+<span class="n">renderer</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">renderer</span><span class="o">.</span><span class="n">xyx_rotation</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">45.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]</span>
+
+<span class="n">renderer</span><span class="o">.</span><span class="n">render_system</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Please notice how the <code class="docutils literal notranslate"><span class="pre">scale</span></code> argument has been set to <code class="docutils literal notranslate"><span class="pre">1.5</span></code> to zoom while a rotation of 45° has been applied to the <code class="docutils literal notranslate"><span class="pre">x</span></code> axis. The output of such a script is a <code class="docutils literal notranslate"><span class="pre">benzene_0_1.bmp</span></code> file:</p>
+<a class="reference internal image-reference" href="../_images/benzene_0_1.bmp"><img alt="benzene_0_1.bmp" class="align-center" src="../_images/benzene_0_1.bmp" style="width: 400px;" />
+</a>
+<div class="info admonition">
+<p class="admonition-title">Notes about rotations</p>
+<p>The current implementation of the <code class="docutils literal notranslate"><span class="pre">VMDRendered</span></code> class uses an XYX rotation sequence, following the convention of proper Euler angles. Unlike intrinsic rotations tied to the molecular frame, these rotations are applied around the camera (screen) axes, which change orientation after each step. As a result, the second application of the X-axis rotation occurs around a different orientation than the first, due to the intermediate Y-axis rotation. This sequence allows representation of arbitrary 3D orientations, despite the repeated axis label.</p>
+</div>
+<h4> Rendering a generic <code>.cube</code> file </h4>
+<p>Rendering of a generic cube file can be achieved using the <code class="docutils literal notranslate"><span class="pre">render_cube_file()</span></code> function of the <code class="docutils literal notranslate"><span class="pre">VMDRenderer</span></code> class. The function, that can be called by simply providing the name of the cube file, can be set to render positive and negative regions of volumetric data with a user specified <code class="docutils literal notranslate"><span class="pre">isovalue</span></code>. If the isovalue is not explicilty indicated a default value will be computed as the 20% of the maximum voxel value (in absolute values). Additional features such as the color of the positive and negative reagions, whether to show the negative part of the cube or the filename of the output file, can be set by the user using the built in keywords.</p>
+<p>As an example, the 6th molecular orbital for the formaldehyde molecule, generated by orca as a <code class="docutils literal notranslate"><span class="pre">input.mo6a.cube</span></code> file. Can be simply rendered using the code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.tools.vmdtools</span><span class="w"> </span><span class="kn">import</span> <span class="n">VMDRenderer</span>
+
+<span class="n">renderer</span> <span class="o">=</span> <span class="n">VMDRenderer</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+<span class="n">renderer</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">renderer</span><span class="o">.</span><span class="n">xyx_rotation</span> <span class="o">=</span> <span class="p">[</span><span class="mf">120.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+
+<span class="n">renderer</span><span class="o">.</span><span class="n">render_cube_file</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;./input.mo6a.cube&quot;</span><span class="p">,</span>
+    <span class="n">positive_color</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">negative_color</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span>
+    <span class="n">show_negative</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>resulting in the following <code class="docutils literal notranslate"><span class="pre">input.mo6a.bmp</span></code> image file:</p>
+<a class="reference internal image-reference" href="../_images/input.mo6a.bmp"><img alt="input.mo6a.bmp" class="align-center" src="../_images/input.mo6a.bmp" style="width: 450px;" />
+</a>
+<div class="warning admonition">
+<p class="admonition-title">Notes about ORCA’s molecular orbitals (MOs) cube files</p>
+<p>The cube files generated by ORCA when exporting molecular orbitals differs from the standard structure of the Gaussian cube file format. The number of atoms is represented by a negative number and an additional line is added after the atoms coordinates section. The differences in formatting are taken into account by SPyCCI that automatically converts this format to a regular Gaussian cube for visualization with <code class="docutils literal notranslate"><span class="pre">vmd</span></code>.</p>
+</div>
+<h4> Rendering volumetric data from a <code>Cube</code> object </h4>
+<p>Similarly from what shown in the case of a <code class="docutils literal notranslate"><span class="pre">.cube</span></code> file, the <code class="docutils literal notranslate"><span class="pre">VMDRenderer</span></code> class directly supports the rendering of <code class="docutils literal notranslate"><span class="pre">Cube</span></code> objects. This can be done using the <code class="docutils literal notranslate"><span class="pre">render_cube()</span></code> function in complete analogy with the syntax discussed before for the <code class="docutils literal notranslate"><span class="pre">render_cube_file()</span></code> function. The only difference in this case is the requirement for the user to provide a filename since, differently from what seen in the case of a <code class="docutils literal notranslate"><span class="pre">System</span></code> object, a <code class="docutils literal notranslate"><span class="pre">Cube</span></code> object has not assigned name.</p>
+<p>As an example, the previous example about plotting the 6th molecular orbital of the formaldehyde molecule from a <code class="docutils literal notranslate"><span class="pre">input.mo6a.cube</span></code> cube file can be revritten as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.tools.cubetools</span><span class="w"> </span><span class="kn">import</span> <span class="n">Cube</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.tools.vmdtools</span><span class="w"> </span><span class="kn">import</span> <span class="n">VMDRenderer</span>
+
+<span class="n">renderer</span> <span class="o">=</span> <span class="n">VMDRenderer</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">renderer</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">renderer</span><span class="o">.</span><span class="n">xyx_rotation</span> <span class="o">=</span> <span class="p">[</span><span class="mf">120.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+
+<span class="n">cube</span> <span class="o">=</span> <span class="n">Cube</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s2">&quot;./input.mo6a.cube&quot;</span><span class="p">)</span>
+
+<span class="n">renderer</span><span class="o">.</span><span class="n">render_cube</span><span class="p">(</span>
+    <span class="n">cube</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s2">&quot;./formaldehyde_MO6a.bmp&quot;</span><span class="p">,</span>
+    <span class="n">positive_color</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">negative_color</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span>
+    <span class="n">show_negative</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>This will generate a <code class="docutils literal notranslate"><span class="pre">formaldehyde_MO6a.bmp</span></code> file identical to the one shown in the previous example.</p>
+<h4> Rendering an ORCA spin density (<code>.spindens.cube</code>) file </h4>
+<p>A spin density cube generated from orca (having the <code class="docutils literal notranslate"><span class="pre">.spindens.cube</span></code> extension) can be rendered using the dedicated <code class="docutils literal notranslate"><span class="pre">render_spin_density_cube()</span></code> function. In the following simple example, the spin density obtained form a DFT calculation has been saved and directly rendered from the <code class="docutils literal notranslate"><span class="pre">output_densities</span></code> folder:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.engines.orca</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrcaInput</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.tools.vmdtools</span><span class="w"> </span><span class="kn">import</span> <span class="n">VMDRenderer</span>
+
+<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="s2">&quot;benzene&quot;</span><span class="p">,</span> <span class="s2">&quot;c1ccccc1&quot;</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">orca</span> <span class="o">=</span> <span class="n">OrcaInput</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;B3LYP&quot;</span><span class="p">,</span> <span class="n">basis_set</span><span class="o">=</span><span class="s2">&quot;def2-TZVP&quot;</span><span class="p">,</span> <span class="n">ncores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">orca</span><span class="o">.</span><span class="n">spe</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">save_cubes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">renderer</span> <span class="o">=</span> <span class="n">VMDRenderer</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+<span class="n">renderer</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">renderer</span><span class="o">.</span><span class="n">xyx_rotation</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">45.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+
+<span class="n">renderer</span><span class="o">.</span><span class="n">render_spin_density_cube</span><span class="p">(</span>
+    <span class="s2">&quot;./output_densities/benzene_1_2_orca_B3LYP_def2-TZVP_vacuum_spe.spindens.cube&quot;</span><span class="p">,</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;spindensity.bmp&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The result is a <code class="docutils literal notranslate"><span class="pre">spindensity.bmp</span></code> (the name of the output has been manually set using the <code class="docutils literal notranslate"><span class="pre">filename</span></code> option):</p>
+<a class="reference internal image-reference" href="../_images/spindensity.bmp"><img alt="spindensity.bmp" class="align-center" src="../_images/spindensity.bmp" style="width: 450px;" />
+</a>
+<h4> Rendering an Fukui functions (<code>.fukui.cube</code>) file </h4>
+<p>Volumetric maps of Fukui functions generated from the SPyCCI <code class="docutils literal notranslate"><span class="pre">calculate_fukui()</span></code> function, and saved in cube format (having the <code class="docutils literal notranslate"><span class="pre">.fukui.cube</span></code> extension), can be rendered using the dedicated <code class="docutils literal notranslate"><span class="pre">render_fukui_cube()</span></code> function. In the following simple example, the Fukui <span class="math notranslate nohighlight">\(f^+(r)\)</span> function obtained form a DFT calculation on the propionaldehyde molecule has been saved and directly rendered from the <code class="docutils literal notranslate"><span class="pre">output_densities</span></code> folder:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spycci.systems</span><span class="w"> </span><span class="kn">import</span> <span class="n">System</span>
+<span class="n">rom</span> <span class="n">spycci</span><span class="o">.</span><span class="n">engines</span><span class="o">.</span><span class="n">xtb</span> <span class="kn">import</span><span class="w"> </span><span class="nn">XtbInput</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.engines.orca</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrcaInput</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.functions.fukui</span><span class="w"> </span><span class="kn">import</span> <span class="n">calculate_fukui</span><span class="p">,</span> <span class="n">CubeGrids</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">spycci.tools.vmdtools</span><span class="w"> </span><span class="kn">import</span> <span class="n">VMDRenderer</span>
+
+<span class="n">mol</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="s2">&quot;propionaldehyde&quot;</span><span class="p">,</span> <span class="s2">&quot;CCC=O&quot;</span><span class="p">)</span>
+<span class="n">xtb</span> <span class="o">=</span> <span class="n">XtbInput</span><span class="p">()</span>
+
+<span class="n">xtb</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+
+<span class="n">orca</span> <span class="o">=</span> <span class="n">OrcaInput</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;PBE&quot;</span><span class="p">,</span> <span class="n">basis_set</span><span class="o">=</span><span class="s2">&quot;def2-SVP&quot;</span><span class="p">,</span> <span class="n">ncores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">calculate_fukui</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">orca</span><span class="p">,</span> <span class="n">cube_grid</span><span class="o">=</span><span class="n">CubeGrids</span><span class="o">.</span><span class="n">FINE</span><span class="p">)</span>
+
+<span class="n">renderer</span> <span class="o">=</span> <span class="n">VMDRenderer</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+<span class="n">renderer</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="mf">1.4</span>
+<span class="n">renderer</span><span class="o">.</span><span class="n">xyx_rotation</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">180.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">]</span>
+
+<span class="n">renderer</span><span class="o">.</span><span class="n">render_fukui_cube</span><span class="p">(</span>
+    <span class="s2">&quot;./output_densities/propionaldehyde_orca_PBE_def2-SVP_vacuum_Fukui_plus.fukui.cube&quot;</span><span class="p">,</span>
+    <span class="n">isovalue</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">show_negative</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;fukui_plus.bmp&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The output of the renderer call is a <code class="docutils literal notranslate"><span class="pre">fukui_plus.bmp</span></code> image file:</p>
+<a class="reference internal image-reference" href="../_images/fukui_plus.bmp"><img alt="fukui_plus.bmp" class="align-center" src="../_images/fukui_plus.bmp" style="width: 450px;" />
+</a>
+<p>Similarly condensed Fukui values, saved in the charge column of the <code class="docutils literal notranslate"><span class="pre">.fukui.cube</span></code> file, can be rendered using the <code class="docutils literal notranslate"><span class="pre">render_condensed_fukui()</span></code> function according to the syntax:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">renderer</span><span class="o">.</span><span class="n">render_condensed_fukui</span><span class="p">(</span>
+    <span class="s2">&quot;./output_densities/propionaldehyde_orca_PBE_def2-SVP_vacuum_Fukui_plus.fukui.cube&quot;</span><span class="p">,</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;condensed_fukui_plus.bmp&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>that outputs the following <code class="docutils literal notranslate"><span class="pre">condensed_fukui_plus.bmp</span></code> image file:</p>
+<a class="reference internal image-reference" href="../_images/condensed_fukui_plus.bmp"><img alt="condensed_fukui_plus.bmp" class="align-center" src="../_images/condensed_fukui_plus.bmp" style="width: 450px;" />
+</a>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Guide"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
