@@ -85,7 +85,7 @@ As such, `unit` test can be run without any third party software while `integrat
 For the current version of `SPyCCI` the following version of third party software are **required** for testing:
 
 * orca `6.1.0`
-* xtb `6.7.1`
+* xtb `6.7.0`
 * crest `3.0.2`
 * dftb+ `24.1`
 * packmol `20.14.2`
