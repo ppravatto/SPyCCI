@@ -206,6 +206,45 @@
 </div>
 <p>will run only the <code class="docutils literal notranslate"><span class="pre">test_cosmors_solventfile</span></code> from the integration tests for the ORCA engine.</p>
 </section>
+<section id="spycci-version-match-environment-variable">
+<h3><code class="docutils literal notranslate"><span class="pre">SPYCCI_VERSION_MATCH</span></code> environment variable<a class="headerlink" href="#spycci-version-match-environment-variable" title="Link to this heading"></a></h3>
+<p>By default, the <code class="docutils literal notranslate"><span class="pre">spycci</span></code> library requires an exact match for version dependency, for example Orca 6.1.0 requires OpenMPI version 4.1.8. If any other version is found, an exception is raised and the program will stop running. This behaviour can be adjusted via the <code class="docutils literal notranslate"><span class="pre">SPYCCI_VERSION_MATCH</span></code> environment variable, by setting it to one of these options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">strict</span></code> (default): enforces an exact match between dependencies</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minor</span></code>: allows the last version specifier for a given dependency to change (e.g., if OpenMPI 4.1.8 is requested by the dependency, any version 4.1.x will be accepted)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">major</span></code>: enforces only major version match (e.g., if OpenMPI 4.1.8 is requested by the dependency, any version 4.x will be accepted)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">disabled</span></code>: does not enforce any version check for dependencies. Users must ensure themselves software versions are compatible.</p></li>
+</ul>
+</section>
+<section id="running-tests-via-the-docker-container">
+<h3>Running tests via the Docker container<a class="headerlink" href="#running-tests-via-the-docker-container" title="Link to this heading"></a></h3>
+<p>To simplify the testing procedure, we provide a Dockerfile with all the required third-party software in the specific versions used for development. The only current exception is Orca, for which users need to provide their own archive, downloaded from the <a class="reference external" href="https://www.faccts.de">FACCTs</a> website or the <a class="reference external" href="https://orcaforum.kofo.mpg.de/app.php/portal">Orca Forums</a>.</p>
+<p>To build the container, copy the <code class="docutils literal notranslate"><span class="pre">.tar.xz</span></code> archive with Orca (we recommend using version <code class="docutils literal notranslate"><span class="pre">6.1.0</span></code>) in the <code class="docutils literal notranslate"><span class="pre">SPyCCI</span></code> folder (the archive must be in the same location from which you launch the <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span></code> command), and run:</p>
+<div class="info admonition">
+<p class="admonition-title">Note</p>
+<p>Depending on your environment, you may need to provide superuser privileges for running <code class="docutils literal notranslate"><span class="pre">docker</span></code> commands.</p>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">DOCKER_BUILDKIT</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>--build-arg<span class="w"> </span><span class="nv">ORCA_LOCAL_ARCHIVE</span><span class="o">=</span>orca-6.1.0-f.0_linux_x86-64_openmpi41.tar.xz<span class="w"> </span>-t<span class="w"> </span>spycci:test<span class="w"> </span>.
+</pre></div>
+</div>
+<p>After having built the container, you can run the test suite via the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>spycci:test
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">--rm</span></code> flag removes the container after the run; the image remains available. If you want to also remove the image (to list all available images: <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">images</span></code>), run:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>rmi<span class="w"> </span>spycci:test
+</pre></div>
+</div>
+<div class="info admonition">
+<p class="admonition-title">Images vs Containers</p>
+<p>For those unfamiliar with Docker, think as a Container as an <em>instance</em> of an Image. Images are the “recipes”, Containers are the “cakes”. Images are immutable, read-only snapshots, Containers are the working implementation of the corresponding Image, with a writable (therefore, mutable) layer.</p>
+</div>
+<p>To remove only the unused images (i.e., images not referenced by any container), run <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">image</span> <span class="pre">prune</span></code>.</p>
+<p>It is also possible to run only a subset of tests and pass specific flags to the <code class="docutils literal notranslate"><span class="pre">pytest</span></code> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>spycci:test<span class="w"> </span>pytest<span class="w"> </span>-vvv<span class="w"> </span>--color<span class="o">=</span>yes<span class="w"> </span>tests/integration/test_xtb*
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 

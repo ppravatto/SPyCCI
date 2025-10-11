@@ -91,6 +91,7 @@ For the current version of `SPyCCI` the following version of third party softwar
 * packmol `20.14.2`
 
 **Compatibility of the available test with other versions must be verified.**
+
 :::
 
 Specific test groups can be run explicitly by referencing the corresponding folder or script. For example, the command:
@@ -114,3 +115,52 @@ pytest tests/integration/test_orca_integration.py::test_cosmors_solventfile
 ```
 
 will run only the `test_cosmors_solventfile` from the integration tests for the ORCA engine.
+
+### `SPYCCI_VERSION_MATCH` environment variable
+
+By default, the `spycci` library requires an exact match for version dependency, for example Orca 6.1.0 requires OpenMPI version 4.1.8. If any other version is found, an exception is raised and the program will stop running. This behaviour can be adjusted via the `SPYCCI_VERSION_MATCH` environment variable, by setting it to one of these options:
+
+* `strict` (default): enforces an exact match between dependencies
+* `minor`: allows the last version specifier for a given dependency to change (e.g., if OpenMPI 4.1.8 is requested by the dependency, any version 4.1.x will be accepted)
+* `major`: enforces only major version match (e.g., if OpenMPI 4.1.8 is requested by the dependency, any version 4.x will be accepted)
+* `disabled`: does not enforce any version check for dependencies. Users must ensure themselves software versions are compatible.
+
+### Running tests via the Docker container
+
+To simplify the testing procedure, we provide a Dockerfile with all the required third-party software in the specific versions used for development. The only current exception is Orca, for which users need to provide their own archive, downloaded from the [FACCTs](https://www.faccts.de) website or the [Orca Forums](https://orcaforum.kofo.mpg.de/app.php/portal).
+
+To build the container, copy the `.tar.xz` archive with Orca (we recommend using version `6.1.0`) in the `SPyCCI` folder (the archive must be in the same location from which you launch the `docker build` command), and run:
+
+:::{admonition} Note
+:class: info
+Depending on your environment, you may need to provide superuser privileges for running `docker` commands.
+:::
+
+```shell
+DOCKER_BUILDKIT=1 docker build --build-arg ORCA_LOCAL_ARCHIVE=orca-6.1.0-f.0_linux_x86-64_openmpi41.tar.xz -t spycci:test .
+```
+
+After having built the container, you can run the test suite via the following command:
+
+```shell
+docker run --rm spycci:test
+```
+
+The `--rm` flag removes the container after the run; the image remains available. If you want to also remove the image (to list all available images: `docker images`), run:
+
+```shell
+docker rmi spycci:test
+```
+
+:::{admonition} Images vs Containers
+:class: info
+For those unfamiliar with Docker, think as a Container as an *instance* of an Image. Images are the "recipes", Containers are the "cakes". Images are immutable, read-only snapshots, Containers are the working implementation of the corresponding Image, with a writable (therefore, mutable) layer.
+:::
+
+To remove only the unused images (i.e., images not referenced by any container), run `docker image prune`.
+
+It is also possible to run only a subset of tests and pass specific flags to the `pytest` command:
+
+```bash
+docker run --rm spycci:test pytest -vvv --color=yes tests/integration/test_xtb*
+```
